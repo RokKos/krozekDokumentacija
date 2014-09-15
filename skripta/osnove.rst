@@ -46,13 +46,10 @@ Uporabili smo funkcije ``input``, ``int``, ``print``, ``format``.
 
   Na mesto označeno z {0} vstavi p1, na {1} vstavi p2, ...
 
-Primer::
+Primer:
 
-  x = int(input("Vpisite prvo stevilo: "))
-  y = int(input("Vpisite drugo stevilo: "))
-  print("{0} + {1} = {2}".format(x, y, x + y))
-  print("{0} - {1} = {2}".format(x, y, x - y))
-  print("{0} * {1} = {2}".format(x, y, x * y))
+.. literalinclude:: /tutorials-python-basic/1_very_basic/input/input3.py
+  :linenos:
 
 If stavki
 =========
@@ -152,11 +149,10 @@ bolj podrobno si bomo to pogledali pozneje. Zaenkrat bomo for zanko večinoma
 uporabljali skupaj s funkcijo ``range(x)``, ki vrne vse elemente od ``0`` do
 ``x-1`` (torej ``range(5)`` vrne ``[0, 1, 2, 3, 4]``).
 
-::
+Primer:
 
-  """Program izpiše vsa števila od 0 do 99"""
-  for i in range(100):
-      print(i)
+.. literalinclude:: /tutorials-python-basic/1_very_basic/loops/for.py
+  :linenos:
 
 Break
 -----
