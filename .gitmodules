@@ -1,0 +1,3 @@
+[submodule "tutorials-python-basic"]
+	path = tutorials-python-basic
+	url = https://github.com/nightmarebadger/tutorials-python-basic.git
