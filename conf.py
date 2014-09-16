@@ -21,6 +21,7 @@ import sphinx_rtd_theme
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('.'))
 
 # -- General configuration ------------------------------------------------
 
@@ -186,7 +187,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'ProgramerskikroeknaGimnazijiVidoc'
+htmlhelp_basename = 'ProgramerskikrozeknaGimnazijiVicdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------

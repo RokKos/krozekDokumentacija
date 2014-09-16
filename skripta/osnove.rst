@@ -1,8 +1,8 @@
 Osnove
-~~~~~~
+======
 
 Spremenljivke
-=============
+-------------
 
 Spremenljivke so prostori v spominu z določenim imenom, v katere lahko spravimo
 neko vrednost. Tako lahko npr. pod ime ``leta`` spravimo vrednost ``5``. V
@@ -24,7 +24,7 @@ Spremenljivke se definira na naslednji način::
   x + 2 dejansko pomenil "x povečaj za 2".
 
 Input in output
-===============
+---------------
 
 Input in output pomeni branje uporabnikovega vpisa in izpisovanje na zaslon.
 Uporabili smo funkcije ``input``, ``int``, ``print``, ``format``.
@@ -42,17 +42,19 @@ Uporabili smo funkcije ``input``, ``int``, ``print``, ``format``.
 
   Izpiše niz znakov niz_znakov.
 
-.. py:function:: format(p1, p2, p3, ...)
+.. py:class:: str
 
-  Na mesto označeno z {0} vstavi p1, na {1} vstavi p2, ...
+  .. py:method:: format(p1, p2, p3, ...)
+
+    Na mesto označeno z {0} vstavi p1, na {1} vstavi p2, ...
 
 Primer:
 
-.. literalinclude:: /tutorials-python-basic/1_very_basic/input/input3.py
+.. literalinclude:: /tutorialsPythonBasic/verybasic/input/input3.py
   :linenos:
 
 If stavki
-=========
+---------
 
 ``If stavek`` se uporablja vsakič, kadar hočemo, da se naš program obnaša
 drugače pod drugačnimi pogoji. Če je pogojev več, lahko za ``if`` uporabimo še
@@ -73,7 +75,7 @@ tipkovnici)::
 
 
 Pogoji
-------
+~~~~~~
 
 Pogoji so lahko enostavni ali sestavljeni. Enostavni pogoji so npr. primerjanje
 enakosti (je enako ``==``, ni enako ``!=``), primerjanje vrednosti (večje
@@ -95,7 +97,7 @@ Primer::
       print("x je negativen")
 
 Zanke
-=====
+-----
 
 Zanke se uporablja takrat, ko moramo neko stvar ponoviti večkrat. Če moramo
 npr. izpisati vsa števila med 1 in 100 uporabimo zanko. Če hočemo isto stvar
@@ -104,7 +106,7 @@ izpolnjen nek pogoj (npr. vtipkavaj geslo, dokler ne vtipkaš pravilnega),
 uporabimo zanko.
 
 While zanka
------------
+~~~~~~~~~~~
 
 ::
 
@@ -135,7 +137,7 @@ tekel v neskončnost. Če se nam to slučajno zgodi, pritisnemo kombinacijo tipk
       print("Bravo!")
 
 For zanka
----------
+~~~~~~~~~
 
 ::
 
@@ -151,11 +153,11 @@ uporabljali skupaj s funkcijo ``range(x)``, ki vrne vse elemente od ``0`` do
 
 Primer:
 
-.. literalinclude:: /tutorials-python-basic/1_very_basic/loops/for.py
+.. literalinclude:: /tutorialsPythonBasic/verybasic/loops/for.py
   :linenos:
 
 Break
------
+~~~~~
 
 Če kjerkoli v zanki napišemo ukaz ``break``, bo zanka takrat prekinjena. Občasno se
 programira tudi tako, da zanalašč naredimo neskončno zanko, in potem ob
