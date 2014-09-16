@@ -29,6 +29,7 @@
 
   
     <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../index.html"/>
+        <link rel="next" title="tutorialsPythonBasic" href="../autodoc/modules.html"/>
         <link rel="prev" title="Programerski krožek na Gimnaziji Vič" href="../index.html"/> 
 
   
@@ -62,6 +63,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#input-in-output">Input in output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#if-stavki">If stavki</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#zanke">Zanke</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autodoc/modules.html">Dokumentacija</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../autodoc/tutorialsPythonBasic.html">tutorialsPythonBasic package</a></li>
 </ul>
 </li>
 </ul>
@@ -145,10 +152,15 @@ parameter že celo število, ne pride do sprememb.</p>
 <dd><p>Izpiše niz znakov niz_znakov.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="format">
-<tt class="descname">format</tt><big>(</big><em>p1</em>, <em>p2</em>, <em>p3</em>, <em>...</em><big>)</big><a class="headerlink" href="#format" title="Permalink to this definition">¶</a></dt>
+<dl class="class">
+<dt id="str">
+<em class="property">class </em><tt class="descname">str</tt><a class="headerlink" href="#str" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="str.format">
+<tt class="descname">format</tt><big>(</big><em>p1</em>, <em>p2</em>, <em>p3</em>, <em>...</em><big>)</big><a class="headerlink" href="#str.format" title="Permalink to this definition">¶</a></dt>
 <dd><p>Na mesto označeno z {0} vstavi p1, na {1} vstavi p2, ...</p>
+</dd></dl>
+
 </dd></dl>
 
 <p>Primer:</p>
@@ -173,22 +185,22 @@ parameter že celo število, ne pride do sprememb.</p>
 19</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    How to get input from the user. Note that this is Python 3+, the Python 2.7</span>
-<span class="sd">    version is in the &quot;input.py&quot; file.</span>
+<span class="sd">How to get input from the user. Note that this is Python 3+, the Python 2.7</span>
+<span class="sd">version is in the &quot;input.py&quot; file.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c"># Get an integer from the user (will error on non-integer)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write an integer: &quot;</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="c"># Get an integer from the user (will error on non-integer)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write an integer: &quot;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="c"># Get a float (will error on non-number)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write a float: &quot;</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-<span class="c"># Get a float (will error on non-number)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write a float: &quot;</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-
-<span class="c"># Get a string</span>
-<span class="n">z</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write something: &quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="c"># Get a string</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write something: &quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -312,7 +324,8 @@ uporabljali skupaj s funkcijo <tt class="docutils literal"><span class="pre">ran
 30
 31
 32
-33</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Created on 2014-09-16</span>
@@ -328,23 +341,24 @@ uporabljali skupaj s funkcijo <tt class="docutils literal"><span class="pre">ran
 <span class="sd">verses.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
-    <span class="n">bottle_num</span> <span class="o">=</span> <span class="mi">99</span> <span class="o">-</span> <span class="n">i</span>
-    <span class="n">song</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;{0} bottles of beer on the wall, {0} bottles of beer.</span>
-<span class="s">Take one down, pass it around, {1} bottles of beer on the wall ...</span>
-<span class="s">&quot;&quot;&quot;</span>
-    <span class="n">song_one</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;1 bottle of beer on the wall, 1 bottle of beer.</span>
-<span class="s">Take it down, pass it around, there are no bottles left on the wall ...</span>
-<span class="s">&quot;&quot;&quot;</span>
-    <span class="n">song_no</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;No more bottles of beer on the wall, no more bottles of beer.</span>
-<span class="s">Go to the store and buy us some more, 99 bottles of beer on the wall ...</span>
-<span class="s">&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">song_no</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">98</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">song_one</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bottle_num</span><span class="p">,</span> <span class="n">bottle_num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">bottle_num</span> <span class="o">=</span> <span class="mi">99</span> <span class="o">-</span> <span class="n">i</span>
+        <span class="n">song</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;{0} bottles of beer on the wall, {0} bottles of beer.</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;Take one down, pass it around, {1} bottles of beer on the &quot;</span> <span class="o">+</span>
+                <span class="s">&quot;wall ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">song_one</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;1 bottle of beer on the wall, 1 bottle of beer.</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+                    <span class="s">&quot;Take it down, pass it around, there are no bottles &quot;</span> <span class="o">+</span>
+                    <span class="s">&quot;left on the wall ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">song_no</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;No more bottles of beer on the wall, no more bottles of &quot;</span> <span class="o">+</span>
+                   <span class="s">&quot;beer.</span><span class="se">\n</span><span class="s">Go to the store and buy us some more, 99 bottles &quot;</span> <span class="o">+</span>
+                   <span class="s">&quot;of beer on the wall ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">song_no</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">98</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">song_one</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bottle_num</span><span class="p">,</span> <span class="n">bottle_num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -365,6 +379,8 @@ for zanka).</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../autodoc/modules.html" class="btn btn-neutral float-right" title="tutorialsPythonBasic"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="Programerski krožek na Gimnaziji Vič"><span class="fa fa-arrow-circle-left"></span> Previous</a>

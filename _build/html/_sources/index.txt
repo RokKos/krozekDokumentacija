@@ -6,18 +6,23 @@
 Programerski krožek na Gimnaziji Vič
 ====================================
 
-Contents:
+Vsebina:
 
 .. toctree::
-   :maxdepth: 2
+  :maxdepth: 2
 
-   skripta/osnove
+  skripta/osnove
 
+Dokumentacija zunanjih vaj:
 
-Indices and tables
-==================
+.. toctree::
+  :maxdepth: 2
+
+  Dokumentacija <autodoc/modules>
+
+Indeksi in tabele
+=================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
