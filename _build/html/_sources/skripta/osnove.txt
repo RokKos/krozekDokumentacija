@@ -1,6 +1,9 @@
 Osnove
 ======
 
+V tem poglavju si bomo ogledali osnove programiranja, s katerimi lahko vzpostavimo
+osnovno komunikacijo z računalnikom in naredimo zelo enostavne programe.
+
 Spremenljivke
 -------------
 
@@ -22,6 +25,26 @@ Spremenljivke se definira na naslednji način::
   Znak = v programiranju nima istega pomena kot v matematiki. = pravzaprav
   pomeni "vrednost na desni zapiši v spremenljivko na levi". Torej bo ukaz x =
   x + 2 dejansko pomenil "x povečaj za 2".
+
+Komentarji
+----------
+
+Komentarji so programerjeve opombe v kodi, namenjene bralcu -- sebi ali nekomu drugemu,
+ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so komentarji enovrstični in
+ze začnejo z znakom ``#``. Vsi znaki v vrstici od znaka ``#`` so ignorirani. Komentarje se
+ponavadi napiše pred manj razmljiv del kode, da obrazložimo njeno delovanje, ali pa če
+želimo kakšen del kode trenutno umakniti iz programa, ne da bi ga izbrisali. Komentarji
+pogosto tudi obrazložijo in dokumentirajo kodo in narekujejo njeno uporabo.
+
+Primer::
+
+  ime = "Janez"  # ime naj bo brez presledkov in naj se začne z veliko začetnico
+  # v absx shranimo absolutno vrednost x
+  x = -8
+  if x < 0:
+      absx = -x
+  else:
+      absx = x
 
 Input in output
 ---------------
@@ -85,16 +108,16 @@ operacij ``NOT``, ``AND``, ``OR``, ``XOR`` itd.
 
 Primer::
 
-  x = int(input("Vpisite stevilo: "))
-  if x > 0:
-      if x > 100:
-          print("x je vecji od 100")
-      else:
-          print("x je pozitiven")
-  elif x == -5:
-      print("x je -5")
-  else:
-      print("x je negativen")
+    x = int(input("Vpisite stevilo: "))
+    if x > 0:
+        if x > 100:
+            print("x je vecji od 100")
+        else:
+            print("x je pozitiven")
+    elif x == -5:
+        print("x je -5")
+    else:
+        print("x je negativen")
 
 Zanke
 -----
@@ -131,7 +154,7 @@ tekel v neskončnost. Če se nam to slučajno zgodi, pritisnemo kombinacijo tipk
       if stevec > 4:
           break
       x = int(input("Ponovno vpisi: "))
-  if(x != geslo):
+  if x != geslo:
       print("Preveckrat si poskusil, zakljenjen si iz sistema!")
   else:
       print("Bravo!")
@@ -163,6 +186,6 @@ Break
 programira tudi tako, da zanalašč naredimo neskončno zanko, in potem ob
 določenih pogojih pokličemo ``break``.
 
-Ukaz break prekine le 'najbližjo' zanko - če imamo gnezdenih več zank (npr. for
+Ukaz break prekine le 'najbližjo' zanko -- če imamo gnezdenih več zank (npr. for
 zanka znotraj while zanke) se bo prekinila le notranja zanka (v našem primeru
 for zanka).

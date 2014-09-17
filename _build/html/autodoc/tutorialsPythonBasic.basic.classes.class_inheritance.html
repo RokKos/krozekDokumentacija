@@ -28,10 +28,7 @@
   
 
   
-    <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../index.html"/>
-        <link rel="up" title="tutorialsPythonBasic.basic.classes package" href="tutorialsPythonBasic.basic.classes.html"/>
-        <link rel="next" title="tutorialsPythonBasic.basic.classes.class_properties module" href="tutorialsPythonBasic.basic.classes.class_properties.html"/>
-        <link rel="prev" title="tutorialsPythonBasic.basic.classes.class module" href="tutorialsPythonBasic.basic.classes.class.html"/> 
+    <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -61,15 +58,25 @@
             <ul>
 <li class="toctree-l1"><a class="reference internal" href="../skripta/osnove.html">Osnove</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#spremenljivke">Spremenljivke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#komentarji">Komentarji</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#input-in-output">Input in output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#if-stavki">If stavki</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#zanke">Zanke</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../skripta/podatkovni_tipi.html">Podatkovni tipi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#uvod">Uvod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#stevila">Števila</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#logicne-vrednosti">Logične vrednosti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#seznami">Seznami</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#nizi-znakov">Nizi znakov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#slovarji">Slovarji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#mnozice-nabori">Množice, nabori</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Dokumentacija</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="tutorialsPythonBasic.html">tutorialsPythonBasic package</a></li>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Dokumentacija</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -95,14 +102,6 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="modules.html">tutorialsPythonBasic</a> &raquo;</li>
-      
-          <li><a href="tutorialsPythonBasic.html">tutorialsPythonBasic package</a> &raquo;</li>
-      
-          <li><a href="tutorialsPythonBasic.basic.html">tutorialsPythonBasic.basic package</a> &raquo;</li>
-      
-          <li><a href="tutorialsPythonBasic.basic.classes.html">tutorialsPythonBasic.basic.classes package</a> &raquo;</li>
-      
     <li>tutorialsPythonBasic.basic.classes.class_inheritance module</li>
       <li class="wy-breadcrumbs-aside">
         
@@ -114,120 +113,13 @@
 </div>
           <div role="main">
             
-  <div class="section" id="module-tutorialsPythonBasic.basic.classes.class_inheritance">
-<span id="tutorialspythonbasic-basic-classes-class-inheritance-module"></span><h1>tutorialsPythonBasic.basic.classes.class_inheritance module<a class="headerlink" href="#module-tutorialsPythonBasic.basic.classes.class_inheritance" title="Permalink to this headline">¶</a></h1>
-<p>An example of class inheritance.</p>
-<dl class="class">
-<dt id="tutorialsPythonBasic.basic.classes.class_inheritance.Enemy">
-<em class="property">class </em><tt class="descclassname">tutorialsPythonBasic.basic.classes.class_inheritance.</tt><tt class="descname">Enemy</tt><big>(</big><em>hp</em><big>)</big><a class="reference internal" href="../_modules/tutorialsPythonBasic/basic/classes/class_inheritance.html#Enemy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tutorialsPythonBasic.basic.classes.class_inheritance.Enemy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
-<p>A stupid enemy that doesn&#8217;t know how to attack, but knows how to die.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stupid</span> <span class="o">=</span> <span class="n">Enemy</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Let&#8217;s hit him and see if he dies</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stupid</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stupid</span><span class="o">.</span><span class="n">alive</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-<p>Nope, not dead yet ... let&#8217;s try again!</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">stupid</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stupid</span><span class="o">.</span><span class="n">alive</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<p>Woohoo, down you go stupid enemy!</p>
-<dl class="method">
-<dt id="tutorialsPythonBasic.basic.classes.class_inheritance.Enemy.check_hp">
-<tt class="descname">check_hp</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/tutorialsPythonBasic/basic/classes/class_inheritance.html#Enemy.check_hp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tutorialsPythonBasic.basic.classes.class_inheritance.Enemy.check_hp" title="Permalink to this definition">¶</a></dt>
-<dd><p>If HP is too low, die.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="tutorialsPythonBasic.basic.classes.class_inheritance.Enemy.die">
-<tt class="descname">die</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/tutorialsPythonBasic/basic/classes/class_inheritance.html#Enemy.die"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tutorialsPythonBasic.basic.classes.class_inheritance.Enemy.die" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function called when the enemy dies.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="tutorialsPythonBasic.basic.classes.class_inheritance.Enemy.take_damage">
-<tt class="descname">take_damage</tt><big>(</big><em>dmg</em><big>)</big><a class="reference internal" href="../_modules/tutorialsPythonBasic/basic/classes/class_inheritance.html#Enemy.take_damage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tutorialsPythonBasic.basic.classes.class_inheritance.Enemy.take_damage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take some damage and check your HP for death.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="tutorialsPythonBasic.basic.classes.class_inheritance.Shaman">
-<em class="property">class </em><tt class="descclassname">tutorialsPythonBasic.basic.classes.class_inheritance.</tt><tt class="descname">Shaman</tt><big>(</big><em>hp</em><big>)</big><a class="reference internal" href="../_modules/tutorialsPythonBasic/basic/classes/class_inheritance.html#Shaman"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tutorialsPythonBasic.basic.classes.class_inheritance.Shaman" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#tutorialsPythonBasic.basic.classes.class_inheritance.Enemy" title="tutorialsPythonBasic.basic.classes.class_inheritance.Enemy"><tt class="xref py py-class docutils literal"><span class="pre">tutorialsPythonBasic.basic.classes.class_inheritance.Enemy</span></tt></a></p>
-<p>A smarter enemy - can do everything Enemy can, but can also heal
-himself.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span> <span class="o">=</span> <span class="n">Shaman</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Let&#8217;s hit him and check if he was damaged</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">alive</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">hp</span>
-<span class="go">7</span>
-</pre></div>
-</div>
-<p>Nope, not dead yet ... let&#8217;s try again!</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">alive</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">hp</span>
-<span class="go">2</span>
-</pre></div>
-</div>
-<p>Oops, better heal yourself fast shaman!</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">heal</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">hp</span>
-<span class="go">22</span>
-</pre></div>
-</div>
-<p>Wow, that was a strong heal ... better bring out the big guns!</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">take_damage</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">hp</span>
-<span class="go">-78</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">alive</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<p>Wait ... what are you trying to do?</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">heal</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">hp</span>
-<span class="go">-78</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">shaman</span><span class="o">.</span><span class="n">alive</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<p>Silly shaman, you can&#8217;t heal yourself if you&#8217;re already dead ...</p>
-<dl class="method">
-<dt id="tutorialsPythonBasic.basic.classes.class_inheritance.Shaman.heal">
-<tt class="descname">heal</tt><big>(</big><em>hp</em><big>)</big><a class="reference internal" href="../_modules/tutorialsPythonBasic/basic/classes/class_inheritance.html#Shaman.heal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tutorialsPythonBasic.basic.classes.class_inheritance.Shaman.heal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Heal himself. Can only do that if he is alive.</p>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="tutorialspythonbasic-basic-classes-class-inheritance-module">
+<h1>tutorialsPythonBasic.basic.classes.class_inheritance module<a class="headerlink" href="#tutorialspythonbasic-basic-classes-class-inheritance-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="tutorialsPythonBasic.basic.classes.class_properties.html" class="btn btn-neutral float-right" title="tutorialsPythonBasic.basic.classes.class_properties module"/>Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="tutorialsPythonBasic.basic.classes.class.html" class="btn btn-neutral" title="tutorialsPythonBasic.basic.classes.class module"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

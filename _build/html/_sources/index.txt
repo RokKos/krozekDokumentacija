@@ -12,6 +12,8 @@ Vsebina:
   :maxdepth: 2
 
   skripta/osnove
+  skripta/podatkovni_tipi
+  skripta/funckije_in_classi
 
 Dokumentacija zunanjih vaj:
 

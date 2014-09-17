@@ -28,10 +28,7 @@
   
 
   
-    <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../index.html"/>
-        <link rel="up" title="tutorialsPythonBasic.verybasic.functions package" href="tutorialsPythonBasic.verybasic.functions.html"/>
-        <link rel="next" title="tutorialsPythonBasic.verybasic.input package" href="tutorialsPythonBasic.verybasic.input.html"/>
-        <link rel="prev" title="tutorialsPythonBasic.verybasic.functions.function module" href="tutorialsPythonBasic.verybasic.functions.function.html"/> 
+    <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -61,15 +58,25 @@
             <ul>
 <li class="toctree-l1"><a class="reference internal" href="../skripta/osnove.html">Osnove</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#spremenljivke">Spremenljivke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#komentarji">Komentarji</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#input-in-output">Input in output</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#if-stavki">If stavki</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../skripta/osnove.html#zanke">Zanke</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../skripta/podatkovni_tipi.html">Podatkovni tipi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#uvod">Uvod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#stevila">Števila</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#logicne-vrednosti">Logične vrednosti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#seznami">Seznami</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#nizi-znakov">Nizi znakov</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#slovarji">Slovarji</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../skripta/podatkovni_tipi.html#mnozice-nabori">Množice, nabori</a></li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Dokumentacija</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="tutorialsPythonBasic.html">tutorialsPythonBasic package</a></li>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Dokumentacija</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -95,14 +102,6 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="modules.html">tutorialsPythonBasic</a> &raquo;</li>
-      
-          <li><a href="tutorialsPythonBasic.html">tutorialsPythonBasic package</a> &raquo;</li>
-      
-          <li><a href="tutorialsPythonBasic.verybasic.html">tutorialsPythonBasic.verybasic package</a> &raquo;</li>
-      
-          <li><a href="tutorialsPythonBasic.verybasic.functions.html">tutorialsPythonBasic.verybasic.functions package</a> &raquo;</li>
-      
     <li>tutorialsPythonBasic.verybasic.functions.function_local_variables module</li>
       <li class="wy-breadcrumbs-aside">
         
@@ -114,46 +113,13 @@
 </div>
           <div role="main">
             
-  <div class="section" id="module-tutorialsPythonBasic.verybasic.functions.function_local_variables">
-<span id="tutorialspythonbasic-verybasic-functions-function-local-variables-module"></span><h1>tutorialsPythonBasic.verybasic.functions.function_local_variables module<a class="headerlink" href="#module-tutorialsPythonBasic.verybasic.functions.function_local_variables" title="Permalink to this headline">¶</a></h1>
-<p>Remember that the variables passed to a function are local, even if they
-are named the same as one of the &#8220;outside&#8221; variables.</p>
-<dl class="function">
-<dt id="tutorialsPythonBasic.verybasic.functions.function_local_variables.add_one_and_print">
-<tt class="descclassname">tutorialsPythonBasic.verybasic.functions.function_local_variables.</tt><tt class="descname">add_one_and_print</tt><big>(</big><em>x</em><big>)</big><a class="reference internal" href="../_modules/tutorialsPythonBasic/verybasic/functions/function_local_variables.html#add_one_and_print"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#tutorialsPythonBasic.verybasic.functions.function_local_variables.add_one_and_print" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add one to the number and print it, showcasing local variables.</p>
-<p>Let&#8217;s create a variable named x and set it to a number</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-</pre></div>
-</div>
-<p>Let&#8217;s call the function</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">add_one_and_print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">6</span>
-</pre></div>
-</div>
-<p>Obviously the &#8216;x&#8217; inside the function changed to 6, what about the
-&#8220;outside&#8221; one?</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">5</span>
-</pre></div>
-</div>
-<p>It&#8217;s still 5, since the &#8216;x&#8217; inside the function was a local variable.</p>
-</dd></dl>
-
+  <div class="section" id="tutorialspythonbasic-verybasic-functions-function-local-variables-module">
+<h1>tutorialsPythonBasic.verybasic.functions.function_local_variables module<a class="headerlink" href="#tutorialspythonbasic-verybasic-functions-function-local-variables-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="tutorialsPythonBasic.verybasic.input.html" class="btn btn-neutral float-right" title="tutorialsPythonBasic.verybasic.input package"/>Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="tutorialsPythonBasic.verybasic.functions.function.html" class="btn btn-neutral" title="tutorialsPythonBasic.verybasic.functions.function module"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
