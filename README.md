@@ -16,7 +16,7 @@ kar ustvari virtualenv in namesti vse potrebne pakete (ki se nahajajo v
 # Git submoduli
 
 Ta repozitorij vsebuje dodatni subrepozitorij. Da dobite vse potrebne datoteke,
-morate namesti 'navadnega' `git clone` zagnati `git clone --recursive`. Če ste
+morate namesto 'navadnega' `git clone` zagnati `git clone --recursive`. Če ste
 to pozabili in ste repozitorij že prenesli, pojdite v njega in zaženite:
 
     git submodule update --init --recursive
