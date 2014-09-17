@@ -41,6 +41,9 @@ extensions = [
     'sphinx.ext.viewcode',
 ]
 
+# Show todo's, comment or set to False to hide them.
+todo_include_todos = True
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
