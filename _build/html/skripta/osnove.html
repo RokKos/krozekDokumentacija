@@ -78,7 +78,8 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../autodoc/modules.html">Dokumentacija</a><ul class="simple">
+<li class="toctree-l1"><a class="reference internal" href="../autodoc/modules.html">Dokumentacija</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../autodoc/tutorialsPythonBasic.html">tutorialsPythonBasic package</a></li>
 </ul>
 </li>
 </ul>
@@ -195,6 +196,45 @@ parameter že celo število, ne pride do sprememb.</p>
 </dd></dl>
 
 <p>Primer:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">How to get input from the user. Note that this is Python 3+, the Python 2.7</span>
+<span class="sd">version is in the &quot;input.py&quot; file.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c"># Get an integer from the user (will error on non-integer)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write an integer: &quot;</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c"># Get a float (will error on non-number)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write a float: &quot;</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="c"># Get a string</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">&quot;Write something: &quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <div class="section" id="if-stavki">
 <h2>If stavki<a class="headerlink" href="#if-stavki" title="Permalink to this headline">¶</a></h2>
@@ -284,6 +324,75 @@ bolj podrobno si bomo to pogledali pozneje. Zaenkrat bomo for zanko večinoma
 uporabljali skupaj s funkcijo <tt class="docutils literal"><span class="pre">range(x)</span></tt>, ki vrne vse elemente od <tt class="docutils literal"><span class="pre">0</span></tt> do
 <tt class="docutils literal"><span class="pre">x-1</span></tt> (torej <tt class="docutils literal"><span class="pre">range(5)</span></tt> vrne <tt class="docutils literal"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></tt>).</p>
 <p>Primer:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Created on 2014-09-16</span>
+<span class="sd">:author: Natan Žabkar (nightmarebadger)</span>
+
+<span class="sd">A for loop is usually used when we want to repeat a piece of code &#39;n&#39; number of</span>
+<span class="sd">times, or when we want to iterate through the elements of a list (or something</span>
+<span class="sd">similar).</span>
+
+<span class="sd">In this example our program will &#39;sing&#39; out the 99 bottles of beer song</span>
+<span class="sd">(http://en.wikipedia.org/wiki/99_Bottles_of_Beer). We use .format() to put the</span>
+<span class="sd">number of bottles in the text and we use an if sentance for the last two</span>
+<span class="sd">verses.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">bottle_num</span> <span class="o">=</span> <span class="mi">99</span> <span class="o">-</span> <span class="n">i</span>
+        <span class="n">song</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;{0} bottles of beer on the wall, {0} bottles of beer.</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+                <span class="s">&quot;Take one down, pass it around, {1} bottles of beer on the &quot;</span> <span class="o">+</span>
+                <span class="s">&quot;wall ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">song_one</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;1 bottle of beer on the wall, 1 bottle of beer.</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+                    <span class="s">&quot;Take it down, pass it around, there are no bottles &quot;</span> <span class="o">+</span>
+                    <span class="s">&quot;left on the wall ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">song_no</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;No more bottles of beer on the wall, no more bottles of &quot;</span> <span class="o">+</span>
+                   <span class="s">&quot;beer.</span><span class="se">\n</span><span class="s">Go to the store and buy us some more, 99 bottles &quot;</span> <span class="o">+</span>
+                   <span class="s">&quot;of beer on the wall ...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">99</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">song_no</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">98</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">song_one</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">song</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bottle_num</span><span class="p">,</span> <span class="n">bottle_num</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 <div class="section" id="break">
 <h3>Break<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h3>
