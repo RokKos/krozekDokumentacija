@@ -56,7 +56,7 @@ uporabo logičnih veznikov ``not``, ``and`` in ``or``, pojavijo pa se tudi kot
 rezultat primerjalnih operacij. Uporabljajo se v ``if`` stavkih in ``while``
 zankah, za preverjanje pogojev, ali pa za na primer za shranjevanje stanja
 stikal ... Vsak tip lahko pretvorimo v logično vrednost z uporabo funkcije
-``bool`` in skoraj vse se pretvori v ``True``, razen "praznih" objektov -- 
+``bool`` in skoraj vse se pretvori v ``True``, razen "praznih" objektov --
 ``[]``, ``()``, ``0``, ``{}`` se na primer pretvorijo v ``False``.
 
 ::
@@ -83,7 +83,7 @@ Vrstni red izvajanja operacij je enak kot v matematiki, torej ``not``, ``and``,
   Ko se ta del programa izvede, nam stanje zastavice pove, ali je število
   praštevilo ali ne -- če smo našli vsaj enega delitelja je zastavica ``False``, če
   deliteljev nismo našli pa je ``True``. Ta princip je seveda mogoče posplošiti
-  na več kot dve vrednosti. 
+  na več kot dve vrednosti.
 
 
 Seznami
@@ -269,7 +269,7 @@ seznamov, kjer lahko namesto ``a[0]`` naredimo na primer ``a["Janez"]``.
 Torej bolj formalno: kot *ključ* v slovarju lahko uporabimo katerikoli
 **nespremenljiv** objekt, in pod ta ključ lahko spravimo želeno vrednost.
 Slovarje lahko naredimo na veliko načinov, pa si to kar oglejmo s primeri::
-  
+
   ocene = {'janez': [2, 1, 2], 'metka': [5, 3, 4]}
   r = dict(a=3, b=4, c=5)
   h = dict([[1, 23], ["asdf", 3], [3, []]])
@@ -293,7 +293,7 @@ lahko zapeljemo čez vse ključe v slovarju (v nekem vrstnem redu)::
 Z operatorjem ``in`` lahko preverimo, ali določen ključ obstaja v slovarju --
 vrne nam logično vrednost. Če želimo dostopati do elementa, ki ga ni v
 slovarju, Python vrže napako::
-  
+
   >>> ocene['lojze']
   Traceback (most recent call last):
     File "<stdin>", line 1, in <module>
@@ -308,7 +308,7 @@ Dolžino jim lahko izračunamo s pomočjo funkcije ``len``.
   .. py:method:: get(key, default)
 
     Vrne vrednost pri ključu ``key``, če obstaja, sicer vrne ``default``. Ne
-    vrže napake. 
+    vrže napake.
 
   .. py:method:: update(slovar)
 
@@ -319,7 +319,7 @@ Dolžino jim lahko izračunamo s pomočjo funkcije ``len``.
 
     Iz seznama pobriše element pri ključu ``key`` in vrne njegovo vrednost. Če
     ne obstaja potem vrže napako, razen če je podan tudi parameter ``default``
-    (ki ni obvezen). V slednjem primeru vrne ``default``. 
+    (ki ni obvezen). V slednjem primeru vrne ``default``.
 
 
 Množice
@@ -331,7 +331,7 @@ tu ne pišemo ključev), ali pa iz katere koli druge zbirke s klicem funkcije
 ``set``.
 
 ::
-  
+
   >>> imena = {'janez', 'metka', 'lojze'}
   >>> stevila = set([1, 3, 1, 3, 5])
   >>> stevila
@@ -342,7 +342,7 @@ tu ne pišemo ključev), ali pa iz katere koli druge zbirke s klicem funkcije
 Množice so tako zelo uporabne za odstranjevanje duplikatov. Podpirajo vrsto
 matematičnih operacij, kot so unija ``|``, presek ``&``, "je podmnožica"
 ``<=``, "je nadmnožica" ``>=`` (tudi "pravi" verziji ``<`` in ``>``), simetrična razlika
-``^``. 
+``^``.
 
 Ostale uporabne metode za manipulacijo množic:
 
@@ -350,10 +350,10 @@ Ostale uporabne metode za manipulacijo množic:
 
   .. py:method:: add(vrednost)
 
-    Doda vrednost ``vrednost`` v množico, če ta že obstaja, se ne zgodi nič. 
+    Doda vrednost ``vrednost`` v množico, če ta že obstaja, se ne zgodi nič.
 
   .. py:method:: remove(vrednost)
-  
+
     Odstrani vrednost ``vrednost`` iz množice, če ta ne obstaja, vrže napako
     ``KeyError``.
 

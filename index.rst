@@ -9,7 +9,7 @@ Programerski krožek na Gimnaziji Vič
 Vsebina:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
 
   python
 

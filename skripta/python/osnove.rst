@@ -30,6 +30,7 @@ Spremenljivke se definira na naslednji način::
 Komentarji
 ----------
 
+<<<<<<< Updated upstream:skripta/python/osnove.rst
 Komentarji so programerjeve opombe v kodi, namenjene bralcu -- sebi ali nekomu
 drugemu, ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so
 komentarji enovrstični in že začnejo z znakom ``#``. Vsi znaki v vrstici od
@@ -37,6 +38,14 @@ znaka ``#`` so ignorirani. Komentarje se ponavadi napiše pred manj razumljiv de
 kode, da obrazložimo njeno delovanje, ali pa če želimo kakšen del kode trenutno
 umakniti iz programa, ne da bi ga izbrisali. Komentarji pogosto tudi obrazložijo
 in dokumentirajo kodo in narekujejo njeno uporabo.
+=======
+Komentarji so programerjeve opombe v kodi, namenjene bralcu -- sebi ali nekomu drugemu,
+ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so komentarji enovrstični in
+že začnejo z znakom ``#``. Vsi znaki v vrstici od znaka ``#`` so ignorirani. Komentarje se
+ponavadi napiše pred manj razumljiv del kode, da obrazložimo njeno delovanje, ali pa če
+želimo kakšen del kode trenutno umakniti iz programa, ne da bi ga izbrisali. Komentarji
+pogosto tudi obrazložijo in dokumentirajo kodo in narekujejo njeno uporabo.
+>>>>>>> Stashed changes:skripta/osnove.rst
 
 Primer::
 
