@@ -13,7 +13,7 @@ Vsebina:
 
   skripta/osnove
   skripta/podatkovni_tipi
-  skripta/funckije_in_classi
+  skripta/funkcije_in_classi
 
 Dokumentacija zunanjih vaj:
 

@@ -164,15 +164,14 @@ For zanka
 
 ::
 
-  for spremenljivka in množica:
-      Koda, ki se izvaja dokler spremenljivka ne preteče vseh elementov množice
+  for spremenljivka in zbirka:
+      Koda, ki se izvaja dokler spremenljivka ne preteče vseh elementov zbirke.
 
 ``for`` zanko uporabimo takrat, ko želimo, da naša spremenljivka preteče vse
-elemente neke množice. Množica je lahko seznam (``list``), niz znakov
-(``string``), slovar (``dict``), ``tuple``, ``iterator`` ali kaj podobnega,
-bolj podrobno si bomo to pogledali pozneje. Zaenkrat bomo for zanko večinoma
-uporabljali skupaj s funkcijo ``range(x)``, ki vrne vse elemente od ``0`` do
-``x-1`` (torej ``range(5)`` vrne ``[0, 1, 2, 3, 4]``).
+elemente neke zbirke. Zbirka je lahko seznam, niz znakov, slovar, iterator ali
+kaj podobnega, bolj podrobno si bomo to pogledali pozneje. Zaenkrat bomo for
+zanko večinoma uporabljali skupaj s funkcijo ``range(x)``, ki vrne vse elemente
+od ``0`` do ``x-1`` (torej ``range(5)`` vrne ``[0, 1, 2, 3, 4]``).
 
 Primer:
 
@@ -189,3 +188,22 @@ določenih pogojih pokličemo ``break``.
 Ukaz break prekine le 'najbližjo' zanko -- če imamo gnezdenih več zank (npr. for
 zanka znotraj while zanke) se bo prekinila le notranja zanka (v našem primeru
 for zanka).
+
+Continue
+~~~~~~~~
+
+Continue je podoben stavku ``break``, le da ne prekine najbolj notranje zanke,
+ampak preskoči vse do konca trenutne iteracije in takoj začne izvajanje
+naslednje. To je uporabno na primer za filtriranje neveljavnih podatkov::
+  
+  a = "sajkdfs adfjkhasdf jkasdkfjas dfkjhasd fasdlfkjsa dflkjsadf"
+  veljavno = "aeiou"
+  for i in a:
+      if a not in veljavno: continue
+      
+      # tukaj zelo veliko kode, ki procesira veljavne podatke
+
+Kot ste morda opazili se da continue vedno nadomestiti z ustreznim ``if``
+``else`` stavkom, a je to lahko veliko bolj neberljivo.
+
+.. vim: spell spelllang=sl

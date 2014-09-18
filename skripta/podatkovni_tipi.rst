@@ -3,7 +3,8 @@ Podatkovni tipi
 
 V tem poglavju bomo predstavili podatkovne tipe, kaj so in zakaj so pomembni,
 kako jih uporabljamo in kateri obstajajo. Nekatere si bomo tudi podrobneje
-ogledali.
+ogledali. Bolj obsežno (in pravilno) dokumentacijo najdete `tukaj
+<https://docs.python.org/3.4/library/stdtypes.html>`_.
 
 Uvod
 ----
@@ -18,7 +19,7 @@ poznati, da jih znamo pravilno izbirati.
 Števila
 -------
 
-Python podpira (na grobo) dve vrsti števil -- cela števila in decimalna
+Python podpira (na grobo) dve vrsti števil -- cela števila (integer, int) in decimalna (float, double)
 števila. Za cela števila ni omejitve na dolžino, decimalna števila pa imajo
 standardne omejitve, a so za naše računanje dovolj dobra. Veljavne vrednosti
 decimalnih števila sta tudi obe neskončnosti in ``nan``, ki pomeni "Not a
@@ -41,12 +42,49 @@ operacije dveh celih števil je celo število. Izjema je deljenje, ki vedno vrne
 decimalno število. Če želimo dobiti celoštevilsko deljenje, ki zaokrožuje proti
 0, uporabimo operator ``//``.
 
+Python naravno podpira tudi kompleksna števila s pomočjo tipa ``complex`` ali
+imaginarne enote ``j``, npr. ``3.4 - 2.8j``.
+
 Logične vrednosti
 -----------------
 
-.. todo::
+Logična vrednost (boolean) je spremenljivka, ki ima lahko le dve stanji: resnično ali
+neresnično. V Pythonu se ti dve stanji imenujeta ``True`` in ``False`` (z
+veliko začetnico). V resnici sta to objekta tipa ``bool``, ki ju lahko enačimo s
+številoma ``0`` in ``1``.  Z logičnimi vrednostmi lahko računamo kot v matematiki, z
+uporabo logičnih veznikov ``not``, ``and`` in ``or``, pojavijo pa se tudi kot
+rezultat primerjalnih operacij. Uporabljajo se v ``if`` stavkih in ``while``
+zankah, za preverjanje pogojev, ali pa za na primer za shranjevanje stanja
+stikal ... Vsak tip lahko pretvorimo v logično vrednost z uporabo funkcije
+``bool`` in skoraj vse se pretvori v ``True``, razen "praznih" objektov -- 
+``[]``, ``()``, ``0``, ``{}`` se na primer pretvorijo v ``False``.
 
-  Dodaj section logične vrednosti
+::
+
+  >>> a = True
+  >>> b = False
+  >>> c = 7 > 1
+  >>> 1 == c
+  True
+  >>> (a and not b or c) and (5 == 0)
+  False
+
+Vrstni red izvajanja operacij je enak kot v matematiki, torej ``not``, ``and``,
+``or``. Vendar je zaradi nedvoumnosti priporočljivo uporabiti oklepaje.
+
+.. HINT::
+  Princip zastavic je eden izmed klasičnih prijemov v programiranju, s katerim si
+  lahko pomagamo v zelo veliko različnih primerih. Ideja je, da neko "zastavico"
+  (logično spremenljivko) postavimo na eno izmed
+  vrednosti, potem pa jo pod določenimi pogoji spremenimo. Primer bi bilo npr.
+  preverjanje če je neko število praštevilo. Na začetku privzamemo, da število je
+  praštevilo (``zastavica = True``). Nato gremo preverjati, če kakšno število različno
+  od ena slučajno deli našo število. Če ga najdemo, zastavico nastavimo na ``False``.
+  Ko se ta del programa izvede, nam stanje zastavice pove, ali je število
+  praštevilo ali ne -- če smo našli vsaj enega delitelja je zastavica ``False``, če
+  deliteljev nismo našli pa je ``True``. Ta princip je seveda mogoče posplošiti
+  na več kot dve vrednosti. 
+
 
 Seznami
 -------
@@ -85,8 +123,11 @@ elementi) dobimo napako. V številko elementa pa lahko vpišemo tudi negativno
   >>> seznam[3]
   66.12
   >>> seznam[12]
-  Traceback (most recent call last): File "<pyshell#6>", line 1, in <module> seznam[12]
-      IndexError: list index out of range >>> seznam[-1] 66.12
+  Traceback (most recent call last):
+    File "<pyshell#6>", line 1, in <module> seznam[12]
+  IndexError: list index out of range
+  >>> seznam[-1]
+  66.12
 
 Dodajanje in odvzemanje elementov seznama
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,9 +179,9 @@ uporabljane metode so naslednje:
 Nizi znakov
 ----------------------
 
-Niz zankov (string) v pythonu naredimo tako da, damo besedilo v enojne ali
+Niz znakov (string) v Pythonu naredimo tako da, damo besedilo v enojne ali
 dvojne narekovaje. Mogoči so tudi trojni narekovaji, ki segajo čez več vrstic.
-Niz pa lahko uzstvarimo tudi iz kateregakoli drugega tipa s klicanjem funkcije
+Niz pa lahko ustvarimo tudi iz kateregakoli drugega tipa s klicanjem funkcije
 ``str``. Primer::
 
   ime = "Janez"
@@ -163,16 +204,18 @@ Torej -- nize znakov beremo na isti način kot sezname, spreminjati njihovih
 elementov pa ne moremo::
 
   >>> niz = "Dober dan!"
-  >>> niz[2] 'b'
-  >>> niz[-1] '!'
+  >>> niz[2]
+  'b'
+  >>> niz[-1]
+  '!'
   >>> niz[12]
   Traceback (most recent call last):
-      File "<pyshell#3>", line 1, in <module> niz[12]
-          IndexError: string index out of range
+    File "<pyshell#3>", line 1, in <module> niz[12]
+  IndexError: string index out of range
   >>> niz[1] = 'c'
   Traceback (most recent call last):
-      File "<pyshell#4>", line 1, in <module> niz[1] = 'c'
-          TypeError: 'str' object does not support item assignment
+    File "<pyshell#4>", line 1, in <module> niz[1] = 'c'
+  TypeError: 'str' object does not support item assignment
 
 Brisanje in dodajanje v niz znakov
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -221,15 +264,140 @@ Zadnji dve vrstici sta kopija tega, kar se pojavi, ko program izvedemo.
 Slovarji
 --------
 
-.. todo::
+Slovarji (asociativne tabele, dictionary, associative array, map) so posplošitev
+seznamov, kjer lahko namesto ``a[0]`` naredimo na primer ``a["Janez"]``.
+Torej bolj formalno: kot *ključ* v slovarju lahko uporabimo katerikoli
+**nespremenljiv** objekt, in pod ta ključ lahko spravimo želeno vrednost.
+Slovarje lahko naredimo na veliko načinov, pa si to kar oglejmo s primeri::
+  
+  ocene = {'janez': [2, 1, 2], 'metka': [5, 3, 4]}
+  r = dict(a=3, b=4, c=5)
+  h = dict([[1, 23], ["asdf", 3], [3, []]])
+  k = {}
 
-  Dodaj section Slovarji
+Tu smo po vrsti naredili slovarje: ``ocene`` s ključema ``janez`` in ``metka``,
+``r`` s ključi ``a``, ``b``, ``c``, slovar ``h`` s ključi ``1``, ``asdf``, in
+``3`` in prazen slovar.
 
-Množice, nabori
----------------
+Do elementov v slovarju dostopamo tako kot v seznamu, ``ocene["metka"]`` nam
+vrne vrednost ``[5, 3, 4]``. Ključi v slovarju so lahko mešanih tipov, prav
+tako vrednosti. Ključi niso urejeni in morajo biti enolični. S ``for`` zanko se
+lahko zapeljemo čez vse ključe v slovarju (v nekem vrstnem redu)::
 
-.. todo::
+  for ime in ocene:
+      print(ime, "=>", ocene[ime])
 
-  Dodaj section Množice, nabori
+  janez => [2, 1, 2]
+  metka => [5, 3, 4]
+
+Z operatorjem ``in`` lahko preverimo, ali določen ključ obstaja v slovarju --
+vrne nam logično vrednost. Če želimo dostopati do elementa, ki ga ni v
+slovarju, Python vrže napako::
+  
+  >>> ocene['lojze']
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+  KeyError: 'lojze'
+
+Slovarji imajo zelo veliko metod podobnih seznamom.
+Nove elemente dodamo kar s klicem ``ocene["piflar"] = [5, 5, 5]``.
+Dolžino jim lahko izračunamo s pomočjo funkcije ``len``.
+
+.. py:class:: dict
+
+  .. py:method:: get(key, default)
+
+    Vrne vrednost pri ključu ``key``, če obstaja, sicer vrne ``default``. Ne
+    vrže napake. 
+
+  .. py:method:: update(slovar)
+
+    V slovar doda nov slovar, pri čemer prepiše morebitne že obstoječe ključe z
+    novimi.
+
+  .. py:method:: pop(key, [default])
+
+    Iz seznama pobriše element pri ključu ``key`` in vrne njegovo vrednost. Če
+    ne obstaja potem vrže napako, razen če je podan tudi parameter ``default``
+    (ki ni obvezen). V slednjem primeru vrne ``default``. 
+
+
+Množice
+-------
+Množice (set) implementirajo matematične množice, torej zbirko z neurejenimi
+nespremenljivimi elementi, ki se ne smejo ponavljati. Množico ustvarimo s
+pomočjo zavitih oklepajev ``{`` in ``}``, podobno kot seznam ali slovar (le da
+tu ne pišemo ključev), ali pa iz katere koli druge zbirke s klicem funkcije
+``set``.
+
+::
+  
+  >>> imena = {'janez', 'metka', 'lojze'}
+  >>> stevila = set([1, 3, 1, 3, 5])
+  >>> stevila
+  {3, 1, 5}
+  >>> {1, 2, 3} == {3, 1, 1, 2}
+  True
+
+Množice so tako zelo uporabne za odstranjevanje duplikatov. Podpirajo vrsto
+matematičnih operacij, kot so unija ``|``, presek ``&``, "je podmnožica"
+``<=``, "je nadmnožica" ``>=`` (tudi "pravi" verziji ``<`` in ``>``), simetrična razlika
+``^``. 
+
+Ostale uporabne metode za manipulacijo množic:
+
+.. py:class:: dict
+
+  .. py:method:: add(vrednost)
+
+    Doda vrednost ``vrednost`` v množico, če ta že obstaja, se ne zgodi nič. 
+
+  .. py:method:: remove(vrednost)
+  
+    Odstrani vrednost ``vrednost`` iz množice, če ta ne obstaja, vrže napako
+    ``KeyError``.
+
+  .. py:method:: discard(vrednost)
+
+    Odstrani vrednost ``vrednost`` iz množice, če ta ne obstaja, se ne zgodi
+    nič.
+
+  .. py:method:: pop()
+
+    Odstrani in vrne nek element množice. Če je prazna, vrže napako ``KeyError``.
+
+Množice so očitno spremenljivi objekti, nespremenljivo verzijo, ki jo lahko
+uporabimo kot ključ slovarja ali element množice implementira ``frozenset``.
+
+Nabori
+------
+
+Nabori so nespremenljivi seznami. Ustvarimo jih z okroglimi oklepaji ``(``,
+``)`` ali klicem funkcije ``tuple``. Z njimi delamo podobno kot z nizi, in jih
+lahko uporabljamo za ključe v slovarjih ali za elemente množic.
+
+::
+
+  >>> a = (1, 3, 5)
+  >>> b = tuple([3, 5, "sda"])
+  >>> b[0]
+  3
+  >>> a[1] = 9
+  Traceback (most recent call last):
+    File "<stdin>", line 1, in <module>
+  TypeError: 'tuple' object does not support item assignment
+
+Dodatek o vseh zbikah
+---------------------
+
+Vse podatkovne strukture, ki lahko hranijo več elementov so si podobne, a se
+razlikujejo v pomembnih razlikah, ki jih naredijo uporabne za posamezne primere.
+
+Vendar imajo vse veliko skupnega -- pri vseh dolžino dobimo s klicem funkcije
+``len``, čez vse gremo lahko s ``for`` zanko in pri vseh preverjamo vsebovanost
+elementov z operatorjem ``in``. Na podlagi zgoraj opisanih lastnosti se
+odločite, katera najbolj ustreza vašemu problemu. Kasneje si bomo pogledali še
+bolj specifične strukture, kot na primer ``deque``, ``defaultdict`` ali
+``namedtuple``.
 
 .. vim: spell spelllang=sl
