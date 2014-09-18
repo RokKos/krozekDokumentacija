@@ -3,26 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Programerski krožek na Gimnaziji Vič
-====================================
+Python
+======
 
 Vsebina:
 
 .. toctree::
   :maxdepth: 2
 
-  python
+  skripta/python/osnove
+  skripta/python/podatkovni_tipi
+  skripta/python/funkcije_in_classi
 
-Dokumentacija zunanjih vaj:
-
-.. toctree::
-  :maxdepth: 2
-
-  Dokumentacija <autodoc/modules>
-
-Indeksi in tabele
-=================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
