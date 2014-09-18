@@ -11,9 +11,7 @@ Vsebina:
 .. toctree::
   :maxdepth: 2
 
-  skripta/osnove
-  skripta/podatkovni_tipi
-  skripta/funckije_in_classi
+  python
 
 Dokumentacija zunanjih vaj:
 

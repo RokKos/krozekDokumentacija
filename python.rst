@@ -9,7 +9,7 @@ Python
 Vsebina:
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
 
   skripta/python/osnove
   skripta/python/podatkovni_tipi

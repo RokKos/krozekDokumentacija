@@ -1,8 +1,9 @@
 Osnove
 ======
 
-V tem poglavju si bomo ogledali osnove programiranja, s katerimi lahko vzpostavimo
-osnovno komunikacijo z računalnikom in naredimo zelo enostavne programe.
+V tem poglavju si bomo ogledali osnove programiranja, s katerimi lahko
+vzpostavimo osnovno komunikacijo z računalnikom in naredimo zelo enostavne
+programe.
 
 Spremenljivke
 -------------
@@ -29,12 +30,13 @@ Spremenljivke se definira na naslednji način::
 Komentarji
 ----------
 
-Komentarji so programerjeve opombe v kodi, namenjene bralcu -- sebi ali nekomu drugemu,
-ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so komentarji enovrstični in
-ze začnejo z znakom ``#``. Vsi znaki v vrstici od znaka ``#`` so ignorirani. Komentarje se
-ponavadi napiše pred manj razmljiv del kode, da obrazložimo njeno delovanje, ali pa če
-želimo kakšen del kode trenutno umakniti iz programa, ne da bi ga izbrisali. Komentarji
-pogosto tudi obrazložijo in dokumentirajo kodo in narekujejo njeno uporabo.
+Komentarji so programerjeve opombe v kodi, namenjene bralcu -- sebi ali nekomu
+drugemu, ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so
+komentarji enovrstični in že začnejo z znakom ``#``. Vsi znaki v vrstici od
+znaka ``#`` so ignorirani. Komentarje se ponavadi napiše pred manj razumljiv del
+kode, da obrazložimo njeno delovanje, ali pa če želimo kakšen del kode trenutno
+umakniti iz programa, ne da bi ga izbrisali. Komentarji pogosto tudi obrazložijo
+in dokumentirajo kodo in narekujejo njeno uporabo.
 
 Primer::
 
@@ -181,8 +183,8 @@ Primer:
 Break
 ~~~~~
 
-Če kjerkoli v zanki napišemo ukaz ``break``, bo zanka takrat prekinjena. Občasno se
-programira tudi tako, da zanalašč naredimo neskončno zanko, in potem ob
+Če kjerkoli v zanki napišemo ukaz ``break``, bo zanka takrat prekinjena. Občasno
+se programira tudi tako, da zanalašč naredimo neskončno zanko, in potem ob
 določenih pogojih pokličemo ``break``.
 
 Ukaz break prekine le 'najbližjo' zanko -- če imamo gnezdenih več zank (npr. for
@@ -195,12 +197,12 @@ Continue
 Continue je podoben stavku ``break``, le da ne prekine najbolj notranje zanke,
 ampak preskoči vse do konca trenutne iteracije in takoj začne izvajanje
 naslednje. To je uporabno na primer za filtriranje neveljavnih podatkov::
-  
+
   a = "sajkdfs adfjkhasdf jkasdkfjas dfkjhasd fasdlfkjsa dflkjsadf"
   veljavno = "aeiou"
   for i in a:
-      if a not in veljavno: continue
-      
+      if a not in veljavno:
+          continue
       # tukaj zelo veliko kode, ki procesira veljavne podatke
 
 Kot ste morda opazili se da continue vedno nadomestiti z ustreznim ``if``
