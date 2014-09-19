@@ -1,0 +1,5 @@
+Osnove
+======
+
+.. todo::
+  Napisi osnove.

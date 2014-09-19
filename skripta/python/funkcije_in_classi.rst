@@ -12,7 +12,9 @@ seznamov, ki nam jih je podal uporabnik. Lahko pa koda postane tudi zelo
 zapletena, saj znotraj ene zanke preverjamo, kaj drugega z drugo zanko in tako
 naprej...
 
-Primera takih programov::
+Primera takih programov:
+
+.. code-block:: python
 
   a = [1, 2, 3, 4, 5]
   b = [14, 15, 0, 2]
@@ -28,7 +30,7 @@ Primera takih programov::
   print(pb)
   print(pc)
 
-::
+.. code-block:: python
 
   """Program preveri ali je število, ki ga vnese uporabnik popolno."""
   while True:
@@ -44,7 +46,7 @@ Primera takih programov::
       else:
           print("Stevilo", a, "ni popolno.")
 
-V prvem primeru je problem zelo ponavaljajoča koda 
+V prvem primeru je problem zelo ponavaljajoča koda
 todo
 
 Funkcijo si lahko predstavljamo kot neko črno škatlo, ki ji nekaj damo, funkcija
@@ -101,3 +103,5 @@ Objekti
 
 .. todo::
   Dodaj objekte.
+
+.. vim: spell spelllang=sl
