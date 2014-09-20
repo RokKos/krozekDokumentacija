@@ -67,6 +67,19 @@
 </li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python-vaje.html">Python vaje</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python-vaje/osnove.html">Osnovne vaje</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python-vaje/podatkovni_tipi_in_funckije.html">Vaje iz podatkovnih tipov in funkcij</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../c++.html">C++</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../c++/osnove.html">Osnove</a></li>
+</ul>
+</li>
+</ul>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../../autodoc/modules.html">Dokumentacija</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../autodoc/tutorialsPythonBasic.html">tutorialsPythonBasic package</a></li>
 </ul>
@@ -136,22 +149,13 @@ x + 2 dejansko pomenil &#8220;x povečaj za 2&#8221;.</p>
 </div>
 <div class="section" id="komentarji">
 <h2>Komentarji<a class="headerlink" href="#komentarji" title="Permalink to this headline">¶</a></h2>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream:skripta/python/osnove.rst
-Komentarji so programerjeve opombe v kodi, namenjene bralcu &#8211; sebi ali nekomu
+<p>Komentarji so programerjeve opombe v kodi, namenjene bralcu &#8211; sebi ali nekomu
 drugemu, ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so
 komentarji enovrstični in že začnejo z znakom <tt class="docutils literal"><span class="pre">#</span></tt>. Vsi znaki v vrstici od
 znaka <tt class="docutils literal"><span class="pre">#</span></tt> so ignorirani. Komentarje se ponavadi napiše pred manj razumljiv del
 kode, da obrazložimo njeno delovanje, ali pa če želimo kakšen del kode trenutno
 umakniti iz programa, ne da bi ga izbrisali. Komentarji pogosto tudi obrazložijo
-in dokumentirajo kodo in narekujejo njeno uporabo.
-=======
-Komentarji so programerjeve opombe v kodi, namenjene bralcu &#8211; sebi ali nekomu drugemu,
-ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so komentarji enovrstični in
-že začnejo z znakom <tt class="docutils literal"><span class="pre">#</span></tt>. Vsi znaki v vrstici od znaka <tt class="docutils literal"><span class="pre">#</span></tt> so ignorirani. Komentarje se
-ponavadi napiše pred manj razumljiv del kode, da obrazložimo njeno delovanje, ali pa če
-želimo kakšen del kode trenutno umakniti iz programa, ne da bi ga izbrisali. Komentarji
-pogosto tudi obrazložijo in dokumentirajo kodo in narekujejo njeno uporabo.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes:skripta/osnove.rst</p>
+in dokumentirajo kodo in narekujejo njeno uporabo.</p>
 <p>Primer:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">ime</span> <span class="o">=</span> <span class="s">&quot;Janez&quot;</span>  <span class="c"># ime naj bo brez presledkov in naj se začne z veliko začetnico</span>
 <span class="c"># v absx shranimo absolutno vrednost x</span>
@@ -174,13 +178,6 @@ Uporabili smo funkcije <tt class="docutils literal"><span class="pre">input</spa
 </dd></dl>
 
 <dl class="function">
-<dt id="int">
-<tt class="descname">int</tt><big>(</big><em>niz_znakov</em><big>)</big><a class="headerlink" href="#int" title="Permalink to this definition">¶</a></dt>
-<dd><p>Niz znakov spremeni v dejansko celo število, s katerim znamo računati. Če je
-parameter že celo število, ne pride do sprememb.</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="print">
 <tt class="descname">print</tt><big>(</big><em>niz_znakov</em><big>)</big><a class="headerlink" href="#print" title="Permalink to this definition">¶</a></dt>
 <dd><p>Izpiše niz znakov niz_znakov.</p>
@@ -191,12 +188,13 @@ parameter že celo število, ne pride do sprememb.</p>
 <em class="property">class </em><tt class="descname">str</tt><a class="headerlink" href="#str" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="str.format">
-<tt class="descname">format</tt><big>(</big><em>p1</em>, <em>p2</em>, <em>p3</em>, <em>...</em><big>)</big><a class="headerlink" href="#str.format" title="Permalink to this definition">¶</a></dt>
-<dd><p>Na mesto označeno z {0} vstavi p1, na {1} vstavi p2, ...</p>
+<tt class="descname">format</tt><big>(</big><em>niz</em>, <em>p1</em>, <em>p2</em>, <em>p3</em>, <em>...</em><big>)</big><a class="headerlink" href="#str.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Na mesto ki je v <tt class="docutils literal"><span class="pre">niz</span></tt>-u označeno z {0} vstavi <tt class="docutils literal"><span class="pre">p1</span></tt>, na {1} vstavi <tt class="docutils literal"><span class="pre">p2</span></tt>, ...</p>
 </dd></dl>
 
 </dd></dl>
 
+<p>Ogledate si lahko tudi, kaj počne funkcija <a class="reference internal" href="podatkovni_tipi.html#int" title="int"><tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt></a>.</p>
 <p>Primer:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -243,7 +241,7 @@ parameter že celo število, ne pride do sprememb.</p>
 <p><tt class="docutils literal"><span class="pre">If</span> <span class="pre">stavek</span></tt> se uporablja vsakič, kadar hočemo, da se naš program obnaša
 drugače pod drugačnimi pogoji. Če je pogojev več, lahko za <tt class="docutils literal"><span class="pre">if</span></tt> uporabimo še
 <tt class="docutils literal"><span class="pre">elif</span></tt> (else if), ki doda dodatne pogoje. Za konec pa lahko damo še <tt class="docutils literal"><span class="pre">else</span></tt>,
-ki se izvede takrat, ko ni bil izpolnjen noben od pogojov v <tt class="docutils literal"><span class="pre">if</span></tt> in <tt class="docutils literal"><span class="pre">elif</span></tt>
+ki se izvede takrat, ko ni bil izpolnjen noben od pogojev v <tt class="docutils literal"><span class="pre">if</span></tt> in <tt class="docutils literal"><span class="pre">elif</span></tt>
 stavkih. <tt class="docutils literal"><span class="pre">elif</span></tt> in <tt class="docutils literal"><span class="pre">else</span></tt> deli niso obvezni.</p>
 <p>Sintaksa if stavkov je naslednja (pazljivi moramo biti na zamik po if stavku -
 dobimo ga tako, da pritisnemo tabulator, ki se nahaja nad caps lock tipko na
@@ -282,18 +280,18 @@ operacij <tt class="docutils literal"><span class="pre">NOT</span></tt>, <tt cla
 <h2>Zanke<a class="headerlink" href="#zanke" title="Permalink to this headline">¶</a></h2>
 <p>Zanke se uporablja takrat, ko moramo neko stvar ponoviti večkrat. Če moramo
 npr. izpisati vsa števila med 1 in 100 uporabimo zanko. Če hočemo isto stvar
-ponoviti 3x, uporabimo zanko. Če bi radi, da se nekaj dogaja, dokler ni
+ponoviti 3-krat, uporabimo zanko. Če bi radi, da se nekaj dogaja, dokler ni
 izpolnjen nek pogoj (npr. vtipkavaj geslo, dokler ne vtipkaš pravilnega),
 uporabimo zanko.</p>
 <div class="section" id="while-zanka">
 <h3>While zanka<a class="headerlink" href="#while-zanka" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python"><div class="highlight"><pre>while pogoj:
-    Koda, ki se izvaja dokler je pogoj izpolnjen
+<div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="n">pogoj</span><span class="p">:</span>
+    <span class="n">Koda</span><span class="p">,</span> <span class="n">ki</span> <span class="n">se</span> <span class="n">izvaja</span> <span class="n">dokler</span> <span class="n">je</span> <span class="n">pogoj</span> <span class="n">izpolnjen</span>
 </pre></div>
 </div>
 <p><tt class="docutils literal"><span class="pre">while</span></tt> zanko uporabimo takrat, ko se mora nekaj izvajati dokler je pogoj
 izpolnjen. Pri while zanki moramo biti zelo pozorni na neskončne zanke.
-Neskončna zanka se zgodi takrat, ko je pogojvedno izpolnjen, program pa bo
+Neskončna zanka se zgodi takrat, ko je pogoj vedno izpolnjen, program pa bo
 tekel v neskončnost. Če se nam to slučajno zgodi, pritisnemo kombinacijo tipk
 <tt class="docutils literal"><span class="pre">ctrl+c</span></tt>, s čimer program prekinemo.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;Uporabnik vpisuje geslo. Če 5x zaporedoma vpiše napačno geslo je izključen</span>
@@ -417,7 +415,7 @@ naslednje. To je uporabno na primer za filtriranje neveljavnih podatkov:</p>
     <span class="c"># tukaj zelo veliko kode, ki procesira veljavne podatke</span>
 </pre></div>
 </div>
-<p>Kot ste morda opazili se da continue vedno nadomestiti z ustreznim <tt class="docutils literal"><span class="pre">if</span></tt>
+<p>Kot ste morda opazili, se da continue vedno nadomestiti z ustreznim <tt class="docutils literal"><span class="pre">if</span></tt>
 <tt class="docutils literal"><span class="pre">else</span></tt> stavkom, a je to lahko veliko bolj neberljivo.</p>
 </div>
 </div>

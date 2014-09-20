@@ -15,7 +15,9 @@ osnovi ločimo tri tipe spremenljivk - ``float`` (realna števila), ``int`` (cel
 dvojnim ali enojnim narekovajem (``"`` ali ``'``). Python tipe spremenljivk
 določa samodejno.
 
-Spremenljivke se definira na naslednji način::
+Spremenljivke se definira na naslednji način:
+
+.. code-block:: python
 
   x = 2
   y = 5
@@ -30,7 +32,6 @@ Spremenljivke se definira na naslednji način::
 Komentarji
 ----------
 
-<<<<<<< Updated upstream:skripta/python/osnove.rst
 Komentarji so programerjeve opombe v kodi, namenjene bralcu -- sebi ali nekomu
 drugemu, ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so
 komentarji enovrstični in že začnejo z znakom ``#``. Vsi znaki v vrstici od
@@ -38,16 +39,10 @@ znaka ``#`` so ignorirani. Komentarje se ponavadi napiše pred manj razumljiv de
 kode, da obrazložimo njeno delovanje, ali pa če želimo kakšen del kode trenutno
 umakniti iz programa, ne da bi ga izbrisali. Komentarji pogosto tudi obrazložijo
 in dokumentirajo kodo in narekujejo njeno uporabo.
-=======
-Komentarji so programerjeve opombe v kodi, namenjene bralcu -- sebi ali nekomu drugemu,
-ki bo to bral za njim. Interpreter jih ignorira. V Pythonu so komentarji enovrstični in
-že začnejo z znakom ``#``. Vsi znaki v vrstici od znaka ``#`` so ignorirani. Komentarje se
-ponavadi napiše pred manj razumljiv del kode, da obrazložimo njeno delovanje, ali pa če
-želimo kakšen del kode trenutno umakniti iz programa, ne da bi ga izbrisali. Komentarji
-pogosto tudi obrazložijo in dokumentirajo kodo in narekujejo njeno uporabo.
->>>>>>> Stashed changes:skripta/osnove.rst
 
-Primer::
+Primer:
+
+.. code-block:: python
 
   ime = "Janez"  # ime naj bo brez presledkov in naj se začne z veliko začetnico
   # v absx shranimo absolutno vrednost x
@@ -67,20 +62,17 @@ Uporabili smo funkcije ``input``, ``int``, ``print``, ``format``.
 
   Izpiše niz znakov in vrne to, kar je uporabnik vtipkal.
 
-.. py:function:: int(niz_znakov)
-
-  Niz znakov spremeni v dejansko celo število, s katerim znamo računati. Če je
-  parameter že celo število, ne pride do sprememb.
-
 .. py:function:: print(niz_znakov)
 
   Izpiše niz znakov niz_znakov.
 
-.. py:class:: str
+.. py:class:: str 
+  
+  .. py:method:: format(niz, p1, p2, p3, ...)
 
-  .. py:method:: format(p1, p2, p3, ...)
+    Na mesto ki je v ``niz``-u označeno z {0} vstavi ``p1``, na {1} vstavi ``p2``, ...
 
-    Na mesto označeno z {0} vstavi p1, na {1} vstavi p2, ...
+Ogledate si lahko tudi, kaj počne funkcija :py:func:`int`.
 
 Primer:
 
@@ -93,12 +85,14 @@ If stavki
 ``If stavek`` se uporablja vsakič, kadar hočemo, da se naš program obnaša
 drugače pod drugačnimi pogoji. Če je pogojev več, lahko za ``if`` uporabimo še
 ``elif`` (else if), ki doda dodatne pogoje. Za konec pa lahko damo še ``else``,
-ki se izvede takrat, ko ni bil izpolnjen noben od pogojov v ``if`` in ``elif``
+ki se izvede takrat, ko ni bil izpolnjen noben od pogojev v ``if`` in ``elif``
 stavkih. ``elif`` in ``else`` deli niso obvezni.
 
 Sintaksa if stavkov je naslednja (pazljivi moramo biti na zamik po if stavku -
 dobimo ga tako, da pritisnemo tabulator, ki se nahaja nad caps lock tipko na
-tipkovnici)::
+tipkovnici):
+
+.. code-block:: python
 
   if pogoj:
       Koda, ki se izvede, če je izpolnjen pogoj
@@ -117,7 +111,9 @@ enakosti (je enako ``==``, ni enako ``!=``), primerjanje vrednosti (večje
 sestavljeni pa so narejeni iz kombinacije enostavnih z uporabo matematičnih
 operacij ``NOT``, ``AND``, ``OR``, ``XOR`` itd.
 
-Primer::
+Primer:
+
+.. code-block:: python
 
     x = int(input("Vpisite stevilo: "))
     if x > 0:
@@ -135,25 +131,25 @@ Zanke
 
 Zanke se uporablja takrat, ko moramo neko stvar ponoviti večkrat. Če moramo
 npr. izpisati vsa števila med 1 in 100 uporabimo zanko. Če hočemo isto stvar
-ponoviti 3x, uporabimo zanko. Če bi radi, da se nekaj dogaja, dokler ni
+ponoviti 3-krat, uporabimo zanko. Če bi radi, da se nekaj dogaja, dokler ni
 izpolnjen nek pogoj (npr. vtipkavaj geslo, dokler ne vtipkaš pravilnega),
 uporabimo zanko.
 
 While zanka
 ~~~~~~~~~~~
 
-::
+.. code-block:: python
 
   while pogoj:
       Koda, ki se izvaja dokler je pogoj izpolnjen
 
 ``while`` zanko uporabimo takrat, ko se mora nekaj izvajati dokler je pogoj
 izpolnjen. Pri while zanki moramo biti zelo pozorni na neskončne zanke.
-Neskončna zanka se zgodi takrat, ko je pogojvedno izpolnjen, program pa bo
+Neskončna zanka se zgodi takrat, ko je pogoj vedno izpolnjen, program pa bo
 tekel v neskončnost. Če se nam to slučajno zgodi, pritisnemo kombinacijo tipk
 ``ctrl+c``, s čimer program prekinemo.
 
-::
+.. code-block:: python
 
   """Uporabnik vpisuje geslo. Če 5x zaporedoma vpiše napačno geslo je izključen
   iz sistema (za to poskrbi spremenljivka števec) """
@@ -173,7 +169,7 @@ tekel v neskončnost. Če se nam to slučajno zgodi, pritisnemo kombinacijo tipk
 For zanka
 ~~~~~~~~~
 
-::
+.. code-block:: python
 
   for spremenljivka in zbirka:
       Koda, ki se izvaja dokler spremenljivka ne preteče vseh elementov zbirke.
@@ -205,7 +201,9 @@ Continue
 
 Continue je podoben stavku ``break``, le da ne prekine najbolj notranje zanke,
 ampak preskoči vse do konca trenutne iteracije in takoj začne izvajanje
-naslednje. To je uporabno na primer za filtriranje neveljavnih podatkov::
+naslednje. To je uporabno na primer za filtriranje neveljavnih podatkov:
+
+.. code-block:: python
 
   a = "sajkdfs adfjkhasdf jkasdkfjas dfkjhasd fasdlfkjsa dflkjsadf"
   veljavno = "aeiou"
@@ -214,7 +212,7 @@ naslednje. To je uporabno na primer za filtriranje neveljavnih podatkov::
           continue
       # tukaj zelo veliko kode, ki procesira veljavne podatke
 
-Kot ste morda opazili se da continue vedno nadomestiti z ustreznim ``if``
+Kot ste morda opazili, se da continue vedno nadomestiti z ustreznim ``if``
 ``else`` stavkom, a je to lahko veliko bolj neberljivo.
 
 .. vim: spell spelllang=sl
