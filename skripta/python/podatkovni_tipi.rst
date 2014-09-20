@@ -37,6 +37,12 @@ funkcijo ``int``, decimalna pa s funkcijo ``float``.
 
   Pretvori ``objekt`` v decimalno število. Če to ni mogoče, vrže izjemo.
 
+.. note::
+
+  Vse "funckije", ki so ime nekega podatkovnega tipa, niso v resnici funkcije,
+  temveč kar direktno konstruktorji teh objektov. To za uporabo ni pomembno, če
+  pa vas zanima, si lahko več o tem preberete v poglavju :ref:`konstruktorji`.
+
 Primer:
 
 .. code-block:: python
@@ -109,6 +115,22 @@ Vrstni red izvajanja operacij je enak kot v matematiki, torej ``not``, ``and``,
   ``False``, če deliteljev nismo našli pa je ``True``. Ta princip je seveda
   mogoče posplošiti na več kot dve vrednosti.
 
+None
+~~~~
+
+Vredost ``None`` je vrednost, ki predstavlja prazno vrednost. Ta vrednost je
+ena sama in vedno enaka. Pri pretvorbi v ``bool`` se pretvori v ``False``.
+Ko preverjamo, ali je neka spremenljivka enaka ``None`` lahko uporabimo ``is``
+operator.
+
+.. code-block:: python
+
+  >>> a = None
+  >>> a  # vrednost None se v interpreterju ne pokaže
+  >>> a is None
+  True
+  >>> a == None
+  True
 
 Seznami
 -------
@@ -383,7 +405,7 @@ Dolžino jim lahko izračunamo s pomočjo funkcije ``len``.
 Množice
 -------
 Množice (set) implementirajo matematične množice, torej zbirko z neurejenimi
-nespremenljivimi elementi, ki se ne smejo ponavljati. Množico ustvarimo s
+**nespremenljivimi** elementi, ki se ne smejo ponavljati. Množico ustvarimo s
 pomočjo zavitih oklepajev ``{`` in ``}``, podobno kot seznam ali slovar (le da
 tu ne pišemo ključev), ali pa iz katere koli druge zbirke s klicem funkcije
 ``set``.
@@ -402,9 +424,14 @@ matematičnih operacij, kot so unija ``|``, presek ``&``, "je podmnožica" ``<=`
 "je nadmnožica" ``>=`` (tudi "pravi" verziji ``<`` in ``>``), simetrična razlika
 ``^``.
 
+.. py:function:: set(objekt)
+
+  Pretvori ``objekt`` v množico, če je to možno, sicer vrže izjemo. To pomeni,
+  da se lahko vrsti red elementov premeša, duplikati pa se lahko odstranijo. 
+
 Ostale uporabne metode za manipulacijo množic:
 
-.. py:class:: dict
+.. py:class:: set
 
   .. py:method:: add(vrednost)
 
@@ -445,17 +472,24 @@ lahko uporabljamo za ključe v slovarjih ali za elemente množic.
     File "<stdin>", line 1, in <module>
   TypeError: 'tuple' object does not support item assignment
 
+.. py:function:: tuple(objekt)
+
+  Pretvori ``objekt`` v nabor. Vrstni red elementov se ohrani. Če pretvorba ni
+  mogoča, vrže izjemo. 
+
 Dodatek o vseh zbikah
 ---------------------
 
 Vse podatkovne strukture, ki lahko hranijo več elementov so si podobne, a se
 razlikujejo v pomembnih razlikah, ki jih naredijo uporabne za posamezne primere.
+Zelo pogosto jih lahko med sabo prestvarjamo, npr. ``list`` v ``tuple`` in
+podobno.
 
 Vendar imajo vse veliko skupnega -- pri vseh dolžino dobimo s klicem funkcije
 ``len``, čez vse gremo lahko s ``for`` zanko in pri vseh preverjamo vsebovanost
 elementov z operatorjem ``in``. Na podlagi zgoraj opisanih lastnosti se
 odločite, katera najbolj ustreza vašemu problemu. Kasneje si bomo pogledali še
 bolj specifične strukture, kot na primer ``deque``, ``defaultdict`` ali
-``namedtuple``.
+``namedtuple``. 
 
 .. vim: spell spelllang=sl

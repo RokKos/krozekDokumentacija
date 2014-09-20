@@ -131,7 +131,7 @@ Zanke
 
 Zanke se uporablja takrat, ko moramo neko stvar ponoviti večkrat. Če moramo
 npr. izpisati vsa števila med 1 in 100 uporabimo zanko. Če hočemo isto stvar
-ponoviti 3x, uporabimo zanko. Če bi radi, da se nekaj dogaja, dokler ni
+ponoviti 3-krat, uporabimo zanko. Če bi radi, da se nekaj dogaja, dokler ni
 izpolnjen nek pogoj (npr. vtipkavaj geslo, dokler ne vtipkaš pravilnega),
 uporabimo zanko.
 
