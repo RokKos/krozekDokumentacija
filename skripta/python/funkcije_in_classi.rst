@@ -105,7 +105,7 @@ in vrne ``True`` če je, sicer pa ``False``.
 Klicanje funkcij
 ~~~~~~~~~~~~~~~~
 
-Ko izvedemo program, ki vsebuje samo definicije funkcij, se ne zgodi nič. 
+Ko izvedemo program, ki vsebuje samo definicije funkcij, se ne zgodi nič.
 Funkcijo je treba namreč še poklicati. Naše funkcije kličemo popolnoma enako kot
 že vdelane funkcije (npr. print(), range(), ...)
 
