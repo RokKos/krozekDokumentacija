@@ -16,6 +16,11 @@ Vsebina:
 .. toctree::
   :maxdepth: 3
 
+  python-vaje
+
+.. toctree::
+  :maxdepth: 3
+
   c++
 
 Dokumentacija zunanjih vaj:

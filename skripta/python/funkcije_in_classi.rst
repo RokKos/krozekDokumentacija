@@ -70,7 +70,7 @@ spremenljivke mora biti nujno iz ene besede) in v oklepaju poljubno število
 parametrov. Telo funkcije je potrebno zamakniti.
 
 .. code-block:: python
- 
+
   def imeFunkcije(parameter1, parameter2):
       Koda, ki se izvede, ko pokličemo funkcijo
 
@@ -128,7 +128,7 @@ funkcije. Za vsakim programom je tudi njegov možen izpis.
   print(zmnozi(c))
 
 ::
-  
+
   120
   0
   1
