@@ -10,7 +10,7 @@ Spremenljivke
 
 Spremenljivke so prostori v spominu z določenim imenom, v katere lahko spravimo
 neko vrednost. Tako lahko npr. pod ime ``leta`` spravimo vrednost ``5``. V
-osnovi ločimo tri tipe spremenljivk - ``float`` (realna števila), ``int`` (cela
+osnovi ločimo več tipov spremenljivk, npr. ``float`` (realna števila), ``int`` (cela
 števila) in ``string`` (nize znakov). Začetek in konec ``stringa`` je označen z
 dvojnim ali enojnim narekovajem (``"`` ali ``'``). Python tipe spremenljivk
 določa samodejno.

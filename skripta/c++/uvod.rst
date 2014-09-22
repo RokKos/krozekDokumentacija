@@ -12,9 +12,13 @@ potrebno prevesti v strojno kodo, ki jo potem računalnik izvede. Zaradi tega
 vmesnega koraka je tudi za kakšen red velikosti hitrejši od npr. Pythona.
 
 Druga razlika je, da je *statično tipiziran*, kar pomeni, da moramo vsaki
-spremenljivki v naprej določiti tip, ki ga potem ne moremo več spreminjati, kar
-omogoča veliko bolj efektivno planiranje porabe spomina in boljšo pretvorbo v
-strojno kodo, sam ima prevajalnik (compiler) veliko več podatkov.
+spremenljivki v naprej določiti tip, ki ga potem ne moremo več spreminjati,
+kar compilerju omogoča analizo programa in boljše poročanje napak. Primer:
+v Pythonu nekje v nekem gnezdenem if stavku seštevate int in string. Vaš
+program bo lahko mirno tekel ampak se potem nekoč, ko pride v tisti if sesul.
+C++ program se niti prevedel ne bo, sam vam bo compiler povedal da tam
+seštevate dva nekompatibilna tipa. Python tega ne more narediti, saj dokler se
+program ne izvede do tam, ne ve, kakšnega tipa sta ti dve spremenljivki.
 
 Na začetku se zdijo to mogoče hude omejitve in je potrebno nekaj truda, da se
 človek navadi na "malo manj svobode" in "neke čudne napake", vendar te omejitve
@@ -32,12 +36,12 @@ Od programske do strojne kode
 -----------------------------
 Primer programske kode:
 
-.. code-block:: c++
+.. code-block:: cpp
 
-  #include <cstdio>
+  #include <iostream>
 
   int main() {
-      printf("Hello world!");
+      std::cout << "Hello world" << std::endl;
       return 0;
   }
 
@@ -69,36 +73,47 @@ Linker
 Na koncu je rezultat nekaj, kar razume računalnik, mi pa ne, in se lahko
 razlikuje od računalnika do računalnika::
 
-  ELF>�@@@ @@@@@@�@@@@�� ��`�``h
-  ��`�@@DDP�tdtt@t@44Q�td/lib64/ld-linux-x86-64.so.2GNU GNU[^��.�2?#��9��W��� �3
-  O libstdc++.so.6__gmon_start___Jv_RegisterClasses_ITM_deregisterTMCloneTable_
-  ITM_registerTMCloneTablelibm.so.6libgcc_s.so.1libc.so.6printf__libc_start_main
-  GLIBC_2.2.5�u▒i ��      `�      `�      `�      `H�H�E H��t�3H���52 �%4 @�%2
-  h������%* h������%" h�����1�I��^H��H���PTI��P@H���@H���@������fD� `\textit{HU
-  `H��H��vH��t]� `��f�]�fffff.�� `UH�� `H��H��H��H��?H�H��t�H��t ]� `��]�fD�=y
-  uUH���n���]�f ��@��`H�?u���H��t�UH����]�z���UH���d@�������]�AWAVA��AUATL�%�
+  @@@@@@�@@@@
+
+   ▒ ▒ `▒ `�� 8 8 `8 @@DDP�td@@<<Q�td/lib64/ld-linux-x86-64.so.2GNU
+   GNU����8#,�ٴ��fWS�!�
+
+  (E�L� C  �E83 �O �i�@��
+  `libstdc++.so.6__gmon_start___Jv_RegisterClasses_ITM_deregisterTMCloneTabl
+  e_ITM_registerTMCloneTable_ZNSt8ios_base4InitD1Ev_ZSt4cout_ZStlsISt11char_
+  traitsIcEERSt13basic_ostreamIcT_ES5_PKc_ZSt4endlIcSt11char_traitsIcEERSt13
+  basic_ostreamIT_T0_ES6__ZNSt8ios_base4InitC1Evlibm.so.6libgcc_s.so.1libc.so
+  .6__cxa_atexit__libc_start_mainGLIBC_2.2.5GLIBCXX_3.4.  u▒i      Wt)c8 `� ` X
+  `` `h `p `x ` � `� `    H�H�� H��t�#H���5� �%� @�%� h������%� h������%�
+  h������%� h������%� h������%� h������%� h�����H��@�� `�b�����
+  `�����H�������1�H��fffff.�H��� `��@H��j���1�I��^H��H���PTI�@H��@H���@�1������
+  `UH-� `H��H��vH��t]�� `��f�]�fffff.��� `UH��� `H��H��H��H��?H�H��t�H��t ]��
+  `��]�fD�=� uUH���n���]�� ��@�0 `H�?u���H��t�UH����]�z���f.�AWAVA��AUATL�%�
   UH�-�
-  SI��I��1�L)�H�H���U���H��t�L��L��D��A��H��H9�u�H�[]A\A]A^A_�ff.���H�H��Hello
-  world!0���|\���LR����l�������� zRx ���*zRx $����@F▒J U �?▒;*3$"D����▒A�C
-  Dd����eB�B▒�E �B(�H0�H8�O@p8A0A(B B▒B������@�@is� T@�▒����o`@(@�@
-  h@ � ▒�     `H ▒ ▒���o�@���o���o�@�`�@�@�@GCC: (GNU) 4.9.0 20140507
-  (prerelease)GCC: (GNU)
+  SI��I��1�L)�H�H�������H��t�L��L��D��A��H��H9�u�H�[]A\A]A^A_�ff.���H�H��Hello
+  world<����� ����P����v���Xp��������(zRx ���*zRx $����F▒J
+  �?▒;*3$"Dh���"D\����&DDt����eB�B▒�E �B(�H0�H8�O@p8A0A(B B▒B����@ @�@ .  @▒ H@
+  `▒( ���o`@�@�@ o ▒@ `��@p0       ▒���o0@���o���o▒@8 `�@�@�@�@�@�@�@GCC: (GNU)
+  4.9.0 20140507 (prerelease)GCC: (GNU)
   4.9.1.symtab.strtab.shstrtab.interp.note.ABI-tag.note.gnu.build-id.gnu.hash.
-  dynsym.dynstr.gnu.version.gnu.version_r.rela.dyn.rela.plt.init.text.fini.
-  rodata.eh_frame_hdr.eh_frame.init_array.fini_array.jcr.dynamic.got.got.plt.
-  data.bss.comment#@ 1<@<$D���o`@N �@�▒V(@(�^���o�@�k���o�@�▒� @ H
-  ▒�h@h▒��@�@��@���T@T �`@`�t@t4��@���������`��        `�   �� `�     ��
-  `�     � ` �0 88 �H▒ >@@<@`@�@(@��@  @ @ h@ �@T@`@t@�@�`�`�`�`�     `�
-  `▒�     ` �@^�����` �@X g {T@�� �`@� �▒�    `�▒`�`�`" ▒�    `-A `�▒�    ` �@e
-  ' `,▒ �@▒8
-  h@init.ccrtstuff.c__JCR_LIST__deregister_tm_clonesregister_tm_clones__do_
-  global_dtors_auxcompleted.6617__do_global_dtors_aux_fini_array_entryframe_
-  dummy__frame_dummy_init_array_entrya.cpp__FRAME_END____JCR_END___GLOBAL_
-  OFFSET_TABLE___init_array_end__init_array_start_DYNAMICdata_startprintf@@
-  GLIBC_2.2.5__libc_csu_fini_start__gmon_start___Jv_RegisterClasses_fini__
-  libc_start_main@@GLIBC_2.2.5_ITM_deregisterTMCloneTable_IO_stdin_used_ITM_
-  registerTMCloneTable__data_start__TMC_END____dso_handle__libc_csu_init__
-  bss_start_end_edatamain_init
+  dynsym.dynstr.gnu.version.gnu.version_r.rela.dyn.rela.plt.init.text.fini.rodata.
+  eh_frame_hdr.eh_frame.init_array.fini_array.jcr.dynamic.got.got.plt.data.bss.com
+  ment#@ 1<@<$D���o`@`N �@�▒V�@�o^���o▒@▒▒k���o0@0zp@p▒��@��
+  ▒�H@H▒�p@p���@���@��@�@<� @      �▒ `▒ �( `( �0 `0 �8 `8 �8 `8 �@ `@ �� `� �
+  `� ▒@�0� 8� `�▒ PU@@<@`@�@�@▒0@ p@ �@ H@ �@@@@@  @▒ `( `0 `8 `8 `@ `▒� `�
+  `▒�����0 `m(� @�▒ ����� @�0 `��@ `▒( `)▒ `<8 `E ▒� F@g v �@�����@ /t@� �▒�
+  `�▒� `�� `�▒� @e�� `� `�C▒��� �@"O `J
+  H@init.ccrtstuff.c__JCR_LIST__deregister_tm_clonesregister_tm_clones__do_global
+  _dtors_auxcompleted.6617__do_global_dtors_aux_fini_array_entryframe_dummy__
+  frame_dummy_init_array_entrya.cpp_GLOBAL__sub_I_main_ZStL8__ioinit__FRAME_END
+  ____JCR_END___GLOBAL_OFFSET_TABLE___init_array_end__init_array_start_DYNAMICdata_
+  start__libc_csu_fini_start__gmon_start___Jv_RegisterClasses_fini_ZNSt8ios_
+  base4InitC1Ev@@GLIBCXX_3.4__libc_start_main@@GLIBC_2.2.5__cxa_atexit@@GLIBC_
+  2.2.5_ZNSt8ios_base4InitD1Ev@@GLIBCXX_3.4_ITM_deregisterTMCloneTable_
+  ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@@GLIBCXX_3.4_IO_stdin_
+  used_ITM_registerTMCloneTable__data_start__TMC_END___ZSt4cout@@GLIBCXX_3.4__
+  dso_handle__libc_csu_init__bss_start_end_ZSt4endlIcSt11char_traitsIcEERSt13
+  basic_ostreamIT_T0_ES6_@@GLIBCXX_3.4_edatamain_init
 
 Nekaj podobnega dobite, če odprete katerikoli ``.exe`` file v beležnici.
 
