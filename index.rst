@@ -9,17 +9,17 @@ Programerski krožek na Gimnaziji Vič
 Vsebina:
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 2
 
   python
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 2
 
   python-vaje
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 2
 
   c++
 
