@@ -28,6 +28,11 @@ lahko seveda kliče druge funkcije. Funkcija mora vrniti število, ki pomeni "ex
 status" programa in mora biti 0, če je program zaključil uspešno. Vsi naši
 programi bodo imeli na koncu return 0.
 
+Vsak stavek se mora končati s podpičjem. Presledki v kodi niso obvezni, tako kot
+v Pythonu, zamikanje je samo zaradi berljivosti. Toda koda kot na primer ``int
+main(){std::cout<<"Hello world!"<<std::endl;return 0;}`` je sicer veljavna, a
+se je izogibajte kot določenih profesorjev.
+
 C vs. C++ vs. C++11
 -------------------
 C++ je nadgradnja C-ja, zaradi tega podpira veliko večino C stvari, hkrati pa
@@ -53,7 +58,7 @@ Spremenljivke
 
 Spremeljivke so prostori v spominu, ki hranijo določeno vrednost in jih lahko
 tekom programa spreminjamo. Vsako spremenljivko moramo deklarirati z njenim
-tipom, nato pa ji lahko pripišemo vrednost.
+tipom, nato pa ji lahko pripišemo vrednost. 
 
 .. code-block:: cpp
 
@@ -83,6 +88,7 @@ beremo v stdio. Pri nizih to prebere vse do prvega whitespace-a. Če želimo
 prebrati celo vrstico uporabimo funkcijo ``getline``.
 
 .. code-block:: cpp
+
   #include <iostream>
 
   using namespace std;
@@ -106,8 +112,100 @@ prebrati celo vrstico uporabimo funkcijo ``getline``.
 
 If stavki
 ---------
+If stavki v C++-u so strukture, ki izvedejo blok kode, samo če je izpolnjen
+določen pogoj. *Blok* kode je definiran kot en stavek ali več stavkov znotraj
+``{`` in ``}``. Običajna sintaksa ``if`` stavkov:
 
+.. code-block:: cpp
 
+  if (pogoj) {
+      koda ...
+  } else if (pogoj) {
+      koda ...
+  } else {
+      koda ...
+  }
+
+Pogoji so sestavljeni (ponavadi) iz logičnih (``&&``, ``||``, ``!``) in
+primerjalnih operatorjev (``==``, ``<``, ``>=``, ...).
+
+Primer:
+
+.. code-block:: cpp
+
+  // program preveri ali je a sodo število
+  if (a % 2 == 0) {
+      cout << "sodo" << endl;
+  } else {
+      cout << "liho" << endl;
+  }
+
+.. warning::
+
+  Če je v ``if`` stavku en sam stavek, potem lahko oklepaje izpustimo, saj je
+  stavek že sam od sebe blok. Zgornjo kodo lahko napišemo tudi tako:
+
+  .. code-block:: cpp
+    
+    if (a % 2 == 0)
+        cout << "sodo" << endl;
+    else 
+        cout << "liho" << endl;
+  
+  To lahko vodi v buge, ko dodamo še en stavek, 
+
+  .. code-block:: cpp
+    
+    if (a % 2 == 0)
+        cout << "sodo" << endl;
+    else 
+        cout << "liho" << endl;
+        cout << "vedno" << endl;
+ 
+  Stavek ``vedno`` se izvede vedno, čeprav indentacija namiguje dugače, kajti
+  ``else`` "zagrabi" le en naslednji stavek. 
+  
+.. danger::
+
+  V C++ je veljavno imeti v ``if`` stavku operator ``=``, ki **nastavi**
+  spremenljivke. Torej, človek se zmoti in namesto ``==`` napiše ``=``, kar
+  je lahko katastrofalno. Primer:
+
+  .. code-block:: cpp
+   
+    if (password_valid = true) {
+        // omogoči dostop do bančnih računov in slečenih slik
+    } else {
+        cout << "Invalid password" << endl;
+    }
+
+    Zgornja koda je enaka, ko če bi kar direktno omogočili ves dostop,
+    ``password_valid`` se namreč **nastavi** na ``true``, kar tudi vrne 
+    vrednost ``true`` in je pogoj v ``if`` stavku vedno pravilen.
+
+Obstaja tudi stavek ``switch``, ki se ga ponavadi uporablja kot lepši ``if``,
+``else if``. Primer uporabe:
+
+.. code-block:: cpp
+  
+  switch (vrednost) {
+      case 1:
+          // koda
+          break;
+      case 2:
+          //koda
+          break;
+      case 13:
+          //koda
+          break;
+      default:
+          //koda
+          break;
+  }
+
+Vrednosti pri ``case``-ih morajo biti konstantne in stavek glede na vrednost
+spremenljivke ``vrednost`` izvede primerno kodo, če dane vrednosti ni naštete,
+potem izvede kodo pod ``default``.
 
 Zanke
 -----
