@@ -29,8 +29,8 @@ status" programa in mora biti 0, če je program zaključil uspešno. Vsi naši
 programi bodo imeli na koncu return 0.
 
 Vsak stavek se mora končati s podpičjem. Presledki v kodi niso obvezni, tako kot
-v Pythonu, zamikanje je samo zaradi berljivosti. Toda koda kot na primer ``int
-main(){std::cout<<"Hello world!"<<std::endl;return 0;}`` je sicer veljavna, a
+v Pythonu, zamikanje je samo zaradi berljivosti. Toda je koda kot na primer ``int
+main(){std::cout<<"Hello world!"<<std::endl;return 0;}`` sicer veljavna, a
 se je izogibajte kot določenih profesorjev.
 
 C vs. C++ vs. C++11
@@ -56,9 +56,9 @@ C++-ovske, pogosto celo C++11.
 Spremenljivke
 -------------
 
-Spremeljivke so prostori v spominu, ki hranijo določeno vrednost in jih lahko
+Spremenljivke so prostori v spominu, ki hranijo določeno vrednost in jih lahko
 tekom programa spreminjamo. Vsako spremenljivko moramo deklarirati z njenim
-tipom, nato pa ji lahko pripišemo vrednost. 
+tipom, nato pa ji lahko pripišemo vrednost.
 
 .. code-block:: cpp
 
@@ -146,25 +146,25 @@ Primer:
   stavek že sam od sebe blok. Zgornjo kodo lahko napišemo tudi tako:
 
   .. code-block:: cpp
-    
+
     if (a % 2 == 0)
         cout << "sodo" << endl;
-    else 
+    else
         cout << "liho" << endl;
-  
-  To lahko vodi v buge, ko dodamo še en stavek, 
+
+  To lahko vodi v buge, ko dodamo še en stavek,
 
   .. code-block:: cpp
-    
+
     if (a % 2 == 0)
         cout << "sodo" << endl;
-    else 
+    else
         cout << "liho" << endl;
         cout << "vedno" << endl;
- 
+
   Stavek ``vedno`` se izvede vedno, čeprav indentacija namiguje dugače, kajti
-  ``else`` "zagrabi" le en naslednji stavek. 
-  
+  ``else`` "zagrabi" le en naslednji stavek.
+
 .. danger::
 
   V C++ je veljavno imeti v ``if`` stavku operator ``=``, ki **nastavi**
@@ -172,7 +172,7 @@ Primer:
   je lahko katastrofalno. Primer:
 
   .. code-block:: cpp
-   
+
     if (password_valid = true) {
         // omogoči dostop do bančnih računov in slečenih slik
     } else {
@@ -180,14 +180,14 @@ Primer:
     }
 
   Zgornja koda je enaka, ko če bi kar direktno omogočili ves dostop,
-  ``password_valid`` se namreč **nastavi** na ``true``, kar tudi vrne 
+  ``password_valid`` se namreč **nastavi** na ``true``, kar tudi vrne
   vrednost ``true`` in je pogoj v ``if`` stavku vedno pravilen.
 
 Obstaja tudi stavek ``switch``, ki se ga ponavadi uporablja kot lepši ``if``,
 ``else if``. Primer uporabe:
 
 .. code-block:: cpp
-  
+
   switch (vrednost) {
       case 1:
           // koda
@@ -209,6 +209,78 @@ potem izvede kodo pod ``default``.
 
 Zanke
 -----
+
+For zanka
+~~~~~~~~~
+
+For zanke se uporabljajo za ponavljanje določenega, ponavadi oštevilčenega
+opravila do nekega števila ponovitev. Sintaksa:
+
+.. code-block:: cpp
+
+  for (inicializacija; pogoj; korak) {
+      // koda
+  }
+
+Primer:
+
+.. code-block:: cpp
+
+  for (int i = 0; i < 100; ++i) {
+      cout << i << endl;
+  }
+
+V C++ obstaja tudi "range for" zanka, ki je podobna Pythonovi ``for`` zanki,
+ali pa ``foreach`` zankam v drugih jezikih, ampak si jo bomo pogledali v
+poglavju :ref:`range-for`.
+
+While zanka
+~~~~~~~~~~~
+
+While zanka se izvaja, dokler je pogoj izpolnjen. Kot pri ``for`` zanki se
+zanka lahko ne izvede nikoli, če je pogoj že na začetku neresničen. Sintaksa:
+
+.. code-block:: cpp
+
+  while (pogoj) {
+      // koda
+  }
+
+Obstaja tudi ``do-while`` zanka, ki je pravzaprav obrnjena ``while`` zanka,
+pogoj se preverja na koncu. To pomeni, da se vsa koda v telesu zanke izvede
+vsaj enkrat. Sintaksa:
+
+.. code-block:: cpp
+
+  do {
+      // koda
+  } while (pogoj);
+
+Primer programa, ki od uporabnika bere število :math:`s` in izpiše vse popolne kvadrate manjše od :math:`s`, lihe na
+desno, sode na levo. Števila bere dokler so različna od 0.
+
+.. code-block:: cpp
+
+  #include <iostream>
+  using namespace std;
+
+  int main() {
+      int s;
+      cin >> s;
+
+      while (s != 0) {
+          for (int i = 1; i*i < s; ++i) {
+              if (i % 2 == 1) {
+                  cout << "      " << i*i << endl;
+              } else {
+                  cout << i*i << endl;
+              }
+          }
+          cout << endl;
+          cin >> s;
+      }
+      return 0;
+  }
 
 
 .. vim: spell spelllang=sl

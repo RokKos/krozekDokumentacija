@@ -30,7 +30,7 @@
   
     <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="C++" href="../../c++.html"/>
-        <link rel="next" title="tutorialsPythonBasic" href="../../autodoc/modules.html"/>
+        <link rel="next" title="Podatkovni tipi" href="podatkovni_tipi.html"/>
         <link rel="prev" title="Uvod" href="uvod.html"/> 
 
   
@@ -77,6 +77,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../c++.html">C++</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="uvod.html">Uvod</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="">Osnove</a></li>
+<li class="toctree-l2"><a class="reference internal" href="podatkovni_tipi.html">Podatkovni tipi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funckije_in_objekti.html">Funckije in objekti</a></li>
 </ul>
 </li>
 </ul>
@@ -146,8 +148,8 @@ lahko seveda kliče druge funkcije. Funkcija mora vrniti število, ki pomeni &#8
 status&#8221; programa in mora biti 0, če je program zaključil uspešno. Vsi naši
 programi bodo imeli na koncu return 0.</p>
 <p>Vsak stavek se mora končati s podpičjem. Presledki v kodi niso obvezni, tako kot
-v Pythonu, zamikanje je samo zaradi berljivosti. Toda koda kot na primer <tt class="docutils literal"><span class="pre">int</span>
-<span class="pre">main(){std::cout&lt;&lt;&quot;Hello</span> <span class="pre">world!&quot;&lt;&lt;std::endl;return</span> <span class="pre">0;}</span></tt> je sicer veljavna, a
+v Pythonu, zamikanje je samo zaradi berljivosti. Toda je koda kot na primer <tt class="docutils literal"><span class="pre">int</span>
+<span class="pre">main(){std::cout&lt;&lt;&quot;Hello</span> <span class="pre">world!&quot;&lt;&lt;std::endl;return</span> <span class="pre">0;}</span></tt> sicer veljavna, a
 se je izogibajte kot določenih profesorjev.</p>
 </div>
 <div class="section" id="c-vs-c-vs-c-11">
@@ -170,7 +172,7 @@ C++-ovske, pogosto celo C++11.</p>
 </div>
 <div class="section" id="spremenljivke">
 <h2>Spremenljivke<a class="headerlink" href="#spremenljivke" title="Permalink to this headline">¶</a></h2>
-<p>Spremeljivke so prostori v spominu, ki hranijo določeno vrednost in jih lahko
+<p>Spremenljivke so prostori v spominu, ki hranijo določeno vrednost in jih lahko
 tekom programa spreminjamo. Vsako spremenljivko moramo deklarirati z njenim
 tipom, nato pa ji lahko pripišemo vrednost.</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
@@ -306,6 +308,67 @@ potem izvede kodo pod <tt class="docutils literal"><span class="pre">default</sp
 </div>
 <div class="section" id="zanke">
 <h2>Zanke<a class="headerlink" href="#zanke" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="for-zanka">
+<h3>For zanka<a class="headerlink" href="#for-zanka" title="Permalink to this headline">¶</a></h3>
+<p>For zanke se uporabljajo za ponavljanje določenega, ponavadi oštevilčenega
+opravila do nekega števila ponovitev. Sintaksa:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">inicializacija</span><span class="p">;</span> <span class="n">pogoj</span><span class="p">;</span> <span class="n">korak</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// koda</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Primer:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>V C++ obstaja tudi &#8220;range for&#8221; zanka, ki je podobna Pythonovi <tt class="docutils literal"><span class="pre">for</span></tt> zanki,
+ali pa <tt class="docutils literal"><span class="pre">foreach</span></tt> zankam v drugih jezikih, ampak si jo bomo pogledali v
+poglavju <a class="reference internal" href="podatkovni_tipi.html#range-for"><em>Range for zanka</em></a>.</p>
+</div>
+<div class="section" id="while-zanka">
+<h3>While zanka<a class="headerlink" href="#while-zanka" title="Permalink to this headline">¶</a></h3>
+<p>While zanka se izvaja, dokler je pogoj izpolnjen. Kot pri <tt class="docutils literal"><span class="pre">for</span></tt> zanki se
+zanka lahko ne izvede nikoli, če je pogoj že na začetku neresničen. Sintaksa:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">while</span> <span class="p">(</span><span class="n">pogoj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// koda</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Obstaja tudi <tt class="docutils literal"><span class="pre">do-while</span></tt> zanka, ki je pravzaprav obrnjena <tt class="docutils literal"><span class="pre">while</span></tt> zanka,
+pogoj se preverja na koncu. To pomeni, da se vsa koda v telesu zanke izvede
+vsaj enkrat. Sintaksa:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">do</span> <span class="p">{</span>
+    <span class="c1">// koda</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">pogoj</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Primer programa, ki od uporabnika bere število <span class="math">\(s\)</span> in izpiše vse popolne kvadrate manjše od <span class="math">\(s\)</span>, lihe na
+desno, sode na levo. Števila bere dokler so različna od 0.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="cp">#include &lt;iostream&gt;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">s</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;      &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -315,7 +378,7 @@ potem izvede kodo pod <tt class="docutils literal"><span class="pre">default</sp
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../autodoc/modules.html" class="btn btn-neutral float-right" title="tutorialsPythonBasic"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="podatkovni_tipi.html" class="btn btn-neutral float-right" title="Podatkovni tipi"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="uvod.html" class="btn btn-neutral" title="Uvod"><span class="fa fa-arrow-circle-left"></span> Previous</a>
