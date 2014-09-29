@@ -12,7 +12,7 @@ Uvod
 
 Tipe delimo na primitivne in neprimitivne. Neprimitivni so tipi, ki so
 definirani kot razredi, vendar ta razlika nima posebnega vpliva. Primitivni so
-vsi številski in logični tipi. 
+vsi številski in logični tipi.
 
 Števila
 ------------
@@ -39,12 +39,12 @@ Omejitve
 ime          velikost [#f1]_  približen razpon
 ============ =============== ============================
 char         8 bit           :math:`\pm 127`
-short        16 bit          :math:`\pm 32\,767` 
-int          32 bit          :math:`\pm 2.14 \cdot 10^9` 
-long         native          
+short        16 bit          :math:`\pm 32\,767`
+int          32 bit          :math:`\pm 2.14 \cdot 10^9`
+long         native
 long long    64 bit          :math:`\pm 9.22 \cdot 10^{19}`
-float        32 bit          :math:`\pm 3.4 \cdot 10^{\pm 38}`, 7 decimalk  
-double       64 bit          :math:`\pm 3.4 \cdot 10^{\pm 308}`, 15 decimalk 
+float        32 bit          :math:`\pm 3.4 \cdot 10^{\pm 38}`, 7 decimalk
+double       64 bit          :math:`\pm 3.4 \cdot 10^{\pm 308}`, 15 decimalk
 long double  80 bit          :math:`\pm 1.1 \cdot 10^{\pm 4932}`, 18 decimalk
 ============ =============== ============================
 
@@ -64,7 +64,7 @@ problematično. Ali kot je dejal nekoč moj kolega "Kdor uporablja floate je pa
 res čevl." Pred celoštevilske tipe lahko vtaknemo tudi ``unsigned``, ki razpon
 števila premakne na pozitivno os. Če število povečamo čez razsežnost tipa, se
 ne zgodi na videz nič, številka se samo navije okrog spodnje meje. Torej, če
-rečemo ``char a = 130;`` bo ``a`` v resnici enak ``-126``. 
+rečemo ``char a = 130;`` bo ``a`` v resnici enak ``-126``.
 
 Decimalna števila zaokrožujejo in zaradi tega se pojavljajo napake. Obstaja
 zelo močna veja matematike, ki se ukvarja s preučevanjem in odpravljanjem teh
@@ -101,7 +101,7 @@ Logični vrednosti sta ``true`` in ``false``. Z logičnimi vrednostmi lahko
 računamo kot vedno, z operatorji ``&&``, ``||`` in ``!``. Kot številski
 vrednosti predstavljata 0 in 1. Logične spremenljivke imajo tip ``bool``.
 Vrsti red operatorjev je enak kot v matematiki, a je priporočljivo uporabljati
-oklepaje. Primer: 
+oklepaje. Primer:
 
 .. code-block:: cpp
 
@@ -111,6 +111,173 @@ oklepaje. Primer:
 
 Seznami
 -------
+
+V C++u imamo tri vrste sezamov, ki so podobni Pythonovim, eni so stari C
+seznami, in dvoji novi C++ seznami. Starih C seznamov ne bomo uporabljali, ker
+imajo novejši C++ seznami boljšo funkcionalnost in primerljivo hitrost.
+C++ seznami se delijo na sezname fiksne dolžine in sezname spremenljive
+dolžine. Seznamu fiksne dolžine moramo že na začetku povedati, kako dolg je, in
+to je nespremenljivo, zaradi česar so tudi hitrejši. Seznami spremenljive
+dolžine zelo podobni Pythonovim in mi jih bomo uporabljali vedno, ko bomo
+potrebovali seznam, saj so zanemarljivo počasnejši od fiksnih. Seznami fiksne
+dolžine so definirani v knjižnici ``array``, spremenljive dolžine pa v knjižnici
+``vector``. Za delo s seznami je treba to knjižnico seveda ``#include``-ati.
+
+Vektor (rekli mu bomo tudi kar array, seznam, tabela) definiramo s
+``vector<tip> ime;``, kjer je ``tip`` tip elementov, ki so v vektorju.
+Vektorja ne mešati z matematičnim 3D vektorjem, ta vektor si predstavljajte kot
+seznam, ki nima veze s puščicami iz matematike.
+Vsi elementi v seznamu morajo biti istega tipa. Sedaj smo definirali prazen
+seznam ``ime``. Vektor lahko naredimo še na veliko drugih načinov:
+
+.. code-block:: cpp
+
+  #include <vector>
+
+  using namespace std;
+
+  int main() {
+      vector<int> a;                          // prazen
+      vector<int> b({1, 2, 3, 8, -12, 44});   // naštejemo elemente
+      vector<int> c(10, 4);                   // 10 štiric
+      vector<int> d(b.begin()+2, b.end()-1);  // [3, 8, -12]
+      return 0;
+  }
+
+Dostopanje in spreminjanje elementov
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Vektor podpira operator ``[]``, s katerim dostopamo in spreminjamo element na
+določenem indeksu:
+
+.. code-block:: cpp
+
+  vector<int> b({12, 4, 7, -12, 44});
+  b[1] = 3;
+  cout << b[2] << ' ' << b[1] << endl;
+  // izpiše 7 3
+
+.. warning::
+
+  Če v C++-u dostopamo do elementa čez dolžino seznama, se dogajajo čudne reči.
+  Lahko se ne zagodi nič in preberemo neko vrednost, ki bo neka solata, ki je
+  na naslednjem mestu v ramu, lahko pa se naš program sesuje na zanimive
+  načine, npr. s sporočilom ``segmentation fault``. Ta sporočila niso tako
+  prijazna in lepa kot v Pythonu, a so posledica tega, da vektor ne preverja,
+  sli dostopate izven njega in poskuša to pač naresti, če posegate v spomin, ki
+  ni njegov, pa sistem ubije vaš program, zato recimo ne dobite podatka o tem,
+  koliko ste šli čez in v kateri vrstici kode.
+
+Iteratorji
+~~~~~~~~~~
+
+Iterator je objekt, ki vsebuje podatek o svoji poziciji v neki zbirki. Na nek
+način je podoben indeksu. Iteratorji so mnogo bolj uporabni kot vrednosti v
+zbirki same. Poglejmo si to na primeru indeksov. V seznamu najdemo vrednost 5.
+Kaj na ta vrednost pove? Nič prav dosti, ali vemo katera je naslednja, katera
+je prejšnja, ali smo na začetku? Če pa poznamo *indeks* vrednosti, recimo
+vrednost 5 je na mestu 2, potem na vprašanja lažje odgovorimo. Iteratorji so
+torej neke vrste objekti, ki hranijo pozicijo v zbirki in lahko dostopajo do
+vrednosti na tem mestu, grejo na naslednje mesto, preverjo ali smo na koncu ...
+Poleg tega so po tipu različni od števil, kar omogoča manj napak, saj nas
+compiler na morebitno neujemanje tipov vedno opozori.
+
+Pomembne operacije ki jih lahko počnemo z iteratorji (ne vsemi, nekateri ne
+podpirajo vsega tega) so: dobivanje vrednosti, povečevanje in zmanjševanje,
+povečevanje in zmanjševanje za dano število, računanje razlike med dvema
+iteratorjema (razdalje). Seveda jih lahko tudi primerjamo. Pridobivanju
+vrednosti iz iteratorja se reče *dereferenciranje*.
+
+.. code-block:: cpp
+
+  vector<int> a({12, 4, 5, -2, 11});      // tip iteratorja po zbirki je 'zbirka::iterator'
+  vector<int>::iterator it = a.begin();   // .begin() vrne iterator, ki kaže na začetek zbirke
+  cout << *it << endl;                    // vrednost dobimo z operatorjem *
+  ++it;                                   // povečamo za 1
+  cout << *it << endl;
+  it += 3;                                // povečamo za 3
+  if (it + 1 == a.end()) {                // se izpiše
+      cout << "konec!" << endl;           // .end() vrne iteartor, ki kaže čez konec vektorja
+  }
+  cout << a.end() - a.begin() << endl;    // to je zato da a.end() - a.begin() vrne dolžino
+
+
+Iteratorjev ali seznamov samih se ne da izpisati, seznam lahko izpišete s for
+zanko, iterator pa lahko izpišete kot številski indeks tako, da izpišete ``it -
+a.begin()``.
+Napaka, ki jo compiler javi pri tem je podobna temu:
+
+::
+
+  a.cpp:8:10: error: invalid operands to binary expression
+          ('ostream' (aka 'basic_ostream<char>') and 'vector<int>')
+      cout << a << endl;
+      ~~~~ ^  ~
+  /usr/bin/../lib64/gcc/x86_64-unknown-linux-gnu/4.9.1/../../../../include/c++/4.9.1/ostream:245:7:
+  note: candidate function not viable: no known conversion from
+          'vector<int>' to 'int' for 1st argument
+      operator<<(int __p)
+      ^
+
+To se je potrebno malo naučiti brati. Prvi vrstici povesta napako: v ``ostream``
+(= output stream = cout) ste poskusili zatlačiti vector<int>, kar se ne da.
+Ostalih 80 ``info`` napak vam pove kaj pa se v ``ostream`` da zatlačiti, npr.
+``int``.
+
+Spreminjanje vektorja
+~~~~~~~~~~~~~~~~~~~~~
+
+Tu so funckije s katerimi lahko spreminjamo vektor. Pred vsako funkcijo piše
+tip, ki ga vrača, pišejo pa tudi tipi parametrov. Funkcije so poenostavljene za
+lažje razumevanje. ``T`` pomeni katerikoli tip se pač odločimo, da bo naš
+vektor vseboval. ``void`` pomeni, da funkcija ne vrača ničesar.
+
+.. cpp:class:: vector<T>
+
+  .. cpp:function:: iterator begin()
+
+    Vrne iterator, ki kaže na prvi element vektorja.
+
+  .. cpp:function:: iterator end()
+
+    Vrne iterator, ki kaže čez zadnji element vektorja.
+
+  .. cpp:function:: int size()
+
+    Vrne velikost (dolžino) vektorja.
+
+  .. cpp:function:: iterator insert(iterator pos, T vrednost)
+
+    Vstavi element na mesto pred iterator ``pos`` in vrne iterator na
+    novo vstavljeni element. Vsi elementi za tem se premaknejo za eno mesto
+    nazaj, tako da ta operacija lahko traja dolgo.
+
+  .. cpp:function:: iterator erase(iterator pos)
+
+    Izbriše element, na katerega kaže ``pos``. Vektor je za en element krajši,
+    vsi elementi za izbrisanim se premaknejo eno mesto naprej, tako da ta
+    operacija lahko traja dolgo.
+
+  .. cpp:function:: void push_back(T vrednost)
+
+    Doda ``vrednost`` na konec vektorja.
+
+  .. cpp:function:: void pop_back()
+
+    Zbriše zadnji element iz vektorja.
+
+Primer:
+
+.. code-block:: cpp
+
+  vector<int> a({1, 2, 3});                                 // [1, 2, 3]
+  a.push_back(4);                                           // [1, 2, 3, 4]
+  a.push_back(5);                                           // [1, 2, 3, 4, 5]
+  a.pop_back();                                             // [1, 2, 3, 4]
+  vector<int>::iterator it = a.insert(a.begin() + 1, 100);  // [1, 100, 2, 3, 4]
+  a.erase(it + 2);                                          // [1, 100, 2, 4]
+  cout << a.size() << endl;                                 // izpiše 4
+
 
 Nizi znakov
 -----------
@@ -140,7 +307,7 @@ pa morda naša zbirka sploh ne podpira dostopa po indeksih, namesto:
 .. code-block:: cpp
 
   for (vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
-      // pocni nekaj z *it
+      // počni nekaj z *it
   }
 
 napišemo:
@@ -148,7 +315,7 @@ napišemo:
 .. code-block:: cpp
 
   for (int x : v) {
-      // pocni nekaj z x
+      // počni nekaj z x
   }
 
 Paziti je potrebno, da se v tem primeru ustvari kopija ``x``, in da če ``x``
@@ -156,9 +323,9 @@ spremenimo, to nima vpliva na ``v``. A je tudi to rešljivo. Zgornja verzija v
 nobenem primeru ni optimalna, če vrednosti ne želimo spreminjati, napišemo
 
 .. code-block:: cpp
-  
+
   for (const int& x : v) {
-      // pocni nekaj z x
+      // počni nekaj z x
   }
 
 kar prepreči kopiranje ``x``, saj je ``x`` dejanski objekt iz ``v``. Če
