@@ -6,7 +6,8 @@
 Python
 ======
 
-Vsebina:
+Bolj natančna in popolna ter verjetno tudi pravilnejša dokumentacija je na
+voljo `tukaj <http://docs.python.org/3.4/>`_.
 
 .. toctree::
   :maxdepth: 3
@@ -15,3 +16,4 @@ Vsebina:
   skripta/python/podatkovni_tipi
   skripta/python/funkcije_in_classi
 
+.. vim: spell spelllang=sl
