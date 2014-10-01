@@ -60,14 +60,14 @@ Uporabili smo funkcije ``input``, ``int``, ``print``, ``format``.
 
 .. py:function:: input(niz_znakov)
 
-  Izpiše niz znakov in vrne to, kar je uporabnik vtipkal.
+  Izpiše ``niz znakov`` in vrne niz znakov, ki ga je vtipkal uporabnik.
 
-.. py:function:: print(niz_znakov)
+.. py:function:: print(objekt)
 
-  Izpiše niz znakov niz_znakov.
+  Izpiše niz objekt ``objekt``. Objekt je lahko število, niz znakov, ...
 
-.. py:class:: str 
-  
+.. py:class:: str
+
   .. py:method:: format(niz, p1, p2, p3, ...)
 
     Na mesto ki je v ``niz``-u označeno z {0} vstavi ``p1``, na {1} vstavi ``p2``, ...

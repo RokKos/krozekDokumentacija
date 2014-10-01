@@ -1,10 +1,10 @@
-Funckije in objekti
+Funckije in razredi
 ===================
 
-Funckije in objekti so zelo uporabljene strukture v programiranju. Zaradi
-splošnosti in lepih načinov za dodajanje novih funkcionalnosti in zato, ker naredijo
-kodo mnogo bolj berljivo in uporabno so eden najpomembnejših konceptov, ki se
-je zelo razvit in zelo pomemben v resnem programiranju.
+Funkcije in razredi so zelo uporabljene strukture v programiranju. Zaradi
+splošnosti in lepih načinov za dodajanje novih funkcionalnosti in zato, ker
+naredijo kodo mnogo bolj berljivo in uporabno so eden najpomembnejših konceptov,
+ki se je zelo razvit in zelo pomemben v resnem programiranju.
 
 Funkcije
 --------
@@ -216,7 +216,7 @@ kot se od funkcij tudi pričakuje.
 Za zelo podrobno razlago scopinga v Pythonu kliknite
 `tukaj <http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/tutorials/scope_resolution_legb_rule.ipynb>`_.
 
-Objekti
+Razredi
 -------
 
 Kdaj se zgodi, da bi radi v programu imeli na primer seznam avtomobilov. Kako
