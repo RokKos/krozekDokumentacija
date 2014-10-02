@@ -131,7 +131,7 @@ Vsebina datoteke ``besedilo.txt`` je seveda::
 .. hint::
 
   Če se želimo znebiti nadležnih ``\n`` na koncu prebrane vrstice, uporabimo
-  metodo ``strip`` na stringih
+  metodo ``strip`` na stringih.
 
   .. py:class:: str
 
