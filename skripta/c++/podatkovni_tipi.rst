@@ -282,24 +282,209 @@ Primer:
 Nizi znakov
 -----------
 
-Asociativni seznami
--------------------
+V C-ju so nizi natanko seznami znakov. To je zelo bedno, zato bomo uporabljali
+C++ stringe. Ti so definirani v headerju ``string``, tako da je treba za delo s
+stringi napisati ``#include <string>``.
+
+Stringi se obnašajo v C++-u kot seznami znakov, to pomeni da jih lahko
+spreminjamo, brišemo in dodajamo znake, hkrati pa imajo veliko metod, namenjene
+delu z njimi. Dobesedni stringi (to so dejanske besede v narekovajih (npr.
+``"beseda"``) v kodi) se
+interpretirajo kot stari C stringi, a se implicitno pretvorijo v C++ stringe.
+
+.. warning::
+
+  C++ pozna močno razliko med enojnimi in dvojnimi narekovaji: `""` označujejo
+  ``string``, med tem ko `''` označujejo ``char`` (ki se lahko implicitno pretvori tudi v
+  string). Napisati npr. ``'asdf'`` bo compile error, seveda pa je popolnoma
+  veljavno napisati ``'\n'``, ki je v resnici število znaka za novo vrstico v
+  ASCII tabeli.
+
+Stringi so lahko sestavljeni samo iz ASCII znakov, posebne znake kot vedno
+vnašamo z ``\``, npr. ``\n`` ali ``\\``.
+
+Stringe se lahko izpiše s coutom in
+preber s cin-om. Cin prebere vse do prvega whitespacea. Če želimo prebrati celo
+vrstico, uporabimo funkcijo getline.
+
+.. cpp:function:: istream& geline(istream& is, string& str)
+
+  Iz input streama ``istream`` (recimo cin) prebere eno vrstico in jo shrani v niz ``str``.
+
+.. cpp:class:: string
+
+  .. cpp:function:: int length()
+
+    Vrne dolžino niza.
+
+  .. cpp:function:: insert(int pos, string niz)
+
+    Vstavi ``niz`` pred pozicijo ``pos``.
+
+  .. cpp:function:: int find(string niz)
+
+    Vrne indeks, kjer se začne ``podniz`` oz ``str::npos``, če ``podniz`` ne
+    obstaja.
+
+  .. cpp:function:: string substr(int pos1 = 0, int pos2 = string::npos)
+
+    Vrne podniz od ``pos1`` do ``pos2``.
+
+String ima res veliko metod, popolno dokumentacijo najdete `tukaj
+<http://www.cplusplus.com/reference/string/string/>`_.
+
+Primer:
+
+.. code-block:: cpp
+
+  string a = "Danes je lep dan in Janezu se kot vedno ne da v sluzbo".
+  cout << a << endl;
+  int indeks = a.find("da");
+  if (indeks != string::npos) {
+      string konec = a.substr(indeks);
+      cout << kones.length() << endl;
+  }
 
 Množice
 -------
 
+Množice so podobne matematičnim množicam, elementi so različni in unikatni.
+Posebnost v C++-u je, da so elementi tudi vedno sortirani. Množice ne podpirajo
+dostopa pri danem indeksu, podpirajo pa hitro preverjanje ali je nek element v
+množic ter hitro dodajanje in brisanje glede na vrednost. Množice so tako kot
+seznami iterabilne (seveda z iteratorji, saj ne moremo narediti ``set[x]``)
+
+Množice so definirane v headerju ``set``, tako da je treba za delo z množicami
+na začetek datoteke dodati ``#include <set>``. Kot pri vektorju je tip množice
+``set<T>``, kjer je ``T`` izbrani tip, ki definira operator ``<``.
+
+.. cpp:class:: set<T>
+
+  .. cpp:function:: int size()
+
+    Vrne velikost množice.
+
+  .. cpp:function:: iterator insert(T vrednost)
+
+    Vstavi vrednost ``vrednost`` v množico, če ta še ne obstaja. Vrne iterator
+    na vstavljeno vrednost.
+
+  .. cpp:function:: int erase(T vrednost)
+
+    Odstrani vrednost ``vrednost`` iz množice. Če vrednost ne obstaja v
+    množici, se ne zgodi nič. Vrne število izbrisanih vrednosti, torej 0 ali 1.
+
+  .. cpp::function:: int find(T vrednost)
+
+    Vrne število elementov z vrednostjo ``vrednost`` v množici, torej 0 ali 1.
+
+Primer:
+
+.. code-block:: cpp
+
+  set<int> a({1, 2, 3, 3, 2, 1});            // {1, 2, 3}
+  cout << a.size() << endl;                  // 3
+  a.insert(5);                               // {1, 2, 3, 5}
+  a.erase(3);                                // {1, 2, 5}
+  if (a.find(1)) {                           // true
+      cout << "1 is in the set" << endl;     // se izpiše
+  }
+  cout << "Vsebina:" << endl;
+  for (set<int>::iterator it = a.begin(); it != a.end(); ++it) {
+      cout << *it << endl;                   // {1, 2, 5}
+  }
+
+Obstaja tudi ponavadi hitrejša in neurejena verzija množic z enakimi
+metodami, ki se imenuje ``unordered_set``.
+
+
+Asociativni seznami
+-------------------
+
+To je struktura podobna Pythonovim slovarjem (ubistvu še bolj ``deafultdict``),
+a je kot vse ostale podatkovne strukture homogena. Podatke, vrednosti, ki so
+enega tipa, imamo shranjene pol ključi, ki so nekega drugega tipa. Ta dva tipa
+bomo klicali ``K`` in ``V``.  Asociativni seznami (mapi), so definirani v
+headerju ``map`` in za njihovo uporabo moramo na začetek napisati ``#include
+<map>``. Ključi so enolični, vrednosti se pri novem ključu ustvarijo
+avtomatično. V resnici so vrednosti v mapu pari, kar pomeni, da lahko do
+ključev in vrednosti dostopamo kot do prvega in do drugega elementa para.
+
+Pari
+~~~~
+
+C++ definira pare, to so objekt, ki lahko držijo dva različna tipa.
+Definira se jih s kot ``pair<A, B> par;``, kjer sta ``A`` in ``B`` tipa
+elementov v paru. Do elementov dostopamo z atributoma ``.first`` in
+``.second``. Par lahko tudi naredimo s funkcijo ``make_pair``.
+
+.. code-block:: cpp
+
+  pair<int, string> par = make_pair(12, "asdfasdf");
+  cout << "(" << par.first << ", " << par.second << ")\n";
+
+Uporaba asociativnih seznamov
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Mapi podpirajo dodajanje in dostopanje do elementov z uporabo operatorja
+``[]``.
+
+.. cpp:class:: map<K, V>
+
+  .. cpp:function:: int size()
+
+    Vrne število elementov v mapu.
+
+  .. cpp:function:: int erase(K kljuc)
+
+    Zbriše element s ključem ``ključ``, če obstaja in vrne število izbrisanih
+    argumentov.
+
+  .. cpp:function:: int find(K kljuc)
+
+    Vrne število elementov s ključem ``kljuc``, torej 0 ali 1.
+
+Primer uporabe:
+
+.. code-block:: cpp
+
+  map<string, int> counter;
+  string znaki = "abeceda";
+  for (int i = 0; i < znaki.length(); ++i) {
+      counter[znaki[i]]++;    // pri danem znaku povečamo count
+  }
+  for (map<string, int>::iterator it = counter.begin(); it != counter.end(); ++it) {
+    cout << it->first << " => " << it->second  << endl;
+  }
+  // Izpis:
+  // a => 2
+  // b => 1
+  // c => 1
+  // d => 1
+  // e => 2
+
+Tukaj bi morali po vseh pravilih do sedaj napisati ``(*it).first`` (torej,
+najprej dobimo vrednost, in potem dobimo ``first`` te vrednosti, toda C++ to
+poenostavi in definira operator ``x->y``, ki pomeni natanko ``(*x).y``.
+
 Dodatek o vseh zbirkah
 ----------------------
 
+C++-ove podatkovne strukture pokrivajo veliko širše področje kot opisano tukaj,
+obstajajo še strukture ``deque``, ``queue``, ``priority_queue``, ``stack``,
+``bitset``, ``multiset``, ``multimap``, ``list``, ki imajo druge prednosti in
+namene uporabe. Ko izbirate svojo strukturo, pomislite na to kaj od nje
+potrebujete, kakšne operacije boste izvajali in kakšne elemente boste
+shranjevali.
 
 .. _range-for:
-
 
 Range for zanka
 ~~~~~~~~~~~~~~~
 
 Za vsako zbirko, ki definira ``.begin()`` in ``.end()`` iteratorja, ki
 podpirata ``++it``, ``*it`` in ``!=``, se lahko uporablja ``range for`` zanko.
+Vse zbirke opisane zgoraj, te metode definirajo.
 
 Torej lahko za vektor ``v``, če nas indeksi njegovih elementov ne zanimajo, ali
 pa morda naša zbirka sploh ne podpira dostopa po indeksih, namesto:
