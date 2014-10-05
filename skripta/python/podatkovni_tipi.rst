@@ -338,7 +338,7 @@ Torej bolj formalno: kot *ključ* v slovarju lahko uporabimo katerikoli
 Slovarje lahko naredimo na veliko načinov.
 
 .. py:function:: dict(objekt)
-  
+
   Pretvori ``objekt`` v slovar. Objekt je lahko na primer seznam dvojic, drug
   slovar...
 
@@ -427,7 +427,7 @@ matematičnih operacij, kot so unija ``|``, presek ``&``, "je podmnožica" ``<=`
 .. py:function:: set(objekt)
 
   Pretvori ``objekt`` v množico, če je to možno, sicer vrže izjemo. To pomeni,
-  da se lahko vrsti red elementov premeša, duplikati pa se lahko odstranijo. 
+  da se lahko vrsti red elementov premeša, duplikati pa se lahko odstranijo.
 
 Ostale uporabne metode za manipulacijo množic:
 
@@ -475,14 +475,14 @@ lahko uporabljamo za ključe v slovarjih ali za elemente množic.
 .. py:function:: tuple(objekt)
 
   Pretvori ``objekt`` v nabor. Vrstni red elementov se ohrani. Če pretvorba ni
-  mogoča, vrže izjemo. 
+  mogoča, vrže izjemo.
 
 Dodatek o vseh zbikah
 ---------------------
 
 Vse podatkovne strukture, ki lahko hranijo več elementov so si podobne, a se
 razlikujejo v pomembnih razlikah, ki jih naredijo uporabne za posamezne primere.
-Zelo pogosto jih lahko med sabo prestvarjamo, npr. ``list`` v ``tuple`` in
+Zelo pogosto jih lahko med sabo pretvarjamo, npr. ``list`` v ``tuple`` in
 podobno.
 
 Vendar imajo vse veliko skupnega -- pri vseh dolžino dobimo s klicem funkcije
@@ -490,6 +490,6 @@ Vendar imajo vse veliko skupnega -- pri vseh dolžino dobimo s klicem funkcije
 elementov z operatorjem ``in``. Na podlagi zgoraj opisanih lastnosti se
 odločite, katera najbolj ustreza vašemu problemu. Kasneje si bomo pogledali še
 bolj specifične strukture, kot na primer ``deque``, ``defaultdict`` ali
-``namedtuple``. 
+``namedtuple``.
 
 .. vim: spell spelllang=sl
