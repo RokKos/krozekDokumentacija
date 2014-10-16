@@ -8,8 +8,8 @@ Programerski krožek na Gimnaziji Vič
 
 Krožek vodita Natan Žabkar <`natan.zabkar@gmail.com
 <mailto:natan.zabkar@gmail.com>`_> in Jure Slak <`jure.slak@gmail.com
-<jure.slak@gmail.com>`_>. Krožek poteka od oktobra do junija ob [dan, ura] v
-informatiki v 3. nadstropju.
+<jure.slak@gmail.com>`_>. Krožek (uradno) poteka od oktobra do junija vsak četrtek od
+14:30 do 16:45 v informatiki v 3. nadstropju.
 
 Učimo se programiranja v Pythonu in C++-u, izdelovanja spletnih strani,
 izdelovanja računalniških igric, priprave na tekmovanja v Sloveniji in po

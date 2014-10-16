@@ -28,6 +28,8 @@
   
 
   
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
     <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="Python" href="../../python.html"/>
         <link rel="next" title="Podatkovni tipi" href="podatkovni_tipi.html"/>
@@ -201,22 +203,52 @@ ali <tt class="docutils literal"><span class="pre">down</span></tt>.</p>
 
 <p>Več metod za delo dobite <a class="reference external" href="https://docs.python.org/3.4/library/turtle.html#turtle-methods">tukaj</a>.</p>
 <p>Za delo z želvjo grafiko je potrebno dobiti funckije iz modula <tt class="docutils literal"><span class="pre">turtle</span></tt>, kar
-naredimo tako, da na začetek programa napišemo <tt class="docutils literal"><span class="pre">from</span> <span class="pre">turtle</span> <span class="pre">import</span> <span class="pre">*</span></tt>.</p>
-<p>Z primer narišimo kvadrat.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">turtle</span> <span class="kn">import</span> <span class="o">*</span>
+naredimo tako, da na začetek programa napišemo <tt class="docutils literal"><span class="pre">import</span> <span class="pre">turtle</span></tt>, nato pa
+uporabljamo funkcije iz tega module kot <tt class="docutils literal"><span class="pre">turtle.funkcija()</span></tt>.</p>
+<p>Za primer narišimo kvadrat.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
 
-<span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">rt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-<span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">rt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-<span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">rt</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
-<span class="n">fd</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">turtle</span>
 
-<span class="n">done</span><span class="p">()</span>
+<span class="c"># Ustvarimo okno</span>
+<span class="n">okno</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="c"># Ustvarimo želvico</span>
+<span class="n">leonardo</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>
+
+<span class="c"># Izrišemo kvadrat s premikanjem naprej in zavijanjem v levo</span>
+<span class="n">leonardo</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">leonardo</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">leonardo</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">leonardo</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">leonardo</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">leonardo</span><span class="o">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">leonardo</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">turtle</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
 </pre></div>
-</div>
-<p>Funkcija <tt class="docutils literal"><span class="pre">done()</span></tt> nam okno obdrži na zaslonu, tudi po tem ko se program konča.</p>
+</td></tr></table></div>
+<p>Funkcija <tt class="docutils literal"><span class="pre">turtle.done()</span></tt> nam okno obdrži na zaslonu, tudi po tem ko se
+program konča. Namesto tega bi lahko uporabili <tt class="docutils literal"><span class="pre">turtle.exitonclick()</span></tt> ki
+naredi isto kot done, le da nam program zapre ob kliku z miško (uporabno na
+šolskih Windows računalnikih, saj se okna drugače občasno ne da zapreti).</p>
 </div>
 
 

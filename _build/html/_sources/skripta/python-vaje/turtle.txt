@@ -62,3 +62,15 @@ seštetih členov naj bodo prebrani od uporabnika ali definirani na vrhu
 programa. Primer: ``n = 200``, ``primerjaj = 560``, ``enota = 50``.
 
 .. image:: images/harmonicna.png
+
+Sodobna umetnost
+----------------
+
+Kot ste se/se boste naučili pri pouku umetnostne zgodovine je umetnost lahko
+karkoli. Pa se malo igrajmo in napacajmo nekaj barv na zalon. Narišite super
+abstraktno sliko, ki predstavlja razbito jajce na modrem nebu, seveda s kančkom
+popra in trdega diska. Risanje poteka tako: v vsakem koraku naričemo krog,
+malo drugačne barve kot prej, malo manjši kot prej, in se potem pomaknemo v
+naključno smer za malo manjšo razdaljo kot prej. Malo ekperimenirajte.
+
+.. image:: images/sodobna-umetnost.png

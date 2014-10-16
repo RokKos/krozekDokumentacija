@@ -8,7 +8,6 @@ ravnini.
 
 Na voljo imamo veliko ukazov:
 
-
 .. py:function:: forward(x)
 
   Premakne želvo naprej za ``x`` pikslov. Skrajšano ``fd``.
@@ -55,29 +54,41 @@ Na voljo imamo veliko ukazov:
   Dvigne želvico iz tal, ko se želvica premika ne pušča sledi. Krajše tudi
   ``pu`` ali ``up``.
 
-
 Več metod za delo dobite `tukaj
 <https://docs.python.org/3.4/library/turtle.html#turtle-methods>`_.
 
 Za delo z želvjo grafiko je potrebno dobiti funckije iz modula ``turtle``, kar
-naredimo tako, da na začetek programa napišemo ``from turtle import *``.
+naredimo tako, da na začetek programa napišemo ``import turtle``, nato pa
+uporabljamo funkcije iz tega module kot ``turtle.funkcija()``.
 
-Z primer narišimo kvadrat.
+Za primer narišimo kvadrat.
 
 .. code-block:: python
+  :linenos:
 
-  from turtle import *
+  # -*- coding: utf-8 -*-
 
-  fd(100)
-  rt(90)
-  fd(100)
-  rt(90)
-  fd(100)
-  rt(90)
-  fd(100)
+  import turtle
 
-  done()
+  # Ustvarimo okno
+  okno = turtle.Screen()
+  # Ustvarimo želvico
+  leonardo = turtle.Turtle()
 
-Funkcija ``done()`` nam okno obdrži na zaslonu, tudi po tem ko se program konča.
+  # Izrišemo kvadrat s premikanjem naprej in zavijanjem v levo
+  leonardo.forward(100)
+  leonardo.right(90)
+  leonardo.forward(100)
+  leonardo.right(90)
+  leonardo.forward(100)
+  leonardo.right(90)
+  leonardo.forward(100)
+
+  turtle.done()
+
+Funkcija ``turtle.done()`` nam okno obdrži na zaslonu, tudi po tem ko se
+program konča. Namesto tega bi lahko uporabili ``turtle.exitonclick()`` ki
+naredi isto kot done, le da nam program zapre ob kliku z miško (uporabno na
+šolskih Windows računalnikih, saj se okna drugače občasno ne da zapreti).
 
 .. vim: spell spelllang=sl
