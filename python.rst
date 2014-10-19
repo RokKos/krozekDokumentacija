@@ -17,5 +17,6 @@ voljo `tukaj <http://docs.python.org/3.4/>`_.
   skripta/python/podatkovni_tipi
   skripta/python/funkcije_in_classi
   skripta/python/datoteke
+  skripta/python/baze_podatkov
 
 .. vim: spell spelllang=sl
