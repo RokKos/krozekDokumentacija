@@ -33,6 +33,11 @@ Vsebina:
 
   c++
 
+.. toctree::
+  :maxdepth: 2
+
+  sql
+
 Dokumentacija zunanjih vaj:
 
 .. toctree::
