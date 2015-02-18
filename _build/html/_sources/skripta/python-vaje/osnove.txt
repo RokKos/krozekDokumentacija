@@ -1,4 +1,4 @@
-.. |nbsp| unicode:: 0xA0 
+.. |nbsp| unicode:: 0xA0
    :trim:
 
 Osnovne vaje
@@ -18,7 +18,7 @@ Program izpiše::
 Smrečice
 --------
 Napiši program, ki od uporabnika dobi naravno število :math:`n`, nato pa nariše
-"smrekico" iz zvezdic. Smerkica naj ima :math:`n` vrstic, izgleda pa naj takole 
+"smrekico" iz zvezdic. Smerkica naj ima :math:`n` vrstic, izgleda pa naj takole
 (če je :math:`n` enak 5)::
 
   5-smrečica:

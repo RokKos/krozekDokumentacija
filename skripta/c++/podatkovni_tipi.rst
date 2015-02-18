@@ -51,14 +51,14 @@ long double  80 bit          :math:`\pm 1.1 \cdot 10^{\pm 4932}`, 18 decimalk
 .. [#f1] Velikost je odvisna od operaicjskega sistema in računalnika. Native
   pomeni  64 ali 32 biten, zopet odvisno od računalnika. V tablei so naštete
   najbolj pogoste velikosi. ``unsigned`` verzije imajo enak razpon, samo da je
-  ce na pozitivnem delu osi. Več `tukaj
+  cel na pozitivnem delu osi. Več `tukaj
   <http://en.cppreference.com/w/cpp/language/types#Properties>`_.
 
 Mnogo bolj podrobno in pravilno tabelo najdete `tukaj
 <http://en.cppreference.com/w/cpp/language/types#Range_of_values>`_.
 
 Naj vas to ne prestraši, pametno je poznati omejitve, a mi bomo ponavadi za
-cela števila uporabljali kar ``int`` in za decimalna ``double``. (Float je pres
+cela števila uporabljali kar ``int`` in za decimalna ``double``. (Float je
 precej nenatančen, kar je na tekmovanjih, v resnici pa še toliko bolj, lahko
 problematično. Ali kot je dejal nekoč moj kolega "Kdor uporablja floate je pa
 res čevl." Pred celoštevilske tipe lahko vtaknemo tudi ``unsigned``, ki razpon
