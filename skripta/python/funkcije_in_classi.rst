@@ -1,3 +1,5 @@
+.. _funkcijepython:
+
 Funckije in razredi
 ===================
 
@@ -71,7 +73,7 @@ parametrov. Telo funkcije je potrebno zamakniti.
 
 .. code-block:: python
 
-  def imeFunkcije(parameter1, parameter2, ...):
+  def imeFunkcije(parameter1, parameter2):
       Koda, ki se izvede, ko pokličemo funkcijo
 
 

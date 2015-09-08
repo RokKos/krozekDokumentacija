@@ -117,4 +117,35 @@ razlikuje od računalnika do računalnika::
 
 Nekaj podobnega dobite, če odprete katerikoli ``.exe`` file v beležnici.
 
+Potek dela
+----------
+
+C++ kodo napišete v vašem text-editorju in jo shranite v datoteko s končnico
+``.cpp`` ali ``.cc``. V primeru bomo uporabljali ``program.cpp``.
+
+Zaženete:
+``g++ -o program program.cpp``
+in ukaz na vašem sistemu naredi datoteko ``program`` ali ``program.exe``, ki jo
+zaženete preprosto s ``./program`` ali ``program.exe``. Zastavica ``-o``
+pomeni output filename. Dodamo lahko se veliko zastavic, opisanih spodaj.
+
+``g++`` pogosto javi napake -- to pomeni da program ni pravilno napisan in ga
+ne more prevesti -- napake morate odpraviti, sicer ne morate dobiti executable
+datoteke in ga niti zagnati ne morete (v Pythonu se zgodi nekaj podobnega ce
+date v if enojni =). Tudi ko je program že preveden, se lahko med tekom
+programa sesuje (v Pythonu je to precej pogosto) in najpogostejša napaka je
+``segmentation fault``, ki pomeni da ste nekaj zamuštrali s spomniom: ali vam
+ga je zmanjkalo, ste sli cez seznam, neskončna rekurzija itd... Če delite z 0,
+dobite floating point exception, itd...
+
+Dve zelo priporočeni zastavici za ``g++`` sta ``-std=c++11`` in ``-Wall``, ki
+omogočita prevajanje jezika, napisanega v novejšem standardu in izpišeta
+dodatna opozorila o napakah v kodi.
+
+Program torej ponavadi poženemo z:
+
+.. code-block:: bash
+
+  g++ -std=c++11 -Wall -o program program.cpp
+
 .. vim: spell spelllang=sl

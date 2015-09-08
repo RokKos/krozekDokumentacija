@@ -244,6 +244,31 @@ basic_ostreamIT_T0_ES6_@@GLIBCXX_3.4_edatamain_init
 </div>
 <p>Nekaj podobnega dobite, če odprete katerikoli <tt class="docutils literal"><span class="pre">.exe</span></tt> file v beležnici.</p>
 </div>
+<div class="section" id="potek-dela">
+<h2>Potek dela<a class="headerlink" href="#potek-dela" title="Permalink to this headline">¶</a></h2>
+<p>C++ kodo napišete v vašem text-editorju in jo shranite v datoteko s končnico
+<tt class="docutils literal"><span class="pre">.cpp</span></tt> ali <tt class="docutils literal"><span class="pre">.cc</span></tt>. V primeru bomo uporabljali <tt class="docutils literal"><span class="pre">program.cpp</span></tt>.</p>
+<p>Zaženete:
+<tt class="docutils literal"><span class="pre">g++</span> <span class="pre">-o</span> <span class="pre">program</span> <span class="pre">program.cpp</span></tt>
+in ukaz na vašem sistemu naredi datoteko <tt class="docutils literal"><span class="pre">program</span></tt> ali <tt class="docutils literal"><span class="pre">program.exe</span></tt>, ki jo
+zaženete preprosto s <tt class="docutils literal"><span class="pre">./program</span></tt> ali <tt class="docutils literal"><span class="pre">program.exe</span></tt>. Zastavica <tt class="docutils literal"><span class="pre">-o</span></tt>
+pomeni output filename. Dodamo lahko se veliko zastavic, opisanih spodaj.</p>
+<p><tt class="docutils literal"><span class="pre">g++</span></tt> pogosto javi napake &#8211; to pomeni da program ni pravilno napisan in ga
+ne more prevesti &#8211; napake morate odpraviti, sicer ne morate dobiti executable
+datoteke in ga niti zagnati ne morete (v Pythonu se zgodi nekaj podobnega ce
+date v if enojni =). Tudi ko je program že preveden, se lahko med tekom
+programa sesuje (v Pythonu je to precej pogosto) in najpogostejša napaka je
+<tt class="docutils literal"><span class="pre">segmentation</span> <span class="pre">fault</span></tt>, ki pomeni da ste nekaj zamuštrali s spomniom: ali vam
+ga je zmanjkalo, ste sli cez seznam, neskončna rekurzija itd... Če delite z 0,
+dobite floating point exception, itd...</p>
+<p>Dve zelo priporočeni zastavici za <tt class="docutils literal"><span class="pre">g++</span></tt> sta <tt class="docutils literal"><span class="pre">-std=c++11</span></tt> in <tt class="docutils literal"><span class="pre">-Wall</span></tt>, ki
+omogočita prevajanje jezika, napisanega v novejšem standardu in izpišeta
+dodatna opozorila o napakah v kodi.</p>
+<p>Program torej ponavadi poženemo z:</p>
+<div class="highlight-bash"><div class="highlight"><pre>g++ -std<span class="o">=</span>c++11 -Wall -o program program.cpp
+</pre></div>
+</div>
+</div>
 </div>
 
 

@@ -159,11 +159,14 @@ knjižnico za input in output (input output stream).</p>
 <p>Program izvede vse in samo to, kar se nahaja v funkciji <tt class="docutils literal"><span class="pre">main</span></tt>. Ta funkcija
 lahko seveda kliče druge funkcije. Funkcija mora vrniti število, ki pomeni &#8220;exit
 status&#8221; programa in mora biti 0, če je program zaključil uspešno. Vsi naši
-programi bodo imeli na koncu return 0.</p>
+programi bodo imeli na koncu <tt class="docutils literal"><span class="pre">return</span> <span class="pre">0</span></tt>.</p>
 <p>Vsak stavek se mora končati s podpičjem. Presledki v kodi niso obvezni, tako kot
-v Pythonu, zamikanje je samo zaradi berljivosti. Toda je koda kot na primer <tt class="docutils literal"><span class="pre">int</span>
-<span class="pre">main(){std::cout&lt;&lt;&quot;Hello</span> <span class="pre">world!&quot;&lt;&lt;std::endl;return</span> <span class="pre">0;}</span></tt> sicer veljavna, a
-se je izogibajte kot določenih profesorjev.</p>
+v Pythonu, zamikanje je samo zaradi berljivosti. Tako je koda kot na primer</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;Hello world!&quot;</span><span class="o">&lt;&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="k">return</span> <span class="mi">0</span><span class="p">;}</span>
+</pre></div>
+</div>
+<p>sicer veljavna, a
+se je izogibajte vsaj toliko kot določenih profesorjev.</p>
 </div>
 <div class="section" id="c-vs-c-vs-c-11">
 <h2>C vs. C++ vs. C++11<a class="headerlink" href="#c-vs-c-vs-c-11" title="Permalink to this headline">¶</a></h2>
@@ -179,7 +182,8 @@ biti hud problem.</p>
 standardne knjižnice pisati <tt class="docutils literal"><span class="pre">std::</span></tt>. Temu se lahko izognemo, tako da na
 začetku programa (za <tt class="docutils literal"><span class="pre">#include</span></tt>-i in pred uporabo funkcij) napišemo <tt class="docutils literal"><span class="pre">using</span>
 <span class="pre">namespace</span> <span class="pre">std;</span></tt>. To sicer ni najbolj higienično v velikih programih saj lahko
-povzroči poplavo imen, vendar v naših programih to verjetno ne bo problem.</p>
+povzroči poplavo imen in se temu raje izogibajte, v kratkih programih pa nam
+lahko prihrani nekaj pisanja.</p>
 <p>Obstajajo C-jevske funckije za stdio, random, sezname, vendar bomo uporabljali
 C++-ovske, pogosto celo C++11.</p>
 </div>
@@ -197,7 +201,7 @@ tipom, nato pa ji lahko pripišemo vrednost.</p>
 </pre></div>
 </div>
 <p>Če spremenljivki vrednosti ne pripišemo, bo njena vrednost pogosto neko sranje,
-ki je ravno takrat v ramu, tako da je vse spremenljivke zelo priporočljivo
+ki je ravno takrat v RAM-u, tako da je vse spremenljivke zelo priporočljivo
 inicializirati.</p>
 <p>Osnovni tipi so <tt class="docutils literal"><span class="pre">int</span></tt> za števila, <tt class="docutils literal"><span class="pre">double</span></tt> za decimalna števila, <tt class="docutils literal"><span class="pre">bool</span></tt>
 za logične vrednosti in <tt class="docutils literal"><span class="pre">char</span></tt> za znake.</p>
@@ -304,13 +308,13 @@ vrednost <tt class="docutils literal"><span class="pre">true</span></tt> in je p
         <span class="c1">// koda</span>
         <span class="k">break</span><span class="p">;</span>
     <span class="k">case</span> <span class="mi">2</span>:
-        <span class="c1">//koda</span>
+        <span class="c1">// koda</span>
         <span class="k">break</span><span class="p">;</span>
     <span class="k">case</span> <span class="mi">13</span>:
-        <span class="c1">//koda</span>
+        <span class="c1">// koda</span>
         <span class="k">break</span><span class="p">;</span>
     <span class="nl">default:</span>
-        <span class="c1">//koda</span>
+        <span class="c1">// koda</span>
         <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
@@ -318,6 +322,27 @@ vrednost <tt class="docutils literal"><span class="pre">true</span></tt> in je p
 <p>Vrednosti pri <tt class="docutils literal"><span class="pre">case</span></tt>-ih morajo biti konstantne in stavek glede na vrednost
 spremenljivke <tt class="docutils literal"><span class="pre">vrednost</span></tt> izvede primerno kodo, če dane vrednosti ni naštete,
 potem izvede kodo pod <tt class="docutils literal"><span class="pre">default</span></tt>.</p>
+<p>Break pri vsakem case-u je nujen, sicer se izvede tudi koda naslednjega primera
+&#8211; tako imenovan &#8220;fall through&#8221; feature switch stavka.</p>
+<p>Primer:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">switch</span> <span class="p">(</span><span class="n">vrednost</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">1</span>:
+        <span class="c1">// koda 1</span>
+    <span class="k">case</span> <span class="mi">2</span>:
+        <span class="c1">// koda 2</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">14</span>:
+    <span class="k">case</span> <span class="mi">13</span>:
+        <span class="c1">// koda</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="nl">default:</span>
+        <span class="c1">// koda</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Če je vrednost spremenljivke enaka 1, se izvedeta koda 1 in koda 2, ce je
+vrednost enaka 2, samo koda 2. Koda za 14 in 13 je enaka.</p>
 </div>
 <div class="section" id="zanke">
 <h2>Zanke<a class="headerlink" href="#zanke" title="Permalink to this headline">¶</a></h2>
@@ -380,6 +405,11 @@ desno, sode na levo. Števila bere dokler so različna od 0.</p>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">V pogojih velja enako opozorilo kot pri if stavku &#8211; pazite na operator = v
+pogoju, da ne bi po nesreči spremenili vrednosti spremenljivke.</p>
 </div>
 </div>
 </div>

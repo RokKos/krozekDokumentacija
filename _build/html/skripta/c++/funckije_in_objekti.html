@@ -138,8 +138,181 @@
             
   <div class="section" id="funckije-in-objekti">
 <h1>Funckije in objekti<a class="headerlink" href="#funckije-in-objekti" title="Permalink to this headline">¶</a></h1>
+<p>Zakaj potrebujemo funkcije si preberite v <a class="reference internal" href="../python/funkcije_in_classi.html#funkcijepython"><em>Funckije in razredi</em></a> za python.</p>
 <div class="section" id="funkcije">
-<span id="funckije-cpp"></span><h2>Funkcije<a class="headerlink" href="#funkcije" title="Permalink to this headline">¶</a></h2>
+<h2>Funkcije<a class="headerlink" href="#funkcije" title="Permalink to this headline">¶</a></h2>
+<p>Pri c++ moramo za vsako funkcijo vedeti,katere tipe sprejme in kakšen tip vrne.
+Pravzaprav smo vedno morali napisati definicijo funkcije <tt class="docutils literal"><span class="pre">main</span></tt> in za ostale
+funkcije je sintaska enaka.</p>
+<div class="section" id="sintaksa">
+<h3>Sintaksa<a class="headerlink" href="#sintaksa" title="Permalink to this headline">¶</a></h3>
+<p>Definicija funkcije v C++ ima nastednjo sintakso (posplošimo na poljubno število
+parametrov):</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">return_type</span> <span class="nf">ime_funckije</span><span class="p">(</span><span class="n">tip1</span> <span class="n">parameter1</span><span class="p">,</span> <span class="n">tip2</span> <span class="n">parameter2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// koda</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Funkcija, ki nič ne vrne, ima return_type <tt class="docutils literal"><span class="pre">void</span></tt>. Funkcijo moramo vedno
+definirati preden jo uporabimo, to je ponavadi nad funkcijo <tt class="docutils literal"><span class="pre">main</span></tt>.</p>
+</div>
+<div class="section" id="vracanje-rezultatov">
+<h3>Vračanje rezultatov<a class="headerlink" href="#vracanje-rezultatov" title="Permalink to this headline">¶</a></h3>
+<p>Če hočemo, da funkcija kaj vrne, to povemo z ukazom <tt class="docutils literal"><span class="pre">return</span></tt>. Tip
+spremenljivke ki jo vračamo se mora ujemati s tipom, ki smo ga napisali v
+funkciji.</p>
+<p>Primer funkcije, ki preveri, ali je dano število popolno.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">bool</span> <span class="nf">popolno</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">vsota_deliteljev</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">vsota_deliteljev</span> <span class="o">+=</span> <span class="n">i</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">vsota_deliteljev</span> <span class="o">==</span> <span class="n">n</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="klicanje-funkcij">
+<h3>Klicanje funkcij<a class="headerlink" href="#klicanje-funkcij" title="Permalink to this headline">¶</a></h3>
+<p>Ko izvedemo program, ki vsebuje samo definicije funkcij, se ne zgodi nič.
+Funkcijo je treba namreč še poklicati. Naše funkcije kličemo popolnoma enako kot
+že vdelane funkcije (npr. sin(), sort()).</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="c1">// definicija bool popolno(int n);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">popolno</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Stevilo &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; je popolno!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Stevilo &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; ni popolno!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="overloading">
+<h3>Overloading<a class="headerlink" href="#overloading" title="Permalink to this headline">¶</a></h3>
+<p>Ker so v C++ funkcije odvisne od tipov, imamo lahko več funkcij z istim imenom
+&#8211; dokler se le razlikujejo po tipu ali številu parametrov.</p>
+<p>Primer:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">sestej</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">vsota</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="n">x</span> <span class="o">:</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">vsota</span> <span class="o">+=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">vsota</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">string</span> <span class="nf">sestej</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">,</span> <span class="n">string</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">+</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Funkcije brez težav živijo druga z drugo, saj je povsem jasno, katero želi
+uporabnik poklicati &#8211; <tt class="docutils literal"><span class="pre">sestej(vector&lt;int&gt;({1,</span> <span class="pre">2,</span> <span class="pre">3}))</span></tt> poklice prvo,
+<tt class="docutils literal"><span class="pre">sestej(&quot;abc&quot;,</span> <span class="pre">&quot;def&quot;)</span></tt> pa drugo.</p>
+</div>
+<div class="section" id="scoping">
+<h3>Scoping<a class="headerlink" href="#scoping" title="Permalink to this headline">¶</a></h3>
+<p>V C++ funkcij vedno dobi kopijo vrednosti, ki jo podamo. Tako znotraj funkcij,
+kot smo jih definirali sedaj, vrednosti ne moremo spreminjati. Primer:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">spremeni</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">3.5</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">4.5</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">spremeni</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Zgornji program dvakrat izpiše <tt class="docutils literal"><span class="pre">4.5</span></tt>, saj je <tt class="docutils literal"><span class="pre">x</span></tt> v funkciji drugi kot v
+<tt class="docutils literal"><span class="pre">main</span></tt>. Res, to lahko še bolj poudarimo, če funkcij spremeni pokličemo kar
+takole: <tt class="docutils literal"><span class="pre">spremeni(5.6)</span></tt>. Kaj bi se sedaj zgodilo, če bi funkcija vrednost res
+spremenila? Bi 5.6 postalo 3.5? Jasno je, da mora funkcija sprejeti <em>kopijo</em>
+parametra.</p>
+</div>
+<div class="section" id="reference-in-konstantne-reference">
+<h3>Reference in konstantne reference<a class="headerlink" href="#reference-in-konstantne-reference" title="Permalink to this headline">¶</a></h3>
+<p>Seveda je uporabno imeti tudi funkcije, ki spreminjajo parametre, na primer
+funkcij swap, ki zamenja vrednosti dveh spremenljivk.</p>
+<p>Tej funkciji namesto običajnih tipov podamo reference &#8211; to pomeni da je
+spremenljivka znotraj funkcije enaka kot zunaj. Referenco označimo tako, da na
+konec tipa dodamo znak <tt class="docutils literal"><span class="pre">&amp;</span></tt>.</p>
+<p>Reference je popolnoma veljaven tip tudi kar tako, brez funkcij. Poglejmo si
+primer, ki najbolje opiše njeno delovanje.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">cot</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// 9 7</span>
+
+<span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="kt">int</span><span class="o">&amp;</span> <span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// 7 7</span>
+</pre></div>
+</div>
+<p>V zgornjem primeru je <tt class="docutils literal"><span class="pre">d</span></tt> samo drugo ime za <tt class="docutils literal"><span class="pre">c</span></tt>, če spremenimo <tt class="docutils literal"><span class="pre">d</span></tt> se
+spremeni tudi <tt class="docutils literal"><span class="pre">c</span></tt> in obratno.</p>
+<p>Podobno naredimo tudi v funkcijah.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Zgornjo funkcijo pokličemo kot <tt class="docutils literal"><span class="pre">swap(a,</span> <span class="pre">b)</span></tt>, kjer sta <tt class="docutils literal"><span class="pre">a</span></tt> in <tt class="docutils literal"><span class="pre">b</span></tt>
+spremenljivki, funkcija pa bo njuni vrednosti zamenjala. Kaj pa se sedaj zgodi
+če funkcijo pokličemo s konstantami? Ali <tt class="docutils literal"><span class="pre">swap(1,</span> <span class="pre">3)</span></tt> zamenja vrednosti 1 in
+3? Seveda ne, tak klic je neveljaven in dobimo compiler error:</p>
+<div class="highlight-python"><div class="highlight"><pre>program.cpp:14:14: error: invalid initialization of non-const reference of type
+                                            ‘int&amp;’ from an rvalue of type ‘int’
+    swap(1, 3);
+             ^
+</pre></div>
+</div>
+<p>Res, če nekaj podamo kot referenco, mora to biti tudi dejanska spremenljivka, ki
+ji lahko spremenimo vrednost.</p>
+<p>Kaj pa če objekta nimamo namena spreminjati, vendar njegove vrednosti ne bi
+radi kopirali, saj je velik (npr. vector)?</p>
+<p>Ena možnost je, da podamo referenco in objekta ne spreminjamo, vendar to ni
+najbolj higienično, pa še omejitve ima, saj ne moramo funkcije klicati s
+konstantami. Druga možnost je, da funkcija sprejme konstantno referenco &#8211;
+torej dejansko isto spremenljivko kot jo podamo, a njene vrednosti nam ni
+dovoljeno spreminjati. Konstantna referenca je pravzaprav neke vrste readonly
+kopija naše spremenljivke. Za velike tipe je to privzet način sprejemanja
+parametrov. Oglejmo si razliko na primeru funkcije <tt class="docutils literal"><span class="pre">append</span></tt> za vektorje, ki
+bo en vektor dodala na konec drugega in funkcije join, ki združi dva vektorja.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">append</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">:</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">a</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">join</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">result</span><span class="p">;</span>
+    <span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">a</span><span class="p">);</span>
+    <span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Veljavna (in sicer nepotrebna) uporaba funkcije <tt class="docutils literal"><span class="pre">join</span></tt> je tudi
+<tt class="docutils literal"><span class="pre">vector&lt;int&gt;</span> <span class="pre">a</span> <span class="pre">=</span> <span class="pre">join(vector&lt;int({1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4}),</span> <span class="pre">vector&lt;int&gt;({5,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8}));</span></tt>.
+Funkcijo smo klicali z dvema &#8220;temporary objektoma&#8221; in smo vzeli referenco, vendar
+to ni težava, saj je ne moremo spreminjati.</p>
+<p>Ena izmed težav referenc je, da ob klicu funkcije <tt class="docutils literal"><span class="pre">f(a)</span></tt> ne vemo, ali bo ta
+funkcija  <tt class="docutils literal"><span class="pre">a</span></tt> spremenila ali ne &#8211; pogledati moramo v definicijo.</p>
+</div>
 </div>
 <div class="section" id="objekti">
 <h2>Objekti<a class="headerlink" href="#objekti" title="Permalink to this headline">¶</a></h2>

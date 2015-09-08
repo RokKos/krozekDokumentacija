@@ -26,12 +26,17 @@ knjižnico za input in output (input output stream).
 Program izvede vse in samo to, kar se nahaja v funkciji ``main``. Ta funkcija
 lahko seveda kliče druge funkcije. Funkcija mora vrniti število, ki pomeni "exit
 status" programa in mora biti 0, če je program zaključil uspešno. Vsi naši
-programi bodo imeli na koncu return 0.
+programi bodo imeli na koncu ``return 0``.
 
 Vsak stavek se mora končati s podpičjem. Presledki v kodi niso obvezni, tako kot
-v Pythonu, zamikanje je samo zaradi berljivosti. Toda je koda kot na primer ``int
-main(){std::cout<<"Hello world!"<<std::endl;return 0;}`` sicer veljavna, a
-se je izogibajte kot določenih profesorjev.
+v Pythonu, zamikanje je samo zaradi berljivosti. Tako je koda kot na primer
+
+.. code-block:: cpp
+
+  int main(){std::cout<<"Hello world!"<<std::endl;return 0;}
+
+sicer veljavna, a
+se je izogibajte vsaj toliko kot določenih profesorjev.
 
 C vs. C++ vs. C++11
 -------------------
@@ -48,7 +53,8 @@ Vse funkcije, ki jih podpira standarda knjižnica C++ so v *namespace*-u
 standardne knjižnice pisati ``std::``. Temu se lahko izognemo, tako da na
 začetku programa (za ``#include``-i in pred uporabo funkcij) napišemo ``using
 namespace std;``. To sicer ni najbolj higienično v velikih programih saj lahko
-povzroči poplavo imen, vendar v naših programih to verjetno ne bo problem.
+povzroči poplavo imen in se temu raje izogibajte, v kratkih programih pa nam
+lahko prihrani nekaj pisanja.
 
 Obstajajo C-jevske funckije za stdio, random, sezname, vendar bomo uporabljali
 C++-ovske, pogosto celo C++11.
@@ -70,7 +76,7 @@ tipom, nato pa ji lahko pripišemo vrednost.
   c = 6;      //  compiler error - nedefinirana spremenljivka
 
 Če spremenljivki vrednosti ne pripišemo, bo njena vrednost pogosto neko sranje,
-ki je ravno takrat v ramu, tako da je vse spremenljivke zelo priporočljivo
+ki je ravno takrat v RAM-u, tako da je vse spremenljivke zelo priporočljivo
 inicializirati.
 
 Osnovni tipi so ``int`` za števila, ``double`` za decimalna števila, ``bool``
@@ -193,19 +199,44 @@ Obstaja tudi stavek ``switch``, ki se ga ponavadi uporablja kot lepši ``if``,
           // koda
           break;
       case 2:
-          //koda
+          // koda
           break;
       case 13:
-          //koda
+          // koda
           break;
       default:
-          //koda
+          // koda
           break;
   }
 
 Vrednosti pri ``case``-ih morajo biti konstantne in stavek glede na vrednost
 spremenljivke ``vrednost`` izvede primerno kodo, če dane vrednosti ni naštete,
 potem izvede kodo pod ``default``.
+
+Break pri vsakem case-u je nujen, sicer se izvede tudi koda naslednjega primera
+-- tako imenovan "fall through" feature switch stavka.
+
+Primer:
+
+.. code-block:: cpp
+
+  switch (vrednost) {
+      case 1:
+          // koda 1
+      case 2:
+          // koda 2
+          break;
+      case 14:
+      case 13:
+          // koda
+          break;
+      default:
+          // koda
+          break;
+  }
+
+Če je vrednost spremenljivke enaka 1, se izvedeta koda 1 in koda 2, ce je
+vrednost enaka 2, samo koda 2. Koda za 14 in 13 je enaka.
 
 Zanke
 -----
@@ -282,5 +313,9 @@ desno, sode na levo. Števila bere dokler so različna od 0.
       return 0;
   }
 
+.. danger::
+
+  V pogojih velja enako opozorilo kot pri if stavku -- pazite na operator = v
+  pogoju, da ne bi po nesreči spremenili vrednosti spremenljivke.
 
 .. vim: spell spelllang=sl
