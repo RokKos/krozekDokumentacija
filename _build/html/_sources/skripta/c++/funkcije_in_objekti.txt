@@ -1,4 +1,4 @@
-Funckije in objekti
+Funkcije in objekti
 ===================
 
 Zakaj potrebujemo funkcije si preberite v :ref:`funkcijepython` za python.
@@ -18,7 +18,7 @@ parametrov):
 
 .. code-block:: cpp
 
-  return_type ime_funckije(tip1 parameter1, tip2 parameter2) {
+  return_type ime_funkcije(tip1 parameter1, tip2 parameter2) {
       // koda
   }
 

@@ -12,6 +12,6 @@ Vsebina:
   skripta/c++/uvod
   skripta/c++/osnove
   skripta/c++/podatkovni_tipi
-  skripta/c++/funckije_in_objekti
+  skripta/c++/funkcije_in_objekti
 
 .. vim: spell spelllang=sl

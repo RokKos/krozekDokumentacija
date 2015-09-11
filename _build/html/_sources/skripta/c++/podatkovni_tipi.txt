@@ -227,7 +227,7 @@ Ostalih 80 ``info`` napak vam pove kaj pa se v ``ostream`` da zatlačiti, npr.
 Spreminjanje vektorja
 ~~~~~~~~~~~~~~~~~~~~~
 
-Tu so funckije s katerimi lahko spreminjamo vektor. Pred vsako funkcijo piše
+Tu so funkcije s katerimi lahko spreminjamo vektor. Pred vsako funkcijo piše
 tip, ki ga vrača, pišejo pa tudi tipi parametrov. Funkcije so poenostavljene za
 lažje razumevanje. ``T`` pomeni katerikoli tip se pač odločimo, da bo naš
 vektor vseboval. ``void`` pomeni, da funkcija ne vrača ničesar.
@@ -516,7 +516,7 @@ nobenem primeru ni optimalna, če vrednosti ne želimo spreminjati, napišemo
 kar prepreči kopiranje ``x``, saj je ``x`` dejanski objekt iz ``v``. Če
 ``const`` izpustimo, lahko ``x`` tudi spreminjamo, kar bo spremenilo tudi
 elemente ``v``. Več o referencah (to so tisti & znaki) v poglavju
-:ref:`funckije-cpp`. Tip ``int`` lahko nadomestimo tudi z ``auto``, da nam ni
+:ref:`funkcije-cpp`. Tip ``int`` lahko nadomestimo tudi z ``auto``, da nam ni
 potrebno pisati zelo dolgih tipov, pri čemer še vedno popolnoma veljavno
 uporabljamo npr. ``auto& x`` z enakim pomenom kot prej.
 

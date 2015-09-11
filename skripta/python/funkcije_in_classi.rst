@@ -1,6 +1,6 @@
 .. _funkcijepython:
 
-Funckije in razredi
+Funkcije in razredi
 ===================
 
 Funkcije in razredi so zelo uporabljene strukture v programiranju. Zaradi
@@ -201,7 +201,7 @@ Bolj napreden primer:
   Traceback (most recent call last):
     File "<stdin>", line 1, in <module>
   NameError: name 'c' is not defined
-  >>> f()  # a v funckiji je lokalen, in nima povezave z zunanjim
+  >>> f()  # a v funkciji je lokalen, in nima povezave z zunanjim
   1 7 2
   >>> print(a)
   8

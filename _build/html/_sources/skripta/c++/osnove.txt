@@ -56,7 +56,7 @@ namespace std;``. To sicer ni najbolj higienično v velikih programih saj lahko
 povzroči poplavo imen in se temu raje izogibajte, v kratkih programih pa nam
 lahko prihrani nekaj pisanja.
 
-Obstajajo C-jevske funckije za stdio, random, sezname, vendar bomo uporabljali
+Obstajajo C-jevske funkcije za stdio, random, sezname, vendar bomo uporabljali
 C++-ovske, pogosto celo C++11.
 
 Spremenljivke
@@ -112,7 +112,7 @@ prebrati celo vrstico uporabimo funkcijo ``getline``.
   ``scanf`` in ``printf``, saj sta mnogo hitrejši. To ni nujno res, pri uporabi
   ``cin`` in ``cout`` se je samo potrebno izgoniti ``endl``, ki neporebno
   flusha in nastaviti ``cin.sync_with_stdio(false)``, da nove verzije pozabijo na
-  C funckije in delujejo samostojno. Za kakršnekoli resne programe je časovna
+  C funkcije in delujejo samostojno. Za kakršnekoli resne programe je časovna
   razlika nepomembna, veliko več prednosti prinese ekstenzibilnost in
   type-safety.
 

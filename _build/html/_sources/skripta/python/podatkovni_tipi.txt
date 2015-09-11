@@ -39,7 +39,7 @@ funkcijo ``int``, decimalna pa s funkcijo ``float``.
 
 .. note::
 
-  Vse "funckije", ki so ime nekega podatkovnega tipa, niso v resnici funkcije,
+  Vse "funkcije", ki so ime nekega podatkovnega tipa, niso v resnici funkcije,
   temveč kar direktno konstruktorji teh objektov. To za uporabo ni pomembno, če
   pa vas zanima, si lahko več o tem preberete v poglavju :ref:`konstruktorji`.
 
