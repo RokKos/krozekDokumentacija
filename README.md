@@ -6,12 +6,19 @@ Vič.
 # Namestitev
 
 Za namestitev potrebujete nameščen `python3` in za njega pakete `pip` in
-`virtualenv`. Nato potrebujete le zagnati:
+`virtualenv`. Nato le zaženete:
 
     make install
 
-kar ustvari virtualenv in namesti vse potrebne pakete (ki se nahajajo v
+kar ustvari virtualenv in namesti vse potrebne pakete (ti se nahajajo v
 `requirements.txt`).
+
+# Pisanje
+
+Za dodajanje vsebin samo uredite primeren `.rst` file ali pa naredite novega in ga dodajte v kazalo.
+Da iz `.rst` datotek dobite html (ali karkoli drugega), samo poženite:
+
+    make html
 
 # Git submoduli
 
@@ -20,3 +27,5 @@ morate namesto 'navadnega' `git clone` zagnati `git clone --recursive`. Če ste
 to pozabili in ste repozitorij že prenesli, pojdite v njega in zaženite:
 
     git submodule update --init --recursive
+
+Natan Žabkar, Jure Slak
