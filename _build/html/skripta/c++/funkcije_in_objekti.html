@@ -316,6 +316,124 @@ funkcija  <tt class="docutils literal"><span class="pre">a</span></tt> spremenil
 </div>
 <div class="section" id="objekti">
 <h2>Objekti<a class="headerlink" href="#objekti" title="Permalink to this headline">¶</a></h2>
+<p>Razrede v C++ uporabljamo enako kot v Pythonu. Z njimi definiramo nove
+podatkovne tipe, ki ustrezajo našim potrebam. Najprej terminologija:</p>
+<p><em>Razred</em> je definicija našega novega tipa.  Spremenljivka tega tipa, ki jo
+naredimo, se imenuje <em>objekt</em> tega razreda ali <em>instanca</em> tega razreda. <em>Tip</em> in
+<em>razred</em> se nanašata na abstraktno definicijo, <em>objekt</em> ali <em>instanca</em> pa na
+konkretno spremenljivko.  Funkcije, ki so vsebovane v tem objektu se imenujejo
+<em>metode</em>, spremenljivke tega objekta pa <em>atributi</em>. Običajno razrede označujemo
+z <em>CamelCase</em> začetnicami.</p>
+<p>Definicija novega razreda gre v C++ tako:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">class</span> <span class="nc">ImeTipa</span> <span class="p">{</span>
+  <span class="nl">public:</span>
+    <span class="n">tip1</span> <span class="n">member1</span><span class="p">;</span>
+    <span class="n">tip2</span> <span class="n">member2</span><span class="p">;</span>
+  <span class="nl">private:</span>
+    <span class="n">tip3</span> <span class="n">member3</span><span class="p">;</span>
+    <span class="n">tip4</span> <span class="n">member4</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="admonition danger">
+<p class="first admonition-title">Danger</p>
+<p class="last">Na koncu definicije razreda mora biti podpičje. Če ga pozabite, lahko pride
+do zelo neprijetnih in težko razumljivih napak.</p>
+</div>
+<p>Naredimo primer razreda <em>Pravokotnik</em> in nastavimo njegove člane na dva načina.
+Prvi je direkten, drugi pa je s pomočjo</p>
+<p>Spremenjlivke našega tipa definiramo enako kot vse ostale, najprej povemo tip,
+nato pa ime. Kot pri funkcijah tudi razrede definiramo izven funkcije <tt class="docutils literal"><span class="pre">main</span></tt>
+preden jih želimo uporabljati. Kot v veliko drugih jezikih tudi v c++ do
+atributov in metod dostopamo s piko <tt class="docutils literal"><span class="pre">a.x</span></tt>.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Pravokotnik</span> <span class="p">{</span>
+  <span class="nl">public:</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Pravokotnik</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="metode">
+<h3>Metode<a class="headerlink" href="#metode" title="Permalink to this headline">¶</a></h3>
+<p>Dodajmo razredu metodo, ki izračuna ploščino, in še eno, ki nastavi obe
+stranici. Metode so po sintaksi popolnoma enake funkcijam in do atributov
+razreda imajo prost dostop (ni potrebno pisati npr. <tt class="docutils literal"><span class="pre">self.x</span></tt>).</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Pravokotnik</span> <span class="p">{</span>
+  <span class="nl">public:</span>
+    <span class="kt">void</span> <span class="n">set_sides</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">double</span> <span class="n">area</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nl">private:</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Pravokotnik</span> <span class="n">p</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">};</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">set_sides</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>  <span class="c1">// prints 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="private-public-protected">
+<h3>Private, public, protected<a class="headerlink" href="#private-public-protected" title="Permalink to this headline">¶</a></h3>
+<p>To so trije tipi scopa, &#8220;vidnosti&#8221; v razredih. Do public funkcij in spremenljivk
+lahko dostopajo vsi, izven in znotraj razreda, do privatnih pa samo znotraj
+razreda. Protected se uporablja pri dedovanju, in ga bomo spoznali kasneje.</p>
+<p>Pogost vzorec v programiranju je, da so atributi private, spreminja in bere pa se jih
+lahko samo preko public metod, saj s tem uporabniku preprečimo nekontroliran
+dostop, ki bi lahko ogrozil smiselnost podatkov.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Pravokotnik</span> <span class="p">{</span>
+  <span class="nl">public:</span>
+    <span class="kt">void</span> <span class="n">set_sides</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">double</span> <span class="n">area</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="nl">private:</span>
+    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Pravokotnik</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">set_sides</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Zgornja koda nam vrne napako, dostopamo namreč do privatne spremenljivke <cite>a</cite>.</p>
+<div class="highlight-python"><div class="highlight"><pre>a.cpp: In function ‘int main()’:
+a.cpp:14:14: error: ‘double Pravokotnik::a’ is private
+       double a, b;
+              ^
+a.cpp:20:9: error: within this context
+       p.a = 8;
+         ^
+</pre></div>
+</div>
+</div>
+<div class="section" id="konstruktorji-in-destruktorji">
+<h3>Konstruktorji in destruktorji<a class="headerlink" href="#konstruktorji-in-destruktorji" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="const-metode-in-spremenljivke">
+<h3>Const metode in spremenljivke<a class="headerlink" href="#const-metode-in-spremenljivke" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="static-metode">
+<h3>Static metode<a class="headerlink" href="#static-metode" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
 </div>
 </div>
 

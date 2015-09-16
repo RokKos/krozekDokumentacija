@@ -213,4 +213,166 @@ funkcija  ``a`` spremenila ali ne -- pogledati moramo v definicijo.
 Objekti
 -------
 
+Razrede v C++ uporabljamo enako kot v Pythonu. Z njimi definiramo nove
+podatkovne tipe, ki ustrezajo našim potrebam. Najprej terminologija:
+
+*Razred* je definicija našega novega tipa.  Spremenljivka tega tipa, ki jo
+naredimo, se imenuje *objekt* tega razreda ali *instanca* tega razreda. *Tip* in
+*razred* se nanašata na abstraktno definicijo, *objekt* ali *instanca* pa na
+konkretno spremenljivko.  Funkcije, ki so vsebovane v tem objektu se imenujejo
+*metode*, spremenljivke tega objekta pa *atributi*. Običajno razrede označujemo
+z *CamelCase* začetnicami.
+
+Definicija novega razreda gre v C++ tako:
+
+
+.. code-block:: cpp
+
+  class ImeTipa {
+    public:
+      tip1 member1;
+      tip2 member2;
+    private:
+      tip3 member3;
+      tip4 member4;
+  };
+
+.. danger::
+
+  Na koncu definicije razreda mora biti podpičje. Če ga pozabite, lahko pride
+  do zelo neprijetnih in težko razumljivih napak.
+
+Naredimo primer razreda *Pravokotnik* in nastavimo njegove člane na dva načina.
+Prvi je direkten, drugi pa je s pomočjo
+
+.. TODO
+
+Spremenjlivke našega tipa definiramo enako kot vse ostale, najprej povemo tip,
+nato pa ime. Kot pri funkcijah tudi razrede definiramo izven funkcije ``main``
+preden jih želimo uporabljati. Kot v veliko drugih jezikih tudi v c++ do
+atributov in metod dostopamo s piko ``a.x``.
+
+.. code-block:: cpp
+
+  class Pravokotnik {
+    public:
+      double a, b;
+  };
+
+  int main() {
+      Pravokotnik p;
+      p.a = 4;
+      p.b = 1.2;
+  }
+
+Metode
+~~~~~~
+
+Dodajmo razredu metodo, ki izračuna ploščino, in še eno, ki nastavi obe
+stranici. Metode so po sintaksi popolnoma enake funkcijam in do atributov
+razreda imajo prost dostop (ni potrebno pisati npr. ``self.x``).
+
+.. code-block:: cpp
+
+  class Pravokotnik {
+    public:
+      void set_sides(int x, int y) {
+          a = x;
+          b = y;
+      }
+      double area() {
+          return a * b;
+      }
+    private:
+      double a, b;
+  };
+  int main() {
+      Pravokotnik p{4, 1.2};
+      p.set_sides(1, 1);
+      cout << p.area() << endl;
+  }  // prints 1
+
+Private, public, protected
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To so trije tipi scopa, "vidnosti" v razredih. Do public funkcij in spremenljivk
+lahko dostopajo vsi, izven in znotraj razreda, do privatnih pa samo znotraj
+razreda. Protected se uporablja pri dedovanju, in ga bomo spoznali kasneje.
+
+Pogost vzorec v programiranju je, da so atributi private, spreminja in bere pa se jih
+lahko samo preko public metod, saj s tem uporabniku preprečimo nekontroliran
+dostop, ki bi lahko ogrozil smiselnost podatkov.
+
+.. code-block:: cpp
+
+  class Pravokotnik {
+    public:
+      void set_sides(int x, int y) {
+          a = x;
+          b = y;
+      }
+      double area() {
+          return a * b;
+      }
+    private:
+      double a, b;
+  };
+  int main() {
+      Pravokotnik p;
+      p.set_sides(1, 1);
+      cout << p.area() << endl;
+      p.a = 8;
+  }
+
+Zgornja koda nam vrne napako, dostopamo namreč do privatne spremenljivke `a`.
+
+::
+
+  a.cpp: In function ‘int main()’:
+  a.cpp:14:14: error: ‘double Pravokotnik::a’ is private
+         double a, b;
+                ^
+  a.cpp:20:9: error: within this context
+         p.a = 8;
+           ^
+
+Če problematično vrstico zakomentiramo, je vse ok, saj sta ``set_sides`` in
+``area`` public metodi, ki pa znotraj razreda lahko dostopata do privatnih
+spremenljivk.
+
+Seveda je najlažje programirati, če vse naredimo kar public, vendar to ni nujno
+najboljša ideja. Pravzaprav je bolje, da vse naredimo privatno, in navzven
+pokažemo samo nekaj metod za delo z našim razredom, saj tako uporabniku našega
+razreda (torej tudi samemu sebi) preprečimo, da bi počeli kakšne neumnosti,
+spravili razred v neveljavno stanje, klicali funkcije, ki so zgolj del
+implementacije in se lahko spremenijo. Imeti stvari po defaultu private
+spodbuja boljši design kode: če je nekaj samo implementacijski detajl, potem je
+gotovo zasebno. Predstavljajte si, da bi imeli na voljo tudi vse interne
+metode, ki jih razred ``vector`` uporablja za alokacijo spomina, prepisovanje
+elementov, ipd. To je nepotrebno, saj ne veste kaj klicanje takih metod naredi,
+poleg tega pa se lahko te metode kadarkoli zamenjajo. Toda, ker so v privatne,
+bo vsa koda, ki ``vector`` uporablja, še vedno delovala (saj so bile metode
+privatne in jih nismo mogli uporabljati). Tako lahko rečemo, da public metode
+pravzaprav definirajo, kaj objekt je in kaj z njim lahko počnemo, pa tudi
+spodobi se, da vsaka public metoda pusti objekt v veljavnem stanju (kar ni
+nujno res za privatne metode). Primer: za public metode se ponavadi ne spodobi,
+da bi postavlji zahteve v stilu "Če želite poklicati x, morate najprej poklicati y.",
+medtem ko je za privatne to običajno.
+
+Konstruktorji in destruktorji
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+Const metode in spremenljivke
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+Static metode
+~~~~~~~~~~~~~
+
+TODO
+
+
 .. vim: spell spelllang=sl

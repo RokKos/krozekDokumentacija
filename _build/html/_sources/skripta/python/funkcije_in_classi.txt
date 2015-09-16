@@ -212,7 +212,7 @@ Bolj napreden primer:
     File "<stdin>", line 1, in <module>
   NameError: name 'c' is not defined
 
-Zaključek: stvari ki jih počenemo v funkciji ne spreminjajo zunanjega sveta,
+Zaključek: stvari, ki jih počenemo v funkciji ne spreminjajo zunanjega sveta,
 kot se od funkcij tudi pričakuje.
 
 Za zelo podrobno razlago scopinga v Pythonu kliknite
@@ -259,7 +259,7 @@ Sintaksa definicije novih razredov gre takole:
           # code
 
 
-Spremenljivka tega tipa ki jo naredimo, se imenuje *objekt* tega razreda ali
+Spremenljivka tega tipa, ki jo naredimo, se imenuje *objekt* tega razreda ali
 *instanca* tega razreda. *Tip* in *razred* se nanašata na abstraktno
 definicijo, *objekt* ali *instanca* pa na konkretno spremenljivko.
 Funkcije, ki so vsebovane v tem objektu se imenujejo *metode*, spremenljivke
@@ -274,6 +274,7 @@ tega objekta pa *atributi*. Primer ustvarjanja objekta in klicanja metod:
 
 Konstruktorji in destruktorji
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Objekt ustvarimo tako, da napišemo ime razreda in podamo vse potrebne argumente.
 V tem primeru Python pokliče *konstruktor* objekta, ki objekt zgradi.
 Konstruktor objekta je metoda ``__init__``, ki jo napišemo v definicijo
