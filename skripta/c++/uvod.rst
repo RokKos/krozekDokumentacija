@@ -148,4 +148,15 @@ Program torej ponavadi poženemo z:
 
   g++ -std=c++11 -Wall -o program program.cpp
 
+.. note::
+
+  Če želite iz compilerja barvni output, potem je treba dodati še zastavico
+  ``-fdiagnostics-color=always``.
+
+.. note::
+
+  Obstajajo tudi drugi prevajalniki, znan je tudi clang++, ki se ga uporablja
+  popolnoma enako. Znan pa je potem da je velikrat hitrejši, ima pa tudi veliko
+  lepša poročila o napakah. (kar velikrat zelo pomaga).
+
 .. vim: spell spelllang=sl

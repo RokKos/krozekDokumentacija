@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Funkcije in objekti &mdash; Programerski krožek na Gimnaziji Vič 0.1 documentation</title>
+  <title>Funkcije &mdash; Programerski krožek na Gimnaziji Vič 0.1 documentation</title>
   
 
   
@@ -32,7 +32,7 @@
   
     <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../../index.html"/>
         <link rel="up" title="C++" href="../../c++.html"/>
-        <link rel="next" title="SQL" href="../../sql.html"/>
+        <link rel="next" title="Objekti" href="objekti.html"/>
         <link rel="prev" title="Podatkovni tipi" href="podatkovni_tipi.html"/> 
 
   
@@ -85,7 +85,8 @@
 <li class="toctree-l2"><a class="reference internal" href="uvod.html">Uvod</a></li>
 <li class="toctree-l2"><a class="reference internal" href="osnove.html">Osnove</a></li>
 <li class="toctree-l2"><a class="reference internal" href="podatkovni_tipi.html">Podatkovni tipi</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Funkcije in objekti</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Funkcije</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objekti.html">Objekti</a></li>
 </ul>
 </li>
 </ul>
@@ -125,10 +126,10 @@
       
           <li><a href="../../c++.html">C++</a> &raquo;</li>
       
-    <li>Funkcije in objekti</li>
+    <li>Funkcije</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/skripta/c++/funkcije_in_objekti.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/skripta/c++/funkcije.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -136,16 +137,14 @@
 </div>
           <div role="main">
             
-  <div class="section" id="funkcije-in-objekti">
-<h1>Funkcije in objekti<a class="headerlink" href="#funkcije-in-objekti" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="funkcije">
+<h1>Funkcije<a class="headerlink" href="#funkcije" title="Permalink to this headline">¶</a></h1>
 <p>Zakaj potrebujemo funkcije si preberite v <a class="reference internal" href="../python/funkcije_in_classi.html#funkcijepython"><em>Funkcije in razredi</em></a> za python.</p>
-<div class="section" id="funkcije">
-<h2>Funkcije<a class="headerlink" href="#funkcije" title="Permalink to this headline">¶</a></h2>
 <p>Pri c++ moramo za vsako funkcijo vedeti,katere tipe sprejme in kakšen tip vrne.
 Pravzaprav smo vedno morali napisati definicijo funkcije <tt class="docutils literal"><span class="pre">main</span></tt> in za ostale
 funkcije je sintaska enaka.</p>
 <div class="section" id="sintaksa">
-<h3>Sintaksa<a class="headerlink" href="#sintaksa" title="Permalink to this headline">¶</a></h3>
+<h2>Sintaksa<a class="headerlink" href="#sintaksa" title="Permalink to this headline">¶</a></h2>
 <p>Definicija funkcije v C++ ima nastednjo sintakso (posplošimo na poljubno število
 parametrov):</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span class="n">return_type</span> <span class="nf">ime_funkcije</span><span class="p">(</span><span class="n">tip1</span> <span class="n">parameter1</span><span class="p">,</span> <span class="n">tip2</span> <span class="n">parameter2</span><span class="p">)</span> <span class="p">{</span>
@@ -157,7 +156,7 @@ parametrov):</p>
 definirati preden jo uporabimo, to je ponavadi nad funkcijo <tt class="docutils literal"><span class="pre">main</span></tt>.</p>
 </div>
 <div class="section" id="vracanje-rezultatov">
-<h3>Vračanje rezultatov<a class="headerlink" href="#vracanje-rezultatov" title="Permalink to this headline">¶</a></h3>
+<h2>Vračanje rezultatov<a class="headerlink" href="#vracanje-rezultatov" title="Permalink to this headline">¶</a></h2>
 <p>Če hočemo, da funkcija kaj vrne, to povemo z ukazom <tt class="docutils literal"><span class="pre">return</span></tt>. Tip
 spremenljivke ki jo vračamo se mora ujemati s tipom, ki smo ga napisali v
 funkciji.</p>
@@ -175,7 +174,7 @@ funkciji.</p>
 </div>
 </div>
 <div class="section" id="klicanje-funkcij">
-<h3>Klicanje funkcij<a class="headerlink" href="#klicanje-funkcij" title="Permalink to this headline">¶</a></h3>
+<h2>Klicanje funkcij<a class="headerlink" href="#klicanje-funkcij" title="Permalink to this headline">¶</a></h2>
 <p>Ko izvedemo program, ki vsebuje samo definicije funkcij, se ne zgodi nič.
 Funkcijo je treba namreč še poklicati. Naše funkcije kličemo popolnoma enako kot
 že vdelane funkcije (npr. sin(), sort()).</p>
@@ -195,7 +194,7 @@ Funkcijo je treba namreč še poklicati. Naše funkcije kličemo popolnoma enako
 </div>
 </div>
 <div class="section" id="overloading">
-<h3>Overloading<a class="headerlink" href="#overloading" title="Permalink to this headline">¶</a></h3>
+<h2>Overloading<a class="headerlink" href="#overloading" title="Permalink to this headline">¶</a></h2>
 <p>Ker so v C++ funkcije odvisne od tipov, imamo lahko več funkcij z istim imenom
 &#8211; dokler se le razlikujejo po tipu ali številu parametrov.</p>
 <p>Primer:</p>
@@ -217,7 +216,7 @@ uporabnik poklicati &#8211; <tt class="docutils literal"><span class="pre">seste
 <tt class="docutils literal"><span class="pre">sestej(&quot;abc&quot;,</span> <span class="pre">&quot;def&quot;)</span></tt> pa drugo.</p>
 </div>
 <div class="section" id="scoping">
-<h3>Scoping<a class="headerlink" href="#scoping" title="Permalink to this headline">¶</a></h3>
+<h2>Scoping<a class="headerlink" href="#scoping" title="Permalink to this headline">¶</a></h2>
 <p>V C++ funkcij vedno dobi kopijo vrednosti, ki jo podamo. Tako znotraj funkcij,
 kot smo jih definirali sedaj, vrednosti ne moremo spreminjati. Primer:</p>
 <div class="highlight-cpp"><div class="highlight"><pre><span class="kt">void</span> <span class="nf">spremeni</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
@@ -239,7 +238,7 @@ spremenila? Bi 5.6 postalo 3.5? Jasno je, da mora funkcija sprejeti <em>kopijo</
 parametra.</p>
 </div>
 <div class="section" id="reference-in-konstantne-reference">
-<h3>Reference in konstantne reference<a class="headerlink" href="#reference-in-konstantne-reference" title="Permalink to this headline">¶</a></h3>
+<h2>Reference in konstantne reference<a class="headerlink" href="#reference-in-konstantne-reference" title="Permalink to this headline">¶</a></h2>
 <p>Seveda je uporabno imeti tudi funkcije, ki spreminjajo parametre, na primer
 funkcij swap, ki zamenja vrednosti dveh spremenljivk.</p>
 <p>Tej funkciji namesto običajnih tipov podamo reference &#8211; to pomeni da je
@@ -314,149 +313,6 @@ to ni težava, saj je ne moremo spreminjati.</p>
 funkcija  <tt class="docutils literal"><span class="pre">a</span></tt> spremenila ali ne &#8211; pogledati moramo v definicijo.</p>
 </div>
 </div>
-<div class="section" id="objekti">
-<h2>Objekti<a class="headerlink" href="#objekti" title="Permalink to this headline">¶</a></h2>
-<p>Razrede v C++ uporabljamo enako kot v Pythonu. Z njimi definiramo nove
-podatkovne tipe, ki ustrezajo našim potrebam. Najprej terminologija:</p>
-<p><em>Razred</em> je definicija našega novega tipa.  Spremenljivka tega tipa, ki jo
-naredimo, se imenuje <em>objekt</em> tega razreda ali <em>instanca</em> tega razreda. <em>Tip</em> in
-<em>razred</em> se nanašata na abstraktno definicijo, <em>objekt</em> ali <em>instanca</em> pa na
-konkretno spremenljivko.  Funkcije, ki so vsebovane v tem objektu se imenujejo
-<em>metode</em>, spremenljivke tega objekta pa <em>atributi</em>. Običajno razrede označujemo
-z <em>CamelCase</em> začetnicami.</p>
-<p>Definicija novega razreda gre v C++ tako:</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="k">class</span> <span class="nc">ImeTipa</span> <span class="p">{</span>
-  <span class="nl">public:</span>
-    <span class="n">tip1</span> <span class="n">member1</span><span class="p">;</span>
-    <span class="n">tip2</span> <span class="n">member2</span><span class="p">;</span>
-  <span class="nl">private:</span>
-    <span class="n">tip3</span> <span class="n">member3</span><span class="p">;</span>
-    <span class="n">tip4</span> <span class="n">member4</span><span class="p">;</span>
-<span class="p">};</span>
-</pre></div>
-</div>
-<div class="admonition danger">
-<p class="first admonition-title">Danger</p>
-<p class="last">Na koncu definicije razreda mora biti podpičje. Če ga pozabite, lahko pride
-do zelo neprijetnih in težko razumljivih napak.</p>
-</div>
-<p>Naredimo primer razreda <em>Pravokotnik</em> in nastavimo njegove člane na dva načina.
-Prvi je direkten, drugi pa je s pomočjo</p>
-<p>Spremenjlivke našega tipa definiramo enako kot vse ostale, najprej povemo tip,
-nato pa ime. Kot pri funkcijah tudi razrede definiramo izven funkcije <tt class="docutils literal"><span class="pre">main</span></tt>
-preden jih želimo uporabljati. Kot v veliko drugih jezikih tudi v c++ do
-atributov in metod dostopamo s piko <tt class="docutils literal"><span class="pre">a.x</span></tt>.</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Pravokotnik</span> <span class="p">{</span>
-  <span class="nl">public:</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Pravokotnik</span> <span class="n">p</span><span class="p">;</span>
-    <span class="n">p</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-    <span class="n">p</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<div class="section" id="metode">
-<h3>Metode<a class="headerlink" href="#metode" title="Permalink to this headline">¶</a></h3>
-<p>Dodajmo razredu metodo, ki izračuna ploščino, in še eno, ki nastavi obe
-stranici. Metode so po sintaksi popolnoma enake funkcijam in do atributov
-razreda imajo prost dostop (ni potrebno pisati npr. <tt class="docutils literal"><span class="pre">self.x</span></tt>).</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Pravokotnik</span> <span class="p">{</span>
-  <span class="nl">public:</span>
-    <span class="kt">void</span> <span class="n">set_sides</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kt">double</span> <span class="n">area</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="nl">private:</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Pravokotnik</span> <span class="n">p</span><span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">};</span>
-    <span class="n">p</span><span class="p">.</span><span class="n">set_sides</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>  <span class="c1">// prints 1</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="private-public-protected">
-<h3>Private, public, protected<a class="headerlink" href="#private-public-protected" title="Permalink to this headline">¶</a></h3>
-<p>To so trije tipi scopa, &#8220;vidnosti&#8221; v razredih. Do public funkcij in spremenljivk
-lahko dostopajo vsi, izven in znotraj razreda, do privatnih pa samo znotraj
-razreda. Protected se uporablja pri dedovanju, in ga bomo spoznali kasneje.</p>
-<p>Pogost vzorec v programiranju je, da so atributi private, spreminja in bere pa se jih
-lahko samo preko public metod, saj s tem uporabniku preprečimo nekontroliran
-dostop, ki bi lahko ogrozil smiselnost podatkov.</p>
-<div class="highlight-cpp"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Pravokotnik</span> <span class="p">{</span>
-  <span class="nl">public:</span>
-    <span class="kt">void</span> <span class="n">set_sides</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kt">double</span> <span class="n">area</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="nl">private:</span>
-    <span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">};</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Pravokotnik</span> <span class="n">p</span><span class="p">;</span>
-    <span class="n">p</span><span class="p">.</span><span class="n">set_sides</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">p</span><span class="p">.</span><span class="n">area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="n">p</span><span class="p">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>Zgornja koda nam vrne napako, dostopamo namreč do privatne spremenljivke <cite>a</cite>.</p>
-<div class="highlight-python"><div class="highlight"><pre>a.cpp: In function ‘int main()’:
-a.cpp:14:14: error: ‘double Pravokotnik::a’ is private
-       double a, b;
-              ^
-a.cpp:20:9: error: within this context
-       p.a = 8;
-         ^
-</pre></div>
-</div>
-<p>Če problematično vrstico zakomentiramo, je vse ok, saj sta <tt class="docutils literal"><span class="pre">set_sides</span></tt> in
-<tt class="docutils literal"><span class="pre">area</span></tt> public metodi, ki pa znotraj razreda lahko dostopata do privatnih
-spremenljivk.</p>
-<p>Seveda je najlažje programirati, če vse naredimo kar public, vendar to ni nujno
-najboljša ideja. Pravzaprav je bolje, da vse naredimo privatno, in navzven
-pokažemo samo nekaj metod za delo z našim razredom, saj tako uporabniku našega
-razreda (torej tudi samemu sebi) preprečimo, da bi počeli kakšne neumnosti,
-spravili razred v neveljavno stanje, klicali funkcije, ki so zgolj del
-implementacije in se lahko spremenijo. Imeti stvari po defaultu private
-spodbuja boljši design kode: če je nekaj samo implementacijski detajl, potem je
-gotovo zasebno. Predstavljajte si, da bi imeli na voljo tudi vse interne
-metode, ki jih razred <tt class="docutils literal"><span class="pre">vector</span></tt> uporablja za alokacijo spomina, prepisovanje
-elementov, ipd. To je nepotrebno, saj ne veste kaj klicanje takih metod naredi,
-poleg tega pa se lahko te metode kadarkoli zamenjajo. Toda, ker so v privatne,
-bo vsa koda, ki <tt class="docutils literal"><span class="pre">vector</span></tt> uporablja, še vedno delovala (saj so bile metode
-privatne in jih nismo mogli uporabljati). Tako lahko rečemo, da public metode
-pravzaprav definirajo, kaj objekt je in kaj z njim lahko počnemo, pa tudi
-spodobi se, da vsaka public metoda pusti objekt v veljavnem stanju (kar ni
-nujno res za privatne metode). Primer: za public metode se ponavadi ne spodobi,
-da bi postavlji zahteve v stilu &#8220;Če želite poklicati x, morate najprej poklicati y.&#8221;,
-medtem ko je za privatne to običajno.</p>
-</div>
-<div class="section" id="konstruktorji-in-destruktorji">
-<h3>Konstruktorji in destruktorji<a class="headerlink" href="#konstruktorji-in-destruktorji" title="Permalink to this headline">¶</a></h3>
-<p>TODO</p>
-</div>
-<div class="section" id="const-metode-in-spremenljivke">
-<h3>Const metode in spremenljivke<a class="headerlink" href="#const-metode-in-spremenljivke" title="Permalink to this headline">¶</a></h3>
-<p>TODO</p>
-</div>
-<div class="section" id="static-metode">
-<h3>Static metode<a class="headerlink" href="#static-metode" title="Permalink to this headline">¶</a></h3>
-<p>TODO</p>
-</div>
-</div>
-</div>
 
 
           </div>
@@ -464,7 +320,7 @@ medtem ko je za privatne to običajno.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../sql.html" class="btn btn-neutral float-right" title="SQL"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="objekti.html" class="btn btn-neutral float-right" title="Objekti"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="podatkovni_tipi.html" class="btn btn-neutral" title="Podatkovni tipi"><span class="fa fa-arrow-circle-left"></span> Previous</a>
