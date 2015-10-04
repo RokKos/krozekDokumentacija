@@ -3,3 +3,4 @@ include/
 lib/
 *.pyc
 skripta/python-vaje/turtle/tmp.ps
+pip-selfcheck.json

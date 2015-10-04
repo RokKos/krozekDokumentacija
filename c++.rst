@@ -3,7 +3,7 @@ C++
 
 Bolj natančna in popolna ter verjetno tudi pravilnejša dokumentacija je na
 voljo `tukaj <http://www.cplusplus.com/reference/>`_ ali `tukaj
-<http://en.cppreference.com>`
+<http://en.cppreference.com>`_.
 
 Vsebina:
 
