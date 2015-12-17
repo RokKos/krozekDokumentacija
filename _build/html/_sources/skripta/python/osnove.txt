@@ -122,7 +122,7 @@ izpolnjen noben od pogojev v ``if`` in ``elif`` stavkih. ``elif`` in ``else``
 deli niso obvezni.
 
 Sintaksa if stavkov je naslednja (pazljivi moramo biti na zamik po if stavku -
-dobimo ga tako, da pritisnemo tabulator, ki se nahaja nad caps lock tipko na
+dobimo ga tako, da pritisnemo tabulator, ki se nahaja nad CAPS LOCK tipko na
 tipkovnici):
 
 .. code-block:: python
@@ -151,8 +151,8 @@ Pogoji
 Pogoji so lahko enostavni ali sestavljeni. Enostavni pogoji so npr. primerjanje
 enakosti (je enako ``==``, ni enako ``!=``), primerjanje vrednosti (večje
 ``>``, večje ali enako ``>=``, manjše ``>``, manjše ali enako ``<=``),
-sestavljeni pa so narejeni iz kombinacije enostavnih z uporabo matematičnih
-operacij ``NOT``, ``AND``, ``OR``, ``XOR`` itd.
+sestavljeni pa so narejeni iz kombinacije enostavnih z uporabo logičnih
+operacij ``not``, ``and``, ``or``, ``xor`` itd.
 
 Primer:
 
@@ -328,6 +328,6 @@ naslednje. To je uporabno na primer za filtriranje neveljavnih podatkov:
       # tukaj zelo veliko kode, ki procesira veljavne podatke
 
 Kot ste morda opazili, se da continue vedno nadomestiti z ustreznim ``if``
-``else`` stavkom, a je to lahko veliko bolj neberljivo.
+``else`` stavkom, a je to lahko veliko manj berljivo.
 
 .. vim: spell spelllang=sl

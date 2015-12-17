@@ -10,3 +10,4 @@ Vsebina:
   skripta/python-vaje/turtle
   skripta/python-vaje/podatkovni_tipi_in_funkcije
   skripta/python-vaje/datoteke
+  skripta/python-vaje/bozicne-vaje/vaje.rst

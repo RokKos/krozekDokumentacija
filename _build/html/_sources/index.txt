@@ -13,7 +13,7 @@ Krožek vodita Natan Žabkar <`natan.zabkar@gmail.com
 <jure.slak@gmail.com>`_>. Krožek poteka od oktobra do junija vsak četrtek od
 14:30 do 16:45 v informatiki v 3. nadstropju.
 
-**Prvo srečanje krožka v letu 2015/16 bo v četrtek, 8. 10. 2015.**
+**Prvo srečanje krožka v letu 2015/16 bo v četrtek 8. 10. 2015.**
 
 Učimo se programiranja v Pythonu in C++-u, izdelovanja spletnih strani,
 izdelovanja računalniških igric, priprave na tekmovanja v Sloveniji in po
