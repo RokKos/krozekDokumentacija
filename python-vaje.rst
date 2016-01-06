@@ -11,3 +11,4 @@ Vsebina:
   skripta/python-vaje/podatkovni_tipi_in_funkcije
   skripta/python-vaje/datoteke
   skripta/python-vaje/bozicne-vaje/vaje.rst
+  skripta/python-vaje/vislice
