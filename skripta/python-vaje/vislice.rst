@@ -27,7 +27,7 @@ Pri poteku te naloge ti morda prav pridejo naslednje datoteke:
 
   * :download:`besede.txt<datoteke/besede.txt>` seznam vseh slovenskih besed, ki vsebujejo vsaj tri različne črke.
   * :download:`besede2.txt<datoteke/besede2.txt>` seznam najpogostejših slovenskih besed, ki vsebujejo vsaj tri različne črke.
-  * :download:`imgs.py<datoteke/imgs.py>` seznam unicode slikic za igranje vislic.
+  * :download:`slike.py<datoteke/slike.py>` seznam unicode slikic za igranje vislic.
 
 Razred besed
 ---------------
