@@ -47,3 +47,15 @@ Uporabniški vmesnik
 --------------------
 Uporabi zgornja razreda, da simuliraš igro vislic z uporabnikom. Dokler je igra v teku zahtevaj nov vnos črke in jo dodaj v igro. Ko uporabnik bodisi zmaga, bodisi izgubi naj se program ponovi, bodisi zaključi.
 
+Izdelek
+----------
+Na tej povezavi si lahko prenesete delujoč program:
+:download:`vislice.py<datoteke/vislice.py>`.
+
+Razred za pomoč uporabniku
+---------------------------
+Napiši razred, ki igralcu pomaga, ko ta potrebuje ali prosi za pomoč. Naj daje namige oblike
+
+  * Beseda vsebuje 5 različnih črk.
+  * Manjka ti še en samoglasnik.
+  * V besedi ni črke u.
