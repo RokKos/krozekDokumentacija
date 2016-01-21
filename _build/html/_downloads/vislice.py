@@ -1,5 +1,5 @@
 from slike import slike
-from random import shuffle
+from random import shuffle, randint
 
 
 class Besede:
@@ -14,6 +14,37 @@ class Besede:
     def daj_besedo(self):
         self.stevec += 1
         return self.besede[(self.stevec - 1) % len(self.besede)]
+
+    def daj_pomoc(self, namig):
+        beseda = self.besede[(self.stevec - 1) % len(self.besede)]
+        st_pomoci = randint(0, 2)
+        if st_pomoci == 0:
+            st_crk = len(set(beseda) - set(namig))
+            print("Uganiti moraš še {0} različnih črk.".format(st_crk))
+        elif st_pomoci == 1:
+            neuganjene = set()
+            st_neuganjenih = 0
+            for crka in beseda:
+                if crka not in namig:
+                    neuganjene.add(crka)
+                    st_neuganjenih += 1
+            if st_neuganjenih == len(neuganjene):
+                print("Vse preostale črke so različne.")
+            else:
+                print("Preostale črke niso različne")
+
+        elif st_pomoci == 2:
+            ujemanj = 0
+            for bes in self.besede:
+                if len(bes) == len(beseda):
+                    enaki = True
+                    for i in range(len(beseda)):
+                        if bes[i] != namig[i] and namig[i] != '_':
+                            enaki = False
+                            break
+                    if enaki:
+                        ujemanj += 1
+            print("Možnih je {0} besed".format(ujemanj))
 
 
 class Hangman:
@@ -39,6 +70,9 @@ class Hangman:
         return 0
 
     def ugani(self, crke):
+        if crke == "?":
+            self.generator.daj_pomoc(self.namig)
+            return 0
         ujemanje = 0
         for c in crke:
             if c in self.kljuc:
