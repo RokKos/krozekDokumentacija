@@ -12,3 +12,4 @@ Vsebina:
   skripta/python-vaje/datoteke
   skripta/python-vaje/bozicne-vaje/vaje.rst
   skripta/python-vaje/vislice
+  skripta/python-vaje/kvazi_besede
