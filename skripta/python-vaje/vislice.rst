@@ -63,4 +63,4 @@ Na tej povezavi si lahko prenesete delujoč program:
 
 Grafični vmesnik
 -----------------
-Uporabi knjižnico tkinter, da narediš okno v katerem lahko uporabnik igra vislice.
+Uporabi knjižnico tkinter, da narediš okno v katerem lahko uporabnik igra vislice. V pomoč so ti lahko te :download:`zbrane slike <datoteke/slike_vislice.zip>`.
