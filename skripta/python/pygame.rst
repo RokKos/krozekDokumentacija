@@ -72,5 +72,3 @@ Sedaj pa lahko preizkusiš pygame z njihovimi primeri
 
 Namesto aliens lahko pogledaš tudi `druge primere <http://www.pygame.org/docs/ref/examples.html>`_.
 
-Osnove
--------
