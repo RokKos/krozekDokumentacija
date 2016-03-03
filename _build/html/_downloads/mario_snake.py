@@ -20,8 +20,10 @@ class Mario(pygame.sprite.Sprite):
         self.hitrost_x = 0
         self.hitrost_y = 0
 
-    def update(self):
+        self.max_skokov = 1
+        self.st_skokov = self.max_skokov
 
+    def update(self):
         # Smer X
         self.rect.x += self.hitrost_x
         self.rect.x %= SIRINA_EKRANA
@@ -34,6 +36,8 @@ class Mario(pygame.sprite.Sprite):
                     self.rect.right = ovira.rect.left
         # Smer Y
         self.hitrost_y += 0.4
+        if self.hitrost_y > 20:
+            self.hitrost_y = 20
         self.rect.y += self.hitrost_y
         self.rect.y %= VISINA_EKRANA
         if self.ovire:
@@ -42,6 +46,7 @@ class Mario(pygame.sprite.Sprite):
                 if self.hitrost_y < 0:
                     self.rect.top = ovira.rect.bottom
                 if self.hitrost_y > 0:
+                    self.st_skokov = self.max_skokov
                     self.rect.bottom = ovira.rect.top
                 self.hitrost_y = 0
 
@@ -58,7 +63,9 @@ class Mario(pygame.sprite.Sprite):
         self.rect.y -= 2
         if len(trki):
             self.hitrost_y = -10
-
+        if self.st_skokov > 0:
+            self.st_skokov -= 1
+            self.hitrost_y = -10
 
 
 class Ploscad(pygame.sprite.Sprite):
