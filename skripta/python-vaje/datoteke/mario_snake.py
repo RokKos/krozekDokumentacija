@@ -78,6 +78,9 @@ class Kaca(object):
             self.dodaj_kos(self.buffer)
             self.buffer = 0
 
+    def izbrisi_kos(self):
+        self.urejeni_kosi[-1].remove()
+
     # Funkcije za premikanje kace
     def pojdi_levo(self):
         self.vx = -self.hitrost
@@ -101,26 +104,58 @@ class Kaca(object):
 
 class Mario(pygame.sprite.Sprite):
     """ Gospod Mario """
-    def __init__(self, ovire=None):
+    def __init__(self, ovire=None, kaca=None):
         super().__init__()
         self.ovire = ovire
+        self.kaca = kaca
 
-        sirina = 40
-        visina = 60
+        sirina = 50
+        visina = 72
 
-        self.image = pygame.Surface((sirina, visina))
-        self.image.fill((255, 0, 0))
+        self.image = pygame.Surface((sirina, visina), pygame.SRCALPHA)
+        # self.image.fill((255, 0, 0))
         self.rect = self.image.get_rect()
+        self.images = pygame.image.load("spritesheet.png")
 
+        self.hodim = True
         self.hitrost_x = 0
         self.hitrost_y = 0
+        self.hitrost_podlage = 0
 
         self.max_skokov = 1
         self.st_skokov = self.max_skokov
+        # Stevci za animacije
+        self.desno = True
+        self.stevci = {
+            "mir": [0, 4],
+            "tek": [0, 4],
+            "let": [0, 1]
+            }
+
+    def nastavi_sliko(self):
+        self.image.fill((0, 0, 0, 0))
+        if abs(self.hitrost_y) > 0.9:
+            self.image.blit(self.images, (0, 0),
+                            (2, 248, 52, 320))
+        elif not self.hodim or self.hitrost_x == 0:
+            self.stevci["mir"][0] += 0.15
+            self.stevci["mir"][0] %= self.stevci["mir"][1]
+            n = self.stevci["mir"][0] // 1
+            self.image.blit(self.images, (0, 0),
+                            (56*n, 169, 56*n+50, 241))
+        else:
+            self.stevci["tek"][0] += 0.15
+            self.stevci["tek"][0] %= self.stevci["tek"][1]
+            n = self.stevci["tek"][0] // 1
+            self.image.blit(self.images, (0, 0),
+                            (55*n+5, 4, 55*(n+1), 76))
+        if not self.desno:
+             self.image = pygame.transform.flip(self.image, True, False)
+
 
     def update(self):
         # Smer X
-        self.rect.x += self.hitrost_x
+        self.rect.x += self.hitrost_x + self.hitrost_podlage
         self.rect.x %= SIRINA_EKRANA
         if self.ovire:
             trki = pygame.sprite.spritecollide(self, self.ovire, False)
@@ -130,7 +165,11 @@ class Mario(pygame.sprite.Sprite):
                 if self.hitrost_x > 0:
                     self.rect.right = ovira.rect.left
         # Smer Y
-        self.hitrost_y += 0.4
+        self.hitrost_podlage = 0
+        if self.hitrost_y == 0:
+            self.hitrost_y = 1.1
+        else:
+            self.hitrost_y += 0.4
         if self.hitrost_y > 20:
             self.hitrost_y = 20
         self.rect.y += self.hitrost_y
@@ -144,19 +183,37 @@ class Mario(pygame.sprite.Sprite):
                     self.st_skokov = self.max_skokov
                     self.rect.bottom = ovira.rect.top
                 self.hitrost_y = 0
+        if self.kaca and self.hitrost_y > 0.6:
+            trki = pygame.sprite.spritecollide(
+                self, self.kaca.moji_kosi, False)
+            for kos_kace in trki:
+                self.kaca.izbrisi_kos()
+                self.rect.bottom = kos_kace.rect.top
+                self.hitrost_y = 0
+                self.st_skokov = self.max_skokov
+                self.hitrost_podlage = kos_kace.vx
+
+        self.nastavi_sliko()
 
 
     def pojdi_levo(self):
-        self.hitrost_x = -6
+        self.desno = False
+        self.hitrost_x = -4
+        self.hodim = True
     def pojdi_desno(self):
-        self.hitrost_x = 6
+        self.desno = True
+        self.hitrost_x = 4
+        self.hodim = True
     def stop(self):
+        self.hodim = False
         self.hitrost_x = 0
     def skoci(self):
         self.rect.y += 2
         trki = pygame.sprite.spritecollide(self, self.ovire, False)
+        trki2 = pygame.sprite.spritecollide(
+            self, self.kaca.moji_kosi, False)
         self.rect.y -= 2
-        if len(trki):
+        if len(trki) or len(trki2):
             self.hitrost_y = -10
         elif self.st_skokov > 0:
             self.st_skokov -= 1
@@ -173,23 +230,24 @@ class Ploscad(pygame.sprite.Sprite):
         self.rect.y = y
 
 
-
 def main():
     ekran = pygame.display.set_mode(
         [SIRINA_EKRANA, VISINA_EKRANA])
 
     ploscadi = pygame.sprite.Group()
     ploscadi.add(
-        Ploscad(100, 100, 100, 20),
-        Ploscad(200, 200, 100, 20),
+        Ploscad(0, -10, SIRINA_EKRANA, 15),
+        Ploscad(0, VISINA_EKRANA-5, SIRINA_EKRANA, 15),
+        Ploscad(10, 100, 100, 20),
         Ploscad(300, 300, 100, 20))
 
     skupina = pygame.sprite.Group()
 
-    luigi = Mario(ploscadi)
+    kaca = Kaca()
+
+    luigi = Mario(ploscadi, kaca)
     skupina.add(luigi)
 
-    kaca = Kaca()
 
     konec_zanke = False
     ura = pygame.time.Clock()
@@ -200,6 +258,9 @@ def main():
             if dogodek.type == pygame.QUIT:
                 konec_zanke = True
             elif dogodek.type == pygame.KEYDOWN:
+                if dogodek.key == pygame.K_ESCAPE:
+                    konec_zanke = True
+                    break
                 if dogodek.key == pygame.K_LEFT:
                     luigi.pojdi_levo()
                 elif dogodek.key == pygame.K_RIGHT:
