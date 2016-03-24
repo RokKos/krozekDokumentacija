@@ -44,6 +44,11 @@ Vsebina:
 
   sql
 
+.. toctree::
+  :maxdepth: 2
+
+  git
+
 Dokumentacija zunanjih vaj:
 
 .. toctree::
