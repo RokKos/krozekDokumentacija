@@ -66,5 +66,5 @@ Med prvima dvema znakoma so spremembe, ki smo jih naredili mi, nato pa spremembe
 .. code-block:: bash
 
   git add main.py
-  git commit -m "Odprevljen konflikt v main.py"
+  git commit -m "Odpravljen konflikt v datoteki main"
 

@@ -1,5 +1,8 @@
 Git
 ===
+.. image:: skripta/git/img/git_usage.png
+   :align: center
+   :target: _images/git_usage.png
 
 Vsebina:
 
