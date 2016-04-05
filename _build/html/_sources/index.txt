@@ -49,6 +49,11 @@ Vsebina:
 
   git
 
+.. toctree::
+  :maxdepth: 2
+
+  opengl
+
 Dokumentacija zunanjih vaj:
 
 .. toctree::
