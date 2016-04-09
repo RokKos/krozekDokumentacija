@@ -38,7 +38,7 @@ Potrebovali bomo ``g++``, ``cmake`` in knjižnice za ``opengl``, ``glut`` in
 
 .. code-block:: bash
 
-  git clone ttps://github.com/opengl-tutorials/ogl
+  git clone https://github.com/opengl-tutorials/ogl
 
 Projekt zgradite tko kot ponavadi, če ste v mapi ``ogl/`` naredite ``build/`` folder in poženete
 ``cmake``. Programe zaganjate preko launch skript, ki jih ustvari ``cmake``.
