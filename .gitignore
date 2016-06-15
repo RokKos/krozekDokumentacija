@@ -4,3 +4,5 @@ lib/
 *.pyc
 skripta/python-vaje/turtle/tmp.ps
 pip-selfcheck.json
+/lib64/python3.5/distutils/__init__.py
+/lib64/python3.5/distutils/distutils.cfg

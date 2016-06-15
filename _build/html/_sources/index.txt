@@ -15,7 +15,7 @@ Krožek poteka od oktobra do junija vsak četrtek od 14:30 do 16:45 v informatik
 v 3. nadstropju.
 
 
-**Prvo srečanje krožka v letu 2015/16 bo v četrtek 8. 10. 2015.**
+**Zadnje srečanje krožka v letu 2015/16 bo v četrtek 16. 6. 2016.**
 
 Učimo se programiranja v Pythonu in C++-u, izdelovanja spletnih strani,
 izdelovanja računalniških igric, priprave na tekmovanja v Sloveniji in po
@@ -60,6 +60,13 @@ Dokumentacija zunanjih vaj:
   :maxdepth: 2
 
   Dokumentacija <autodoc/modules>
+
+Lov na zaklad:
+
+.. toctree::
+  :maxdepth: 2
+
+  lov-na-zaklad
 
 Indeksi in tabele
 =================
