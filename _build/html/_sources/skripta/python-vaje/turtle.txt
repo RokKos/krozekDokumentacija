@@ -2,7 +2,7 @@ Vaje iz želvje grafike
 ======================
 
 Ne pozabite, za uporabljanje funkcij za risanje z želvico je potrebno na
-začetek datoteke napisati ``from turtle import *``.
+začetek datoteke napisati ``import turtle``.
 
 Trikotnik
 ---------
