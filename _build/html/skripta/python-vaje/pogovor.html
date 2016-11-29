@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Namestitev &mdash; Programerski krožek na Gimnaziji Vič 0.1 documentation</title>
+  <title>Zakodiran pogovor &mdash; Programerski krožek na Gimnaziji Vič 0.1 documentation</title>
   
 
   
@@ -31,9 +31,9 @@
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
     <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../../index.html"/>
-        <link rel="up" title="Git" href="../../git.html"/>
-        <link rel="next" title="Osnove" href="osnove.html"/>
-        <link rel="prev" title="Uvod" href="uvod.html"/> 
+        <link rel="up" title="Python vaje" href="../../python-vaje.html"/>
+        <link rel="next" title="Psevdo besede" href="kvazi_besede.html"/>
+        <link rel="prev" title="Vislice" href="vislice.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -73,17 +73,17 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../python-vaje.html">Python vaje</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/osnove.html">Osnovne vaje</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/turtle.html">Vaje iz želvje grafike</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/podatkovni_tipi_in_funkcije.html">Vaje iz podatkovnih tipov in funkcij</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/datoteke.html">Datoteke</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/bozicne-vaje/vaje.html">Božične vaje</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/vislice.html">Vislice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/pogovor.html">Zakodiran pogovor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/kvazi_besede.html">Psevdo besede</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../python-vaje/mario_vs_snake.html">Mario vs Snake</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../python-vaje.html">Python vaje</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="osnove.html">Osnovne vaje</a></li>
+<li class="toctree-l2"><a class="reference internal" href="turtle.html">Vaje iz želvje grafike</a></li>
+<li class="toctree-l2"><a class="reference internal" href="podatkovni_tipi_in_funkcije.html">Vaje iz podatkovnih tipov in funkcij</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datoteke.html">Datoteke</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bozicne-vaje/vaje.html">Božične vaje</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vislice.html">Vislice</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Zakodiran pogovor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kvazi_besede.html">Psevdo besede</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mario_vs_snake.html">Mario vs Snake</a></li>
 </ul>
 </li>
 </ul>
@@ -103,11 +103,11 @@
 </ul>
 </li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../git.html">Git</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="uvod.html">Uvod</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Namestitev</a></li>
-<li class="toctree-l2"><a class="reference internal" href="osnove.html">Osnove</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../git.html">Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../git/uvod.html">Uvod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/namestitev.html">Namestitev</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../git/osnove.html">Osnove</a></li>
 </ul>
 </li>
 </ul>
@@ -152,12 +152,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../../git.html">Git</a> &raquo;</li>
+          <li><a href="../../python-vaje.html">Python vaje</a> &raquo;</li>
       
-    <li>Namestitev</li>
+    <li>Zakodiran pogovor</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/skripta/git/namestitev.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/skripta/python-vaje/pogovor.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -165,20 +165,48 @@
 </div>
           <div role="main">
             
-  <div class="section" id="namestitev">
-<h1>Namestitev<a class="headerlink" href="#namestitev" title="Permalink to this headline">¶</a></h1>
-<p>Za uporabo git-a potrebujemo vsaj dve strani sistema; strežniški del in uporabniški del. Za strežniški del se bomo zanašali na druge saj obstaja <a class="reference external" href="https://www.git-tower.com/blog/git-hosting-services-compared/">veliko različnih ponudnikov git storitev</a>. Naša izbira bo <a class="reference external" href="GitHub.com">GitHub</a>.</p>
-<div class="section" id="id2">
-<h2><a class="reference external" href="GitHub.com">GitHub</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>Začni s tem, da greš na njihovo spletno stran in si ustvariš nov račun (če ga še nimaš). Naslednji korak je ustvarjanje novega repozitorija. Repozitorij je lokacija kamor boš naložil kodo svojega projekta. Lahko je bodisi javen, bodisi zaseben. Določenim uporabnikom lahko daš pravice, da spreminjajo njegovo vsebino. Če delate v skupinah mora samo en član skupine narediti repozitorij.</p>
-<p>Na svoji strani najdi in pritisni <cite>+New Repository</cite>. Izberi si dobro ime, dodaj opis in si končal. Repozitorij se nahaja na naslovu <tt class="docutils literal"><span class="pre">github.com/&lt;up.</span> <span class="pre">ime</span> <span class="pre">lastnika&gt;/&lt;ime</span> <span class="pre">repozitorija&gt;</span></tt>. Tam pojdi pod nastavitve (Settings in potem Collaborators) in tam dodaj ostale člane svoje skupine.</p>
+  <div class="section" id="zakodiran-pogovor">
+<h1>Zakodiran pogovor<a class="headerlink" href="#zakodiran-pogovor" title="Permalink to this headline">¶</a></h1>
+<p>Naredili bomo program, ki zapisuje in bere zakodirana sporočila v lokalne
+datoteke. Zakodiral jih bo z zamikom posameznih znakov npr.</p>
+<blockquote>
+<div><ul class="simple">
+<li>zamik za 1 pomeni &#8216;a&#8217;-&gt;&#8217;b&#8217;, &#8216;b&#8217;-&gt;&#8217;c&#8217;,..., &#8216;z&#8217;-&gt;&#8217;{&#8216;</li>
+<li>zamik za 500 pomeni &#8216;a&#8217;-&gt;&#8217;ɕ&#8217;, &#8216;b&#8217;-&gt;&#8217;ɖ&#8217;,..., &#8216;z&#8217;-&gt;&#8217;ɮ&#8217;</li>
+</ul>
+</div></blockquote>
+<div class="section" id="delovanje-programa">
+<h2>Delovanje programa<a class="headerlink" href="#delovanje-programa" title="Permalink to this headline">¶</a></h2>
+<p>Program naj vpraša uporabnika za geslo. Geslo je pozitivno celo število, ki pove
+za koliko znakov je so zamaknjeni znaki v datoteki.</p>
+<p>Program naj nato izpiše odkodirano vsebino datoteke uporabniku. Nato naj
+vpraša uporabnika po njegovem imenu, da zapiše v datoteko in nato zapiše še
+vsa njegova sporočila.</p>
+<p>Primer zakodirane datoteke:</p>
+<div class="highlight-python"><div class="highlight"><pre>ȱȱȔɁɕɟɧȔȱȱǾȺɝɦɧɨȕǾȱȱȔɂəɁɕɟɧȔȱȱǾȵȵɕɕɕȵȵȵǾȱȱȔɁȿȔȱȱǾɁɣɞəȔɧɤɣɦɣɗɝɠɣȔɞəȔɧɟɦɝɪɢɣɧɨȕǾɧɨɣɤǾ
+ȱȱȔȵȔȱȱǾɇɈɃɄǾȱȱȔɁɕɟɧȔȱȱǾȼəɞȠȔɨɣȔɞəȔɪəɠɝɟɕȔɧɟɦɝɪɢɣɧɨȕǾɂɝɟɣɠɝȔɢəȔɝɮɘɕɞȔɢɝɗəɧɕɦȢǾɧɨɣɤǾ
+</pre></div>
 </div>
-<div class="section" id="uporabniski-vmesnik">
-<h2>Uporabniški vmesnik<a class="headerlink" href="#uporabniski-vmesnik" title="Permalink to this headline">¶</a></h2>
-<p>Za razliko od strežniškega dela si mora uporabniški vmesnik namestiti vsak član ekipe, ki hoče prispevati k nastajanju kode. Vsak uporabnik si ga lahko namesti na različnih napravah in različnih lokacijah (npr. v šoli, službi in doma), kjer hoče spreminjati vsebino spletnega repozitorija.</p>
-<p>Za uporabnike Linuxa tu ni nikakršnih problem enostavno napiši <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></tt> in si končal.</p>
-<p>Ta navodila so bolj namenjena uporabnikom Windowsa. Najprej si prenesi <a class="reference external" href="https://github.com/git-for-windows/git/releases/download/v2.7.4.windows.1/PortableGit-2.7.4-32-bit.7z.exe">Git Portable za windows</a> in si vse datoteke razširi npr. v svojo domačo mapo.</p>
-<p>V njej boš našel dve glavni datoteki. Obe orodji sta ukazni vrstici, ki vsebujeta ukaz git, a ena simulira Windowsov <cite>cmd</cite>, druga pa <cite>bash</cite>, ki je značilen za Linux.</p>
+<p>Z geslom <cite>500</cite>  jo lahko odkodiramo v</p>
+<div class="highlight-python"><div class="highlight"><pre>== Maks ==
+First!
+== NeMaks ==
+AAaaaAAA
+== MK ==
+Moje sporocilo je skrivnost!
+stop
+== A ==
+STOP
+== Maks ==
+Hej, to je velika skrivnost!
+Nikoli ne izdaj nicesar.
+stop
+</pre></div>
+</div>
+</div>
+<div class="section" id="koncan-program">
+<h2>Končan program<a class="headerlink" href="#koncan-program" title="Permalink to this headline">¶</a></h2>
+<p>Tukaj lahko <a class="reference download internal" href="../../_downloads/chat.py"><tt class="xref download docutils literal"><span class="pre">preneseš</span> <span class="pre">končan</span> <span class="pre">program</span> <span class="pre">za</span> <span class="pre">kodiranje</span> <span class="pre">pogovora</span></tt></a>, da ga preučiš in si z njim pomagaš pri naslednjih nalogah.</p>
 </div>
 </div>
 
@@ -188,10 +216,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="osnove.html" class="btn btn-neutral float-right" title="Osnove"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kvazi_besede.html" class="btn btn-neutral float-right" title="Psevdo besede"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="uvod.html" class="btn btn-neutral" title="Uvod"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vislice.html" class="btn btn-neutral" title="Vislice"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
