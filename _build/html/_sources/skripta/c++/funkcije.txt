@@ -10,7 +10,7 @@ funkcije je sintaska enaka.
 Sintaksa
 ~~~~~~~~
 
-Definicija funkcije v C++ ima nastednjo sintakso (posplošimo na poljubno število
+Definicija funkcije v C++ ima naslednjo sintakso (posplošimo na poljubno število
 parametrov):
 
 .. code-block:: cpp

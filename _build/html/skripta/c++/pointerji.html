@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Lov na zaklad 2016 &mdash; Programerski krožek na Gimnaziji Vič 0.1 documentation</title>
+  <title>Pointerji in reference &mdash; Programerski krožek na Gimnaziji Vič 0.1 documentation</title>
   
 
   
@@ -31,8 +31,9 @@
     <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
     <link rel="top" title="Programerski krožek na Gimnaziji Vič 0.1 documentation" href="../../index.html"/>
-        <link rel="up" title="Lov na zaklad" href="../../lov-na-zaklad.html"/>
-        <link rel="prev" title="Lov na zaklad 2015" href="2015.html"/> 
+        <link rel="up" title="C++" href="../../c++.html"/>
+        <link rel="next" title="Objekti" href="objekti.html"/>
+        <link rel="prev" title="Funkcije" href="funkcije.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -86,14 +87,14 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../c++.html">C++</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../c++/uvod.html">Uvod</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c++/osnove.html">Osnove</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c++/podatkovni_tipi.html">Podatkovni tipi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c++/funkcije.html">Funkcije</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c++/pointerji.html">Pointerji in reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../c++/objekti.html">Objekti</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../c++.html">C++</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="uvod.html">Uvod</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osnove.html">Osnove</a></li>
+<li class="toctree-l2"><a class="reference internal" href="podatkovni_tipi.html">Podatkovni tipi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="funkcije.html">Funkcije</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Pointerji in reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objekti.html">Objekti</a></li>
 </ul>
 </li>
 </ul>
@@ -123,10 +124,10 @@
 </ul>
 </li>
 </ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../lov-na-zaklad.html">Lov na zaklad</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="2015.html">Lov na zaklad 2015</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Lov na zaklad 2016</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../lov-na-zaklad.html">Lov na zaklad</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../lov-na-zaklad/2015.html">Lov na zaklad 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lov-na-zaklad/2016.html">Lov na zaklad 2016</a></li>
 </ul>
 </li>
 </ul>
@@ -152,12 +153,12 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../../lov-na-zaklad.html">Lov na zaklad</a> &raquo;</li>
+          <li><a href="../../c++.html">C++</a> &raquo;</li>
       
-    <li>Lov na zaklad 2016</li>
+    <li>Pointerji in reference</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../../_sources/skripta/lov-na-zaklad/2016.txt" rel="nofollow"> View page source</a>
+          <a href="../../_sources/skripta/c++/pointerji.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -165,9 +166,61 @@
 </div>
           <div role="main">
             
-  <div class="section" id="lov-na-zaklad-2016">
-<h1>Lov na zaklad 2016<a class="headerlink" href="#lov-na-zaklad-2016" title="Permalink to this headline">¶</a></h1>
-<p>Je na voljo na <a class="reference external" href="https://github.com/KrozekGimVic/2016-lov-na-zaklad">GitHubu</a>.</p>
+  <div class="section" id="pointerji-in-reference">
+<h1>Pointerji in reference<a class="headerlink" href="#pointerji-in-reference" title="Permalink to this headline">¶</a></h1>
+<p>Pointerje v C++ si lahko predstavljamo kot naslove do spremeljivk. Če bi to
+hoteli prikazati to z pratičnim primerom bi bil pointer naslov do hiše(Tržaška
+cesta 72) spremenljivka pa bi bila hiša.</p>
+<div class="section" id="uvod">
+<h2>Uvod<a class="headerlink" href="#uvod" title="Permalink to this headline">¶</a></h2>
+<p>Če na pointerje pogledamo iz bolj iz računalniškega vidika moramo najprej poznati
+ozadje delovanja računalnikov, kako so podatki shranjeni v računalniku in kako
+program dostopa do podatkov. Spomin računalnika je razdeljen na spominjske celice
+(ang. memory cells) vsaka je velika 1 byte in vsaka imajo svojo unikaten naslov.
+Med našim izvajanjem programa, ko mi deklariramo novo spremenljivko nam
+operacijski sistem določi en delček spomina. Problem je v tem, ker mi sami ne
+moremo določiti kam bo shranili to spremeljivko, zato si je včasih uporabno
+shraniti naslov do nje, kot bomo kasneje videli.</p>
+</div>
+<div class="section" id="sintaksa">
+<h2>Sintaksa<a class="headerlink" href="#sintaksa" title="Permalink to this headline">¶</a></h2>
+<p>Definicija pointerja v C++ ima naslednjo sintkaso:
+.. code-block:: cpp</p>
+<blockquote>
+<div>type * ime_pointerja</div></blockquote>
+</div>
+<div class="section" id="nastavljanje-pointerjev-operator">
+<h2>Nastavljanje pointerjev(&amp; operator)<a class="headerlink" href="#nastavljanje-pointerjev-operator" title="Permalink to this headline">¶</a></h2>
+<p>Če hočemo pointerju nastaviti naslov na katerega bo kazal to naredimo s
+operatorjem <tt class="docutils literal"><span class="pre">&amp;</span></tt>. Primer nastavitve pointerja na naslov funkcije.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="kt">int</span> <span class="n">variable</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kt">int</span> <span class="o">*</span> <span class="n">pointer</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">variable</span><span class="p">;</span>  <span class="c1">// Vrednost naslova 0x7ffeacbf64ec</span>
+</pre></div>
+</div>
+<p>Dostopanje do vrednosti(* operator)</p>
+<p>Sedaj ko smo dobili naslov vrednosti jo seveda hočemo uporabiti. To naredimo
+z operatorjem <tt class="docutils literal"><span class="pre">*</span></tt>, ki ga damo pred imenom pointerja.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">pointer</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// Izpiše nam 10</span>
+</pre></div>
+</div>
+<p>Poleg dostopanja lahko vrednost tudi spreminjamo, saj imamo seveda naslov, kjer
+je shranjena spremenljivka.</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span class="o">*</span><span class="n">pointer</span> <span class="o">+=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">variable</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// Izpiše nam 15</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Paziti moramo na zvezdica pred imenom pointerja saj je to ključno za
+delovanje pointerja. Saj če jo pozabimo zvezdico ali jo izpustimo je to
+velika razlika. Poglejmo na primeru:</p>
+<div class="last highlight-cpp"><div class="highlight"><pre><span class="o">*</span><span class="n">pointer</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// Povečamo vrednost spremenljivke</span>
+
+<span class="n">pointer</span><span class="o">++</span><span class="p">;</span>  <span class="c1">// Spremenimo naslov pointerja... sedaj pointer kaže na radom vrednost v spominu</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -176,8 +229,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="objekti.html" class="btn btn-neutral float-right" title="Objekti"/>Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="2015.html" class="btn btn-neutral" title="Lov na zaklad 2015"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="funkcije.html" class="btn btn-neutral" title="Funkcije"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
